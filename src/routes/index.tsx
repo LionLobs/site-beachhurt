@@ -193,11 +193,12 @@ function Index() {
               <Sparkles className="mr-1 h-3 w-3" /> Aulas particulares
             </Badge>
             <h1 className="text-4xl font-bold leading-[1.05] tracking-tight md:text-6xl">
-              Domine a quadra com aulas <span className="text-primary-glow">individuais</span> de vôlei.
+              Domine a <span className="text-primary-glow">areia</span>. Aulas individuais de vôlei na quadra.
             </h1>
             <p className="mt-6 max-w-xl text-lg text-primary-foreground/85">
-              Atendimento exclusivo às <strong>segundas e terças pelas tardes</strong>. Treine com
-              um coach focado só em você — técnica, leitura de jogo e performance.
+              Atendimento exclusivo às <strong>segundas e terças pelas tardes</strong>, em
+              <strong> quadra de areia</strong>. Treine com um coach com{" "}
+              <strong>5 anos de experiência</strong>, focado 100% em você.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild size="lg" className="shadow-glow">
@@ -217,13 +218,13 @@ function Index() {
 
             <div className="mt-10 flex flex-wrap gap-6 text-sm text-primary-foreground/80">
               <span className="flex items-center gap-2">
-                <CheckCircle2 className="h-4 w-4 text-primary-glow" /> +10 anos de experiência
+                <CheckCircle2 className="h-4 w-4 text-primary-glow" /> 5 anos de experiência
+              </span>
+              <span className="flex items-center gap-2">
+                <CheckCircle2 className="h-4 w-4 text-primary-glow" /> Quadra de areia
               </span>
               <span className="flex items-center gap-2">
                 <CheckCircle2 className="h-4 w-4 text-primary-glow" /> Todos os níveis
-              </span>
-              <span className="flex items-center gap-2">
-                <CheckCircle2 className="h-4 w-4 text-primary-glow" /> Quadra coberta
               </span>
             </div>
           </div>
