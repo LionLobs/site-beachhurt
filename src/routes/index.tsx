@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 
 import { Reveal } from "@/components/Reveal";
+import { SurrealCanvas } from "@/components/SurrealCanvas";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
