@@ -158,6 +158,22 @@ function Index() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background" aria-hidden="true" />
 
+        {/* Floating decorative volleyball */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute right-[8%] top-[12%] hidden md:block"
+        >
+          <div className="animate-float">
+            <div className="grid h-20 w-20 animate-spin-slow place-items-center rounded-full bg-white text-4xl shadow-glow">
+              🏐
+            </div>
+          </div>
+        </div>
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute bottom-[18%] left-[6%] hidden h-3 w-3 animate-pulse-glow rounded-full bg-primary md:block"
+        />
+
         <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-6 py-24 md:grid-cols-2 md:py-32">
           <div className="text-primary-foreground">
             <Badge className="mb-6 bg-white/15 text-primary-foreground backdrop-blur-sm hover:bg-white/20">
