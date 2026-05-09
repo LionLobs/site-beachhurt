@@ -13,7 +13,11 @@ import {
   Mail,
   CheckCircle2,
   ArrowRight,
+  Star,
+  Quote,
 } from "lucide-react";
+
+import { Reveal } from "@/components/Reveal";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -154,6 +158,22 @@ function Index() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background" aria-hidden="true" />
 
+        {/* Floating decorative volleyball */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute right-[8%] top-[12%] hidden md:block"
+        >
+          <div className="animate-float">
+            <div className="grid h-20 w-20 animate-spin-slow place-items-center rounded-full bg-white text-4xl shadow-glow">
+              🏐
+            </div>
+          </div>
+        </div>
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute bottom-[18%] left-[6%] hidden h-3 w-3 animate-pulse-glow rounded-full bg-primary md:block"
+        />
+
         <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-6 py-24 md:grid-cols-2 md:py-32">
           <div className="text-primary-foreground">
             <Badge className="mb-6 bg-white/15 text-primary-foreground backdrop-blur-sm hover:bg-white/20">
@@ -233,6 +253,36 @@ function Index() {
         </div>
       </section>
 
+      {/* Marquee — rolling keywords */}
+      <div
+        aria-hidden="true"
+        className="relative overflow-hidden border-y border-border bg-secondary py-5 text-secondary-foreground"
+      >
+        <div className="flex w-max animate-marquee gap-12 whitespace-nowrap pr-12 text-sm font-semibold uppercase tracking-[0.25em] opacity-90">
+          {Array.from({ length: 2 }).map((_, group) => (
+            <div key={group} className="flex gap-12">
+              {[
+                "🏐 Saque viagem",
+                "Manchete",
+                "Levantamento",
+                "Ataque",
+                "Bloqueio",
+                "Defesa de líbero",
+                "Leitura de jogo",
+                "Explosão",
+                "Ritmo",
+                "Foco",
+              ].map((label, i) => (
+                <span key={`${group}-${i}`} className="flex items-center gap-3">
+                  <span className="text-primary-glow">●</span>
+                  {label}
+                </span>
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
+
       {/* Benefits */}
       <section id="beneficios" className="mx-auto max-w-6xl px-6 py-20 md:py-28">
         <div className="mx-auto max-w-2xl text-center">
@@ -249,19 +299,19 @@ function Index() {
         </div>
 
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {BENEFITS.map(({ icon: Icon, title, description }) => (
-            <Card
-              key={title}
-              className="group relative overflow-hidden border-border/60 transition-all duration-300 hover:-translate-y-1 hover:shadow-card"
-            >
-              <CardContent className="p-6">
-                <div className="mb-4 grid h-12 w-12 place-items-center rounded-xl bg-gradient-primary text-primary-foreground shadow-md transition-transform duration-300 group-hover:scale-110">
-                  <Icon className="h-6 w-6" />
-                </div>
-                <h3 className="text-lg font-semibold">{title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{description}</p>
-              </CardContent>
-            </Card>
+          {BENEFITS.map(({ icon: Icon, title, description }, idx) => (
+            <Reveal key={title} delay={idx * 90}>
+              <Card className="group relative h-full overflow-hidden border-border/60 hover-lift">
+                <div className="absolute inset-x-0 top-0 h-1 bg-gradient-primary opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                <CardContent className="p-6">
+                  <div className="mb-4 grid h-12 w-12 place-items-center rounded-xl bg-gradient-primary text-primary-foreground shadow-md transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
+                    <Icon className="h-6 w-6" />
+                  </div>
+                  <h3 className="text-lg font-semibold">{title}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground">{description}</p>
+                </CardContent>
+              </Card>
+            </Reveal>
           ))}
         </div>
       </section>
@@ -326,6 +376,73 @@ function Index() {
                 ))}
               </CardContent>
             </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="relative overflow-hidden py-20 md:py-28">
+        <div
+          aria-hidden="true"
+          className="absolute -left-24 top-10 h-72 w-72 rounded-full bg-primary/20 blur-3xl animate-float"
+        />
+        <div
+          aria-hidden="true"
+          className="absolute -right-24 bottom-10 h-80 w-80 rounded-full bg-secondary/30 blur-3xl animate-float"
+          style={{ animationDelay: "1.5s" }}
+        />
+
+        <div className="relative mx-auto max-w-6xl px-6">
+          <Reveal className="mx-auto mb-14 max-w-2xl text-center">
+            <Badge variant="secondary" className="mb-4">
+              <Star className="mr-1 h-3 w-3" /> Alunos
+            </Badge>
+            <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
+              Histórias que <span className="text-gradient-primary">saltam</span> da quadra
+            </h2>
+          </Reveal>
+
+          <div className="grid gap-6 md:grid-cols-3">
+            {[
+              {
+                name: "Marina S.",
+                role: "Líbero amadora",
+                text: "Em 6 semanas meu saque viagem virou arma. As correções pontuais fizeram toda a diferença.",
+              },
+              {
+                name: "Rafael T.",
+                role: "Ponteiro",
+                text: "Atenção 100% individual. Saio de cada aula sabendo exatamente o que treinar até a próxima.",
+              },
+              {
+                name: "Carol M.",
+                role: "Iniciante",
+                text: "Comecei do zero e em pouco tempo já estava jogando com confiança. Didática incrível.",
+              },
+            ].map((t, i) => (
+              <Reveal key={t.name} delay={i * 100}>
+                <Card className="h-full border-border/60 bg-card/80 backdrop-blur hover-lift">
+                  <CardContent className="p-6">
+                    <Quote className="h-7 w-7 text-primary" />
+                    <p className="mt-4 text-base leading-relaxed text-foreground/90">"{t.text}"</p>
+                    <div className="mt-6 flex items-center gap-3">
+                      <div className="grid h-10 w-10 place-items-center rounded-full bg-gradient-primary font-bold text-primary-foreground shadow-md">
+                        {t.name.charAt(0)}
+                      </div>
+                      <div>
+                        <p className="text-sm font-semibold">{t.name}</p>
+                        <p className="text-xs text-muted-foreground">{t.role}</p>
+                      </div>
+                      <div className="ml-auto flex gap-0.5">
+                        {Array.from({ length: 5 }).map((_, idx) => (
+                          <Star key={idx} className="h-3.5 w-3.5 fill-primary text-primary" />
+                        ))}
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>
