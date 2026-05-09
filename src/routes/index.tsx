@@ -13,7 +13,12 @@ import {
   Mail,
   CheckCircle2,
   ArrowRight,
+  Zap,
+  Star,
+  Quote,
 } from "lucide-react";
+
+import { useReveal } from "@/hooks/use-reveal";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
