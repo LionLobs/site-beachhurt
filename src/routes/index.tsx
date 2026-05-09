@@ -34,6 +34,10 @@ import {
 } from "@/components/ui/select";
 
 import heroImage from "@/assets/hero-volei.jpg";
+import sandCourtImage from "@/assets/sand-court.jpg";
+import ballSandImage from "@/assets/ball-sand.jpg";
+
+const WHATSAPP_NUMBER = "5548988146267";
 
 export const Route = createFileRoute("/")({
   component: Index,
