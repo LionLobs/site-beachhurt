@@ -326,9 +326,6 @@
 }
 
 /* Kinetic text — staggered word-by-word reveal */
-.kinetic {
-  display: inline;
-}
 .kinetic-word {
   display: inline-block;
   opacity: 0;
