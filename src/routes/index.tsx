@@ -567,7 +567,7 @@ function Index() {
                   size="lg"
                   className="w-full shadow-glow md:w-auto"
                 >
-                  Confirmar agendamento
+                  Enviar pelo WhatsApp
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </div>
