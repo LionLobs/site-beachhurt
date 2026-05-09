@@ -184,6 +184,33 @@
   .animate-pulse-glow {
     animation: pulse-glow 3s ease-in-out infinite;
   }
+  .animate-drift-slow {
+    animation: drift 18s ease-in-out infinite;
+  }
+  .animate-drift-reverse {
+    animation: drift-reverse 22s ease-in-out infinite;
+  }
+  .animate-orbit {
+    animation: orbit 24s linear infinite;
+  }
+  .animate-orbit-reverse {
+    animation: orbit 30s linear infinite reverse;
+  }
+  .animate-morph {
+    animation: morph 14s ease-in-out infinite;
+  }
+  .animate-tilt {
+    animation: tilt 9s ease-in-out infinite;
+  }
+  .animate-surreal-in {
+    animation: surreal-in 1.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
 
   .hover-lift {
     transition:
