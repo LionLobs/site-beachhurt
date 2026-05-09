@@ -324,3 +324,37 @@
   60% { opacity: 1; filter: blur(0); }
   100% { opacity: 1; transform: translateY(0) scale(1) rotate(0deg); filter: blur(0); }
 }
+
+/* Kinetic text — staggered word-by-word reveal */
+.kinetic {
+  display: inline;
+}
+.kinetic-word {
+  display: inline-block;
+  opacity: 0;
+  will-change: transform, opacity, filter;
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.kinetic-blur .kinetic-word {
+  transform: translateY(40px) scale(0.85) rotate(-3deg);
+  filter: blur(18px);
+}
+.kinetic-rise .kinetic-word {
+  transform: translateY(60px);
+}
+.kinetic-drop .kinetic-word {
+  transform: translateY(-50px) rotate(8deg);
+  filter: blur(8px);
+}
+.kinetic-wave .kinetic-word {
+  transform: translateY(30px) scale(0.9);
+  filter: blur(6px);
+}
+.kinetic-visible .kinetic-word {
+  opacity: 1;
+  transform: translateY(0) scale(1) rotate(0deg);
+  filter: blur(0);
+}

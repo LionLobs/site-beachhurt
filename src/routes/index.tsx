@@ -19,6 +19,7 @@ import {
 
 import { Reveal } from "@/components/Reveal";
 import { SurrealCanvas } from "@/components/SurrealCanvas";
+import { KineticText } from "@/components/KineticText";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -585,17 +586,26 @@ function Index() {
               <Sparkles className="mr-1 h-3 w-3" /> O salto começa antes do salto
             </Badge>
 
-            <h2 className="font-display text-4xl font-bold leading-[1.05] tracking-tight md:text-6xl">
-              Imagine o som da bola tocando a{" "}
-              <span className="text-gradient-primary">areia</span>
-              {" "}— e ninguém alcançando.
-            </h2>
+            <KineticText
+              as="h2"
+              variant="blur"
+              stagger={75}
+              className="font-display text-4xl font-bold leading-[1.05] tracking-tight md:text-6xl"
+              highlight={["areia", "ninguém"]}
+              highlightClassName="text-gradient-primary"
+            >
+              {"Imagine o som da bola tocando a areia — e ninguém alcançando."}
+            </KineticText>
 
-            <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-secondary-foreground/85">
-              Existe um lugar onde o tempo se dobra. A bola desacelera, o vento conversa com você
-              e cada movimento parece um sonho que você já viveu mil vezes. Esse lugar não é a
-              quadra — é o seu próximo nível.
-            </p>
+            <KineticText
+              as="p"
+              variant="wave"
+              stagger={28}
+              delay={1400}
+              className="mx-auto mt-8 block max-w-2xl text-lg leading-relaxed text-secondary-foreground/85"
+            >
+              {"Existe um lugar onde o tempo se dobra. A bola desacelera, o vento conversa com você e cada movimento parece um sonho que você já viveu mil vezes. Esse lugar não é a quadra — é o seu próximo nível."}
+            </KineticText>
           </Reveal>
 
           <div className="mt-16 grid gap-6 md:grid-cols-3">
@@ -634,11 +644,16 @@ function Index() {
           </div>
 
           <Reveal delay={400} className="mt-16 text-center">
-            <p className="mx-auto max-w-2xl font-display text-2xl italic text-secondary-foreground/90 md:text-3xl">
-              "A diferença entre quem joga e quem{" "}
-              <span className="text-gradient-primary not-italic font-bold">domina</span>{" "}
-              cabe em uma decisão."
-            </p>
+            <KineticText
+              as="p"
+              variant="drop"
+              stagger={70}
+              className="mx-auto block max-w-2xl font-display text-2xl italic text-secondary-foreground/90 md:text-3xl"
+              highlight={["domina"]}
+              highlightClassName="text-gradient-primary not-italic font-bold"
+            >
+              {"\"A diferença entre quem joga e quem domina cabe em uma decisão.\""}
+            </KineticText>
             <div className="mt-10 flex flex-wrap justify-center gap-3">
               <Button asChild size="lg" className="shadow-glow animate-pulse-glow">
                 <a href="#agendar">
