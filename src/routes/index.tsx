@@ -711,13 +711,25 @@ function Index() {
       <footer className="border-t border-border bg-secondary text-secondary-foreground">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 py-8 md:flex-row">
           <div className="flex items-center gap-2 font-semibold">
-            <span className="grid h-8 w-8 place-items-center rounded-full bg-gradient-primary text-primary-foreground">
-              🏐
-            </span>
+            <img
+              src={logoVH}
+              alt="Logo Vinicius Hurt"
+              width={40}
+              height={40}
+              className="h-10 w-10 object-contain drop-shadow-[0_2px_8px_rgba(59,130,246,0.5)]"
+            />
             Vinicius Hurt
           </div>
           <p className="text-sm opacity-80">
-            © {new Date().getFullYear()} Vinicius Hurt — Aulas particulares de vôlei na areia.
+            © {new Date().getFullYear()} Vinicius Hurt — Aulas particulares de vôlei. Criado por{" "}
+            <a
+              href="https://dev.lionlobs.com.br"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-primary-glow underline-offset-4 hover:underline"
+            >
+              LionLobs
+            </a>
           </p>
         </div>
       </footer>
