@@ -239,30 +239,10 @@ function Index() {
             </div>
           </div>
 
-          {/* Coach portrait + schedule stack */}
+          {/* Floating schedule card */}
           <div className="relative md:justify-self-end">
             <div className="absolute -inset-4 rounded-3xl bg-primary/30 blur-3xl" aria-hidden="true" />
-
-            {/* Coach portrait */}
-            <div className="relative mx-auto mb-[-3rem] w-fit animate-surreal-in">
-              <div className="absolute -inset-2 rounded-[2rem] bg-gradient-primary opacity-60 blur-xl" aria-hidden="true" />
-              <div className="relative h-40 w-40 overflow-hidden rounded-[2rem] border-2 border-white/30 shadow-glow md:h-48 md:w-48">
-                <img
-                  src={coachImage}
-                  alt="Vinicius Hurt — coach de vôlei na areia"
-                  className="h-full w-full object-cover"
-                />
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-secondary/90 to-transparent p-3 text-secondary-foreground">
-                  <p className="text-[10px] uppercase tracking-[0.3em] opacity-80">Coach</p>
-                  <p className="font-display text-sm font-bold leading-tight">Vinicius Hurt</p>
-                </div>
-              </div>
-              <Badge className="absolute -right-3 -top-3 border-white/30 bg-gradient-primary text-primary-foreground shadow-glow">
-                12 anos
-              </Badge>
-            </div>
-
-            <Card className="relative w-full max-w-sm overflow-hidden border-white/20 bg-card/95 pt-12 shadow-elevated backdrop-blur-xl">
+            <Card className="relative w-full max-w-sm overflow-hidden border-white/20 bg-card/95 shadow-elevated backdrop-blur-xl">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <CalendarIcon className="h-5 w-5 text-primary" />
