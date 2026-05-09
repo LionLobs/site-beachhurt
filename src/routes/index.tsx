@@ -365,6 +365,73 @@ function Index() {
         </div>
       </section>
 
+      {/* Testimonials */}
+      <section className="relative overflow-hidden py-20 md:py-28">
+        <div
+          aria-hidden="true"
+          className="absolute -left-24 top-10 h-72 w-72 rounded-full bg-primary/20 blur-3xl animate-float"
+        />
+        <div
+          aria-hidden="true"
+          className="absolute -right-24 bottom-10 h-80 w-80 rounded-full bg-secondary/30 blur-3xl animate-float"
+          style={{ animationDelay: "1.5s" }}
+        />
+
+        <div className="relative mx-auto max-w-6xl px-6">
+          <Reveal className="mx-auto mb-14 max-w-2xl text-center">
+            <Badge variant="secondary" className="mb-4">
+              <Star className="mr-1 h-3 w-3" /> Alunos
+            </Badge>
+            <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
+              Histórias que <span className="text-gradient-primary">saltam</span> da quadra
+            </h2>
+          </Reveal>
+
+          <div className="grid gap-6 md:grid-cols-3">
+            {[
+              {
+                name: "Marina S.",
+                role: "Líbero amadora",
+                text: "Em 6 semanas meu saque viagem virou arma. As correções pontuais fizeram toda a diferença.",
+              },
+              {
+                name: "Rafael T.",
+                role: "Ponteiro",
+                text: "Atenção 100% individual. Saio de cada aula sabendo exatamente o que treinar até a próxima.",
+              },
+              {
+                name: "Carol M.",
+                role: "Iniciante",
+                text: "Comecei do zero e em pouco tempo já estava jogando com confiança. Didática incrível.",
+              },
+            ].map((t, i) => (
+              <Reveal key={t.name} delay={i * 100}>
+                <Card className="h-full border-border/60 bg-card/80 backdrop-blur hover-lift">
+                  <CardContent className="p-6">
+                    <Quote className="h-7 w-7 text-primary" />
+                    <p className="mt-4 text-base leading-relaxed text-foreground/90">"{t.text}"</p>
+                    <div className="mt-6 flex items-center gap-3">
+                      <div className="grid h-10 w-10 place-items-center rounded-full bg-gradient-primary font-bold text-primary-foreground shadow-md">
+                        {t.name.charAt(0)}
+                      </div>
+                      <div>
+                        <p className="text-sm font-semibold">{t.name}</p>
+                        <p className="text-xs text-muted-foreground">{t.role}</p>
+                      </div>
+                      <div className="ml-auto flex gap-0.5">
+                        {Array.from({ length: 5 }).map((_, idx) => (
+                          <Star key={idx} className="h-3.5 w-3.5 fill-primary text-primary" />
+                        ))}
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Booking */}
       <section id="agendar" className="mx-auto max-w-4xl px-6 py-20 md:py-28">
         <div className="mx-auto mb-10 max-w-2xl text-center">
