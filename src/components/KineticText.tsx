@@ -1,4 +1,4 @@
-import { useEffect, useRef, type ElementType, type ReactNode } from "react";
+import { useEffect, useRef, type ElementType } from "react";
 import { cn } from "@/lib/utils";
 
 type KineticTextProps = {
@@ -64,17 +64,17 @@ export function KineticText({
       style={{ ["--kinetic-base" as string]: `${delay}ms` }}
     >
       {words.map((token, i) => {
-        if (/^\s+$/.test(token)) return <span key={i}>{token}</span> as ReactNode;
+        if (/^\s+$/.test(token)) return token;
         const idx = wordIndex++;
         const isHighlight = highlight.includes(token.replace(/[.,!?"]/g, ""));
         return (
           <span
             key={i}
-            className={cn(
-              "kinetic-word",
-              isHighlight && highlightClassName,
-            )}
-            style={{ ["--kinetic-i" as string]: idx, transitionDelay: `calc(var(--kinetic-base) + ${idx * stagger}ms)` }}
+            className={cn("kinetic-word", isHighlight && highlightClassName)}
+            style={{
+              ["--kinetic-i" as string]: idx,
+              transitionDelay: `calc(var(--kinetic-base) + ${idx * stagger}ms)`,
+            }}
           >
             {token}
           </span>
