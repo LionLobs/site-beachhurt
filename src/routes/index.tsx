@@ -99,18 +99,27 @@ function Index() {
       return;
     }
 
-    toast.success("Agendamento solicitado!", {
-      description: `${name}, recebemos seu pedido para ${new Date(
-        `${date}T12:00:00`,
-      ).toLocaleDateString("pt-BR")} às ${time}. Entraremos em contato pelo telefone ${phone}.`,
+    const formattedDate = new Date(`${date}T12:00:00`).toLocaleDateString("pt-BR", {
+      weekday: "long",
+      day: "2-digit",
+      month: "long",
     });
 
-    setName("");
-    setPhone("");
-    setEmail("");
-    setNotes("");
-    setDate("");
-    setTime("");
+    const message =
+      `Olá! Quero agendar uma aula particular de vôlei na quadra de areia.%0A%0A` +
+      `*Nome:* ${name}%0A` +
+      `*Telefone:* ${phone}%0A` +
+      (email ? `*E-mail:* ${email}%0A` : "") +
+      `*Data:* ${formattedDate}%0A` +
+      `*Horário:* ${time}%0A` +
+      (notes ? `*Objetivo:* ${notes}%0A` : "");
+
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
+    window.open(url, "_blank", "noopener,noreferrer");
+
+    toast.success("Redirecionando para o WhatsApp...", {
+      description: `Finalize sua reserva na conversa com o coach.`,
+    });
   };
 
   return (
