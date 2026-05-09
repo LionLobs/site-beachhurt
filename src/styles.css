@@ -38,54 +38,54 @@
 :root {
   --radius: 1rem;
 
-  /* Soft icy blue base */
-  --background: oklch(0.985 0.012 240);
-  --foreground: oklch(0.18 0.05 255);
+  /* Near-black base with subtle blue undertone */
+  --background: oklch(0.13 0.02 260);
+  --foreground: oklch(0.98 0.005 240);
 
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.18 0.05 255);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.18 0.05 255);
+  --card: oklch(0.18 0.03 262);
+  --card-foreground: oklch(0.98 0.005 240);
+  --popover: oklch(0.18 0.03 262);
+  --popover-foreground: oklch(0.98 0.005 240);
 
-  /* Electric royal blue primary */
-  --primary: oklch(0.55 0.2 260);
-  --primary-foreground: oklch(0.99 0.005 240);
-  --primary-glow: oklch(0.78 0.16 235);
+  /* Vivid electric blue primary */
+  --primary: oklch(0.62 0.2 255);
+  --primary-foreground: oklch(0.08 0.02 260);
+  --primary-glow: oklch(0.78 0.17 240);
 
-  /* Deep midnight navy secondary */
-  --secondary: oklch(0.24 0.08 265);
-  --secondary-foreground: oklch(0.98 0.01 240);
+  /* Pure deep black secondary */
+  --secondary: oklch(0.08 0.01 260);
+  --secondary-foreground: oklch(0.98 0.005 240);
 
-  --muted: oklch(0.95 0.02 240);
-  --muted-foreground: oklch(0.48 0.05 255);
+  --muted: oklch(0.22 0.025 262);
+  --muted-foreground: oklch(0.72 0.02 250);
 
-  /* Sky / cyan accent */
-  --accent: oklch(0.86 0.1 220);
-  --accent-foreground: oklch(0.22 0.08 260);
+  /* Steel blue accent */
+  --accent: oklch(0.42 0.12 255);
+  --accent-foreground: oklch(0.98 0.005 240);
 
-  --destructive: oklch(0.6 0.22 27);
+  --destructive: oklch(0.62 0.22 27);
   --destructive-foreground: oklch(0.99 0.01 80);
 
-  --border: oklch(0.9 0.02 240);
-  --input: oklch(0.9 0.02 240);
-  --ring: oklch(0.55 0.2 260);
+  --border: oklch(0.28 0.03 260);
+  --input: oklch(0.24 0.03 260);
+  --ring: oklch(0.62 0.2 255);
 
-  /* Pale azure surface */
-  --sand: oklch(0.94 0.04 235);
-  --sand-foreground: oklch(0.28 0.08 260);
+  /* Dark navy surface */
+  --sand: oklch(0.2 0.04 260);
+  --sand-foreground: oklch(0.96 0.01 240);
 
-  /* Gradients — midnight to electric blue to sky */
-  --gradient-hero: linear-gradient(135deg, oklch(0.2 0.08 270) 0%, oklch(0.38 0.16 265) 45%, oklch(0.62 0.18 230) 100%);
+  /* Gradients — black to deep blue to electric */
+  --gradient-hero: linear-gradient(135deg, oklch(0.06 0.01 260) 0%, oklch(0.2 0.08 258) 50%, oklch(0.5 0.18 252) 100%);
   --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--primary-glow) 100%);
-  --gradient-soft: linear-gradient(180deg, oklch(0.985 0.012 240) 0%, oklch(0.92 0.06 230) 100%);
-  --gradient-ocean: linear-gradient(135deg, oklch(0.28 0.1 260) 0%, oklch(0.55 0.16 230) 100%);
+  --gradient-soft: linear-gradient(180deg, oklch(0.13 0.02 260) 0%, oklch(0.2 0.05 258) 100%);
+  --gradient-ocean: linear-gradient(135deg, oklch(0.08 0.01 260) 0%, oklch(0.42 0.16 250) 100%);
 
-  /* Shadows — deep blue layered depth */
-  --shadow-sm: 0 1px 2px 0 oklch(0.2 0.08 265 / 0.08);
-  --shadow-md: 0 10px 24px -8px oklch(0.2 0.08 265 / 0.18), 0 4px 10px -4px oklch(0.2 0.08 265 / 0.1);
-  --shadow-lg: 0 32px 70px -18px oklch(0.2 0.08 265 / 0.32), 0 12px 26px -10px oklch(0.2 0.08 265 / 0.16);
-  --shadow-glow: 0 36px 90px -22px oklch(0.55 0.2 260 / 0.6);
-  --shadow-card: 0 18px 48px -18px oklch(0.24 0.08 265 / 0.32);
+  /* Shadows — deep black with blue glow rim, professional layered depth */
+  --shadow-sm: 0 1px 2px 0 oklch(0 0 0 / 0.4);
+  --shadow-md: 0 10px 24px -8px oklch(0 0 0 / 0.55), 0 4px 10px -4px oklch(0 0 0 / 0.4);
+  --shadow-lg: 0 40px 80px -20px oklch(0 0 0 / 0.7), 0 16px 32px -12px oklch(0 0 0 / 0.5), 0 0 0 1px oklch(0.62 0.2 255 / 0.08);
+  --shadow-glow: 0 30px 80px -18px oklch(0.62 0.2 255 / 0.55), 0 0 40px -8px oklch(0.78 0.17 240 / 0.35);
+  --shadow-card: 0 24px 56px -20px oklch(0 0 0 / 0.6), 0 8px 18px -8px oklch(0 0 0 / 0.4);
 
   /* Typography */
   --font-display: "Sora", ui-sans-serif, system-ui, sans-serif;
