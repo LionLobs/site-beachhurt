@@ -585,17 +585,26 @@ function Index() {
               <Sparkles className="mr-1 h-3 w-3" /> O salto começa antes do salto
             </Badge>
 
-            <h2 className="font-display text-4xl font-bold leading-[1.05] tracking-tight md:text-6xl">
-              Imagine o som da bola tocando a{" "}
-              <span className="text-gradient-primary">areia</span>
-              {" "}— e ninguém alcançando.
-            </h2>
+            <KineticText
+              as="h2"
+              variant="blur"
+              stagger={75}
+              className="font-display text-4xl font-bold leading-[1.05] tracking-tight md:text-6xl"
+              highlight={["areia", "ninguém"]}
+              highlightClassName="text-gradient-primary"
+            >
+              {"Imagine o som da bola tocando a areia — e ninguém alcançando."}
+            </KineticText>
 
-            <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-secondary-foreground/85">
-              Existe um lugar onde o tempo se dobra. A bola desacelera, o vento conversa com você
-              e cada movimento parece um sonho que você já viveu mil vezes. Esse lugar não é a
-              quadra — é o seu próximo nível.
-            </p>
+            <KineticText
+              as="p"
+              variant="wave"
+              stagger={28}
+              delay={1400}
+              className="mx-auto mt-8 block max-w-2xl text-lg leading-relaxed text-secondary-foreground/85"
+            >
+              {"Existe um lugar onde o tempo se dobra. A bola desacelera, o vento conversa com você e cada movimento parece um sonho que você já viveu mil vezes. Esse lugar não é a quadra — é o seu próximo nível."}
+            </KineticText>
           </Reveal>
 
           <div className="mt-16 grid gap-6 md:grid-cols-3">
