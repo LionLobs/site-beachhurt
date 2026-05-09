@@ -49,7 +49,7 @@
 
   /* Vivid electric blue primary */
   --primary: oklch(0.62 0.2 255);
-  --primary-foreground: oklch(0.08 0.02 260);
+  --primary-foreground: oklch(0.99 0.005 240);
   --primary-glow: oklch(0.78 0.17 240);
 
   /* Pure deep black secondary */
