@@ -364,9 +364,9 @@ function Index() {
                     <MapPin className="h-5 w-5" />
                   </div>
                   <div>
-                    <p className="font-semibold">Local</p>
+                    <p className="font-semibold">Quadra de areia</p>
                     <p className="text-sm text-muted-foreground">
-                      Quadra parceira na zona sul. Endereço enviado após confirmação.
+                      Areia fina, rede oficial e ambiente premium. Endereço enviado após confirmação no WhatsApp.
                     </p>
                   </div>
                 </div>
