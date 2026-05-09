@@ -208,7 +208,7 @@ function Index() {
             <p className="mt-6 max-w-xl text-lg text-primary-foreground/85">
               Atendimento exclusivo às <strong>segundas e terças pelas tardes</strong>, em
               <strong> quadra de areia</strong>. Treine com um coach com{" "}
-              <strong>5 anos de experiência</strong>, focado 100% em você.
+              <strong>12 anos de experiência</strong>, focado 100% em você.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild size="lg" className="shadow-glow">
@@ -228,7 +228,7 @@ function Index() {
 
             <div className="mt-10 flex flex-wrap gap-6 text-sm text-primary-foreground/80">
               <span className="flex items-center gap-2">
-                <CheckCircle2 className="h-4 w-4 text-primary-glow" /> 5 anos de experiência
+                <CheckCircle2 className="h-4 w-4 text-primary-glow" /> 12 anos de experiência
               </span>
               <span className="flex items-center gap-2">
                 <CheckCircle2 className="h-4 w-4 text-primary-glow" /> Quadra de areia
@@ -536,7 +536,7 @@ function Index() {
             </h2>
             <p className="mt-5 text-muted-foreground">
               Sou Vinicius Hurt, atleta e coach de vôlei de praia com{" "}
-              <strong className="text-foreground">5 anos de experiência</strong> em quadra de
+              <strong className="text-foreground">12 anos de experiência</strong> em quadra de
               areia. Cada aula é desenhada para destravar o seu próximo nível: leitura de jogo,
               fundamento limpo e condicionamento específico — no seu ritmo, com foco total em
               você.
@@ -544,7 +544,7 @@ function Index() {
 
             <div className="mt-8 grid gap-4 sm:grid-cols-3">
               {[
-                { value: "5+", label: "Anos de experiência" },
+                { value: "12+", label: "Anos de experiência" },
                 { value: "100%", label: "Atenção individual" },
                 { value: "60min", label: "Por sessão" },
               ].map((s) => (
