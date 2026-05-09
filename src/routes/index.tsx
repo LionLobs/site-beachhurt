@@ -132,7 +132,7 @@ function Index() {
               🏐
             </span>
             <span className="text-lg">
-              Ace<span className="text-primary">Volei</span>
+              Vinicius<span className="text-primary"> Hurt</span>
             </span>
           </a>
           <nav className="hidden gap-8 text-sm font-medium text-muted-foreground md:flex">
