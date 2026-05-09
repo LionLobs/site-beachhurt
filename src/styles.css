@@ -142,6 +142,9 @@
 @utility bg-gradient-soft {
   background-image: var(--gradient-soft);
 }
+@utility bg-gradient-ocean {
+  background-image: var(--gradient-ocean);
+}
 
 @layer utilities {
   .animate-fade-in {
