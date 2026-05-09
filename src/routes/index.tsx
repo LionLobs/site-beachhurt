@@ -644,11 +644,16 @@ function Index() {
           </div>
 
           <Reveal delay={400} className="mt-16 text-center">
-            <p className="mx-auto max-w-2xl font-display text-2xl italic text-secondary-foreground/90 md:text-3xl">
-              "A diferença entre quem joga e quem{" "}
-              <span className="text-gradient-primary not-italic font-bold">domina</span>{" "}
-              cabe em uma decisão."
-            </p>
+            <KineticText
+              as="p"
+              variant="drop"
+              stagger={70}
+              className="mx-auto block max-w-2xl font-display text-2xl italic text-secondary-foreground/90 md:text-3xl"
+              highlight={["domina"]}
+              highlightClassName="text-gradient-primary not-italic font-bold"
+            >
+              {"\"A diferença entre quem joga e quem domina cabe em uma decisão.\""}
+            </KineticText>
             <div className="mt-10 flex flex-wrap justify-center gap-3">
               <Button asChild size="lg" className="shadow-glow animate-pulse-glow">
                 <a href="#agendar">
