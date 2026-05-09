@@ -130,9 +130,13 @@ function Index() {
       <header className="sticky top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur-md">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
           <a href="#top" className="flex items-center gap-2 font-bold tracking-tight">
-            <span className="grid h-10 w-10 place-items-center rounded-full bg-gradient-primary p-1.5 shadow-glow ring-1 ring-primary/40">
-              <img src={logoVH} alt="Logo Vinicius Hurt" width={40} height={40} className="h-full w-full object-contain drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)]" />
-            </span>
+            <img
+              src={logoVH}
+              alt="Logo Vinicius Hurt"
+              width={56}
+              height={56}
+              className="h-14 w-14 object-contain drop-shadow-[0_4px_12px_rgba(59,130,246,0.5)]"
+            />
             <span className="text-lg">
               Vinicius<span className="text-primary"> Hurt</span>
             </span>
