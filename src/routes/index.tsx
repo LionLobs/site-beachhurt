@@ -525,13 +525,14 @@ function Index() {
               <Sparkles className="mr-1 h-3 w-3" /> Sobre mim
             </Badge>
             <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
-              Areia, suor e <span className="text-gradient-primary">técnica</span>.
+              Areia, ritmo e <span className="text-gradient-primary">técnica</span>.
             </h2>
             <p className="mt-5 text-muted-foreground">
               Sou Vinicius Hurt, atleta e coach de vôlei de praia com{" "}
               <strong className="text-foreground">5 anos de experiência</strong> em quadra de
-              areia. Minha proposta é simples: olhar atento, plano sob medida e evolução real
-              em cada treino.
+              areia. Cada aula é desenhada para destravar o seu próximo nível: leitura de jogo,
+              fundamento limpo e condicionamento específico — no seu ritmo, com foco total em
+              você.
             </p>
 
             <div className="mt-8 grid gap-4 sm:grid-cols-3">
