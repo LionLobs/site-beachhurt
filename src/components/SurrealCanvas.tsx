@@ -25,11 +25,9 @@ export function SurrealCanvas({
         style={{ animationDelay: "-7s" }}
       />
 
-      {/* Drifting volleyball — small */}
+      {/* Soft glowing dot (replaces emoji) */}
       <div className="absolute left-[8%] top-[20%] animate-drift-slow">
-        <div className="grid h-10 w-10 place-items-center rounded-full bg-white/95 text-xl shadow-glow">
-          🏐
-        </div>
+        <div className="h-3 w-3 rounded-full bg-primary-glow shadow-glow" />
       </div>
 
       {/* Drifting volleyball — outline ring */}
