@@ -1,4 +1,4 @@
-import { useEffect, useRef, type ElementType, type ReactNode } from "react";
+import { useEffect, useRef, type ElementType } from "react";
 import { cn } from "@/lib/utils";
 
 type KineticTextProps = {
