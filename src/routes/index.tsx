@@ -34,6 +34,10 @@ import {
 } from "@/components/ui/select";
 
 import heroImage from "@/assets/hero-volei.jpg";
+import sandCourtImage from "@/assets/sand-court.jpg";
+import ballSandImage from "@/assets/ball-sand.jpg";
+
+const WHATSAPP_NUMBER = "5548988146267";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -95,18 +99,27 @@ function Index() {
       return;
     }
 
-    toast.success("Agendamento solicitado!", {
-      description: `${name}, recebemos seu pedido para ${new Date(
-        `${date}T12:00:00`,
-      ).toLocaleDateString("pt-BR")} às ${time}. Entraremos em contato pelo telefone ${phone}.`,
+    const formattedDate = new Date(`${date}T12:00:00`).toLocaleDateString("pt-BR", {
+      weekday: "long",
+      day: "2-digit",
+      month: "long",
     });
 
-    setName("");
-    setPhone("");
-    setEmail("");
-    setNotes("");
-    setDate("");
-    setTime("");
+    const message =
+      `Olá! Quero agendar uma aula particular de vôlei na quadra de areia.%0A%0A` +
+      `*Nome:* ${name}%0A` +
+      `*Telefone:* ${phone}%0A` +
+      (email ? `*E-mail:* ${email}%0A` : "") +
+      `*Data:* ${formattedDate}%0A` +
+      `*Horário:* ${time}%0A` +
+      (notes ? `*Objetivo:* ${notes}%0A` : "");
+
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
+    window.open(url, "_blank", "noopener,noreferrer");
+
+    toast.success("Redirecionando para o WhatsApp...", {
+      description: `Finalize sua reserva na conversa com o coach.`,
+    });
   };
 
   return (
@@ -180,11 +193,12 @@ function Index() {
               <Sparkles className="mr-1 h-3 w-3" /> Aulas particulares
             </Badge>
             <h1 className="text-4xl font-bold leading-[1.05] tracking-tight md:text-6xl">
-              Domine a quadra com aulas <span className="text-primary-glow">individuais</span> de vôlei.
+              Domine a <span className="text-primary-glow">areia</span>. Aulas individuais de vôlei na quadra.
             </h1>
             <p className="mt-6 max-w-xl text-lg text-primary-foreground/85">
-              Atendimento exclusivo às <strong>segundas e terças pelas tardes</strong>. Treine com
-              um coach focado só em você — técnica, leitura de jogo e performance.
+              Atendimento exclusivo às <strong>segundas e terças pelas tardes</strong>, em
+              <strong> quadra de areia</strong>. Treine com um coach com{" "}
+              <strong>5 anos de experiência</strong>, focado 100% em você.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild size="lg" className="shadow-glow">
@@ -204,13 +218,13 @@ function Index() {
 
             <div className="mt-10 flex flex-wrap gap-6 text-sm text-primary-foreground/80">
               <span className="flex items-center gap-2">
-                <CheckCircle2 className="h-4 w-4 text-primary-glow" /> +10 anos de experiência
+                <CheckCircle2 className="h-4 w-4 text-primary-glow" /> 5 anos de experiência
+              </span>
+              <span className="flex items-center gap-2">
+                <CheckCircle2 className="h-4 w-4 text-primary-glow" /> Quadra de areia
               </span>
               <span className="flex items-center gap-2">
                 <CheckCircle2 className="h-4 w-4 text-primary-glow" /> Todos os níveis
-              </span>
-              <span className="flex items-center gap-2">
-                <CheckCircle2 className="h-4 w-4 text-primary-glow" /> Quadra coberta
               </span>
             </div>
           </div>
@@ -350,9 +364,9 @@ function Index() {
                     <MapPin className="h-5 w-5" />
                   </div>
                   <div>
-                    <p className="font-semibold">Local</p>
+                    <p className="font-semibold">Quadra de areia</p>
                     <p className="text-sm text-muted-foreground">
-                      Quadra parceira na zona sul. Endereço enviado após confirmação.
+                      Areia fina, rede oficial e ambiente premium. Endereço enviado após confirmação no WhatsApp.
                     </p>
                   </div>
                 </div>
@@ -360,22 +374,53 @@ function Index() {
             </div>
 
             <Card className="overflow-hidden border-border/60 shadow-elevated">
-              <div className="bg-gradient-primary p-6 text-primary-foreground">
-                <p className="text-sm uppercase tracking-wider opacity-80">Esta semana</p>
-                <p className="mt-1 text-3xl font-bold">12 vagas abertas</p>
-                <p className="mt-1 text-sm opacity-90">Reserve antes que esgote</p>
+              <div className="relative h-56 overflow-hidden">
+                <img
+                  src={sandCourtImage}
+                  alt="Quadra de areia ao pôr do sol"
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-secondary/90 via-secondary/40 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-secondary-foreground">
+                  <p className="text-xs uppercase tracking-[0.25em] opacity-80">Esta semana</p>
+                  <p className="mt-1 text-3xl font-bold">12 vagas abertas</p>
+                  <p className="mt-1 text-sm opacity-90">Reserve antes que esgote</p>
+                </div>
               </div>
               <CardContent className="grid grid-cols-3 gap-3 p-6">
                 {TIME_SLOTS.map((slot) => (
                   <div
                     key={slot}
-                    className="rounded-xl border border-border bg-sand/40 p-3 text-center text-sm font-semibold text-sand-foreground shadow-sm"
+                    className="rounded-xl border border-border bg-sand/50 p-3 text-center text-sm font-semibold text-sand-foreground shadow-sm hover-lift"
                   >
                     {slot}
                   </div>
                 ))}
               </CardContent>
             </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Parallax-like sand strip */}
+      <section
+        aria-hidden="true"
+        className="relative h-72 overflow-hidden bg-fixed"
+        style={{
+          backgroundImage: `url(${ballSandImage})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-r from-secondary/85 via-secondary/40 to-primary/40" />
+        <div className="relative mx-auto flex h-full max-w-5xl items-center justify-center px-6 text-center text-secondary-foreground">
+          <div>
+            <p className="text-xs uppercase tracking-[0.4em] opacity-80">Beach volleyball</p>
+            <p className="mt-3 text-2xl font-bold leading-tight md:text-4xl">
+              "A areia exige técnica, leitura e coração. <br className="hidden md:block" />
+              Eu te entrego os três."
+            </p>
           </div>
         </div>
       </section>
@@ -544,7 +589,7 @@ function Index() {
                   size="lg"
                   className="w-full shadow-glow md:w-auto"
                 >
-                  Confirmar agendamento
+                  Enviar pelo WhatsApp
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </div>
@@ -554,27 +599,31 @@ function Index() {
 
         <div className="mt-10 grid gap-4 sm:grid-cols-2">
           <a
-            href="tel:+5511999999999"
+            href={`https://wa.me/${WHATSAPP_NUMBER}`}
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex items-center gap-3 rounded-2xl border border-border bg-card p-5 shadow-card transition-transform hover:-translate-y-0.5"
           >
             <div className="grid h-11 w-11 place-items-center rounded-xl bg-primary/15 text-primary">
               <Phone className="h-5 w-5" />
             </div>
             <div>
-              <p className="text-xs uppercase tracking-wider text-muted-foreground">Telefone</p>
-              <p className="font-semibold">(11) 99999-9999</p>
+              <p className="text-xs uppercase tracking-wider text-muted-foreground">WhatsApp direto</p>
+              <p className="font-semibold">(48) 98814-6267</p>
             </div>
           </a>
           <a
-            href="mailto:contato@acevolei.com"
+            href={`https://wa.me/${WHATSAPP_NUMBER}?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20as%20aulas%20de%20v%C3%B4lei%20na%20areia.`}
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex items-center gap-3 rounded-2xl border border-border bg-card p-5 shadow-card transition-transform hover:-translate-y-0.5"
           >
             <div className="grid h-11 w-11 place-items-center rounded-xl bg-primary/15 text-primary">
               <Mail className="h-5 w-5" />
             </div>
             <div>
-              <p className="text-xs uppercase tracking-wider text-muted-foreground">E-mail</p>
-              <p className="font-semibold">contato@acevolei.com</p>
+              <p className="text-xs uppercase tracking-wider text-muted-foreground">Tirar dúvidas</p>
+              <p className="font-semibold">Falar com o coach</p>
             </div>
           </a>
         </div>
