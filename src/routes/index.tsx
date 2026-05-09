@@ -238,6 +238,36 @@ function Index() {
         </div>
       </section>
 
+      {/* Marquee — rolling keywords */}
+      <div
+        aria-hidden="true"
+        className="relative overflow-hidden border-y border-border bg-secondary py-5 text-secondary-foreground"
+      >
+        <div className="flex w-max animate-marquee gap-12 whitespace-nowrap pr-12 text-sm font-semibold uppercase tracking-[0.25em] opacity-90">
+          {Array.from({ length: 2 }).map((_, group) => (
+            <div key={group} className="flex gap-12">
+              {[
+                "🏐 Saque viagem",
+                "Manchete",
+                "Levantamento",
+                "Ataque",
+                "Bloqueio",
+                "Defesa de líbero",
+                "Leitura de jogo",
+                "Explosão",
+                "Ritmo",
+                "Foco",
+              ].map((label, i) => (
+                <span key={`${group}-${i}`} className="flex items-center gap-3">
+                  <span className="text-primary-glow">●</span>
+                  {label}
+                </span>
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
+
       {/* Benefits */}
       <section id="beneficios" className="mx-auto max-w-6xl px-6 py-20 md:py-28">
         <div className="mx-auto max-w-2xl text-center">
