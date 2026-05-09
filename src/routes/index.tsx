@@ -571,8 +571,105 @@ function Index() {
         </div>
       </section>
 
+      {/* Surreal Desire section */}
+      <section className="relative overflow-hidden border-y border-border/40 bg-secondary py-24 text-secondary-foreground md:py-32">
+        <SurrealCanvas variant="dense" />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,oklch(0.08_0.01_260/0.8)_70%)]"
+        />
+
+        <div className="relative mx-auto max-w-5xl px-6">
+          <Reveal className="mx-auto max-w-3xl text-center">
+            <Badge className="mb-6 border-primary/30 bg-primary/10 text-primary-glow backdrop-blur-sm">
+              <Sparkles className="mr-1 h-3 w-3" /> O salto começa antes do salto
+            </Badge>
+
+            <h2 className="font-display text-4xl font-bold leading-[1.05] tracking-tight md:text-6xl">
+              Imagine o som da bola tocando a{" "}
+              <span className="text-gradient-primary">areia</span>
+              {" "}— e ninguém alcançando.
+            </h2>
+
+            <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-secondary-foreground/85">
+              Existe um lugar onde o tempo se dobra. A bola desacelera, o vento conversa com você
+              e cada movimento parece um sonho que você já viveu mil vezes. Esse lugar não é a
+              quadra — é o seu próximo nível.
+            </p>
+          </Reveal>
+
+          <div className="mt-16 grid gap-6 md:grid-cols-3">
+            {[
+              {
+                kicker: "Antes",
+                title: "Você sente que pode mais",
+                text: "A bola escapa, o saque trai, o jogo passa rápido demais. Falta o detalhe — aquele que ninguém te mostrou.",
+              },
+              {
+                kicker: "Durante",
+                title: "Tudo desacelera",
+                text: "Cada aula é um mergulho. Técnica refinada, leitura afiada, corpo que responde antes do pensamento.",
+              },
+              {
+                kicker: "Depois",
+                title: "Você joga outro jogo",
+                text: "Confiança que se vê no primeiro ponto. Adversários sentindo que algo mudou. E mudou — em você.",
+              },
+            ].map((step, i) => (
+              <Reveal key={step.kicker} delay={i * 140}>
+                <div className="group relative h-full overflow-hidden rounded-3xl border border-border/40 bg-card/60 p-7 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:border-primary/40 hover:shadow-glow">
+                  <div className="absolute -right-8 -top-8 h-24 w-24 animate-morph bg-gradient-primary opacity-20 blur-2xl transition-opacity duration-500 group-hover:opacity-40" />
+                  <p className="relative font-display text-xs uppercase tracking-[0.4em] text-primary-glow">
+                    {step.kicker}
+                  </p>
+                  <h3 className="relative mt-3 font-display text-2xl font-bold text-foreground">
+                    {step.title}
+                  </h3>
+                  <p className="relative mt-4 text-sm leading-relaxed text-muted-foreground">
+                    {step.text}
+                  </p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal delay={400} className="mt-16 text-center">
+            <p className="mx-auto max-w-2xl font-display text-2xl italic text-secondary-foreground/90 md:text-3xl">
+              "A diferença entre quem joga e quem{" "}
+              <span className="text-gradient-primary not-italic font-bold">domina</span>{" "}
+              cabe em uma decisão."
+            </p>
+            <div className="mt-10 flex flex-wrap justify-center gap-3">
+              <Button asChild size="lg" className="shadow-glow animate-pulse-glow">
+                <a href="#agendar">
+                  Reservar minha primeira aula <ArrowRight className="ml-2 h-4 w-4" />
+                </a>
+              </Button>
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="border-primary/30 bg-card/40 text-foreground backdrop-blur-sm hover:bg-card/70"
+              >
+                <a
+                  href={`https://wa.me/${WHATSAPP_NUMBER}?text=Ol%C3%A1!%20Quero%20saber%20mais.`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Tirar dúvidas no WhatsApp
+                </a>
+              </Button>
+            </div>
+            <p className="mt-6 text-xs uppercase tracking-[0.3em] text-muted-foreground">
+              Vagas limitadas · Segundas e terças · Quadra de areia
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
       {/* Booking */}
-      <section id="agendar" className="mx-auto max-w-4xl px-6 py-20 md:py-28">
+      <section id="agendar" className="relative mx-auto max-w-4xl overflow-hidden px-6 py-20 md:py-28">
+        <SurrealCanvas variant="soft" />
         <div className="mx-auto mb-10 max-w-2xl text-center">
           <Badge className="mb-4 bg-gradient-primary text-primary-foreground shadow-md">
             Agendamento
