@@ -403,6 +403,28 @@ function Index() {
         </div>
       </section>
 
+      {/* Parallax-like sand strip */}
+      <section
+        aria-hidden="true"
+        className="relative h-72 overflow-hidden bg-fixed"
+        style={{
+          backgroundImage: `url(${ballSandImage})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-r from-secondary/85 via-secondary/40 to-primary/40" />
+        <div className="relative mx-auto flex h-full max-w-5xl items-center justify-center px-6 text-center text-secondary-foreground">
+          <div>
+            <p className="text-xs uppercase tracking-[0.4em] opacity-80">Beach volleyball</p>
+            <p className="mt-3 text-2xl font-bold leading-tight md:text-4xl">
+              "A areia exige técnica, leitura e coração. <br className="hidden md:block" />
+              Eu te entrego os três."
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Testimonials */}
       <section className="relative overflow-hidden py-20 md:py-28">
         <div
