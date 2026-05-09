@@ -590,7 +590,7 @@ function Index() {
               as="h2"
               variant="blur"
               stagger={75}
-              className="font-display text-4xl font-bold leading-[1.05] tracking-tight md:text-6xl"
+              className="mt-6 font-display text-4xl font-bold leading-[1.15] tracking-tight md:mt-10 md:text-6xl md:leading-[1.05]"
               highlight={["areia", "ninguém"]}
               highlightClassName="text-gradient-primary"
             >
