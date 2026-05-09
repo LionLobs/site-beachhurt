@@ -13,7 +13,6 @@ import {
   Mail,
   CheckCircle2,
   ArrowRight,
-  Zap,
   Star,
   Quote,
 } from "lucide-react";
