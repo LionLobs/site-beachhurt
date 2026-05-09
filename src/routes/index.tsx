@@ -636,10 +636,10 @@ function Index() {
             <span className="grid h-8 w-8 place-items-center rounded-full bg-gradient-primary text-primary-foreground">
               🏐
             </span>
-            AceVolei
+            Vinicius Hurt
           </div>
           <p className="text-sm opacity-80">
-            © {new Date().getFullYear()} AceVolei — Aulas particulares de vôlei.
+            © {new Date().getFullYear()} Vinicius Hurt — Aulas particulares de vôlei na areia.
           </p>
         </div>
       </footer>
