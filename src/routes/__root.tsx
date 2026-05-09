@@ -73,18 +73,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Ace Volei — Aulas Particulares de Vôlei" },
+      { title: "Vinicius Hurt — Aulas Particulares de Vôlei na Areia" },
       {
         name: "description",
         content:
-          "Aulas particulares de vôlei às segundas e terças à tarde. Treine com técnica, ritmo e atenção individualizada. Agende seu horário.",
+          "Aulas particulares de vôlei na areia com Vinicius Hurt. Segundas e terças à tarde, 5 anos de experiência. Agende pelo WhatsApp.",
       },
-      { name: "author", content: "Ace Volei" },
-      { property: "og:title", content: "Ace Volei — Aulas Particulares de Vôlei" },
+      { name: "author", content: "Vinicius Hurt" },
+      { property: "og:title", content: "Vinicius Hurt — Vôlei na Areia" },
       {
         property: "og:description",
         content:
-          "Aulas individuais de vôlei às segundas e terças pelas tardes. Agendamento online.",
+          "Aulas individuais de vôlei na areia, segundas e terças pelas tardes. Agendamento via WhatsApp.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

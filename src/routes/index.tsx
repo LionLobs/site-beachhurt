@@ -36,6 +36,7 @@ import {
 import heroImage from "@/assets/hero-volei.jpg";
 import sandCourtImage from "@/assets/sand-court.jpg";
 import ballSandImage from "@/assets/ball-sand.jpg";
+import coachImage from "@/assets/coach-vinicius.jpeg";
 
 const WHATSAPP_NUMBER = "5548988146267";
 
@@ -132,7 +133,7 @@ function Index() {
               🏐
             </span>
             <span className="text-lg">
-              Ace<span className="text-primary">Volei</span>
+              Vinicius<span className="text-primary"> Hurt</span>
             </span>
           </a>
           <nav className="hidden gap-8 text-sm font-medium text-muted-foreground md:flex">
@@ -141,6 +142,9 @@ function Index() {
             </a>
             <a href="#horarios" className="transition-colors hover:text-foreground">
               Horários
+            </a>
+            <a href="#coach" className="transition-colors hover:text-foreground">
+              Coach
             </a>
             <a href="#agendar" className="transition-colors hover:text-foreground">
               Agendar
@@ -492,6 +496,73 @@ function Index() {
         </div>
       </section>
 
+      {/* About the coach */}
+      <section id="coach" className="mx-auto max-w-6xl px-6 py-20 md:py-28">
+        <div className="grid items-center gap-12 md:grid-cols-2">
+          <Reveal>
+            <div className="relative">
+              <div
+                aria-hidden="true"
+                className="absolute -inset-6 rounded-[2rem] bg-gradient-primary opacity-30 blur-3xl"
+              />
+              <div className="relative overflow-hidden rounded-[2rem] border border-border/60 shadow-elevated">
+                <img
+                  src={coachImage}
+                  alt="Vinicius Hurt — coach de vôlei na areia"
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-700 hover:scale-[1.03]"
+                />
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-secondary/90 via-secondary/30 to-transparent p-6 text-secondary-foreground">
+                  <p className="text-xs uppercase tracking-[0.3em] opacity-80">Seu coach</p>
+                  <p className="mt-1 font-display text-2xl font-bold">Vinicius Hurt</p>
+                </div>
+              </div>
+            </div>
+          </Reveal>
+
+          <Reveal delay={120}>
+            <Badge variant="secondary" className="mb-4">
+              <Sparkles className="mr-1 h-3 w-3" /> Sobre mim
+            </Badge>
+            <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
+              Areia, suor e <span className="text-gradient-primary">técnica</span>.
+            </h2>
+            <p className="mt-5 text-muted-foreground">
+              Sou Vinicius Hurt, atleta e coach de vôlei de praia com{" "}
+              <strong className="text-foreground">5 anos de experiência</strong> em quadra de
+              areia. Minha proposta é simples: olhar atento, plano sob medida e evolução real
+              em cada treino.
+            </p>
+
+            <div className="mt-8 grid gap-4 sm:grid-cols-3">
+              {[
+                { value: "5+", label: "Anos de experiência" },
+                { value: "100%", label: "Atenção individual" },
+                { value: "60min", label: "Por sessão" },
+              ].map((s) => (
+                <div
+                  key={s.label}
+                  className="rounded-2xl border border-border bg-card p-5 text-center shadow-card hover-lift"
+                >
+                  <p className="font-display text-3xl font-bold text-primary">{s.value}</p>
+                  <p className="mt-1 text-xs uppercase tracking-wider text-muted-foreground">
+                    {s.label}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Button asChild size="lg" className="shadow-glow">
+                <a href="#agendar">
+                  Quero treinar com o Vini <ArrowRight className="ml-2 h-4 w-4" />
+                </a>
+              </Button>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       {/* Booking */}
       <section id="agendar" className="mx-auto max-w-4xl px-6 py-20 md:py-28">
         <div className="mx-auto mb-10 max-w-2xl text-center">
@@ -636,10 +707,10 @@ function Index() {
             <span className="grid h-8 w-8 place-items-center rounded-full bg-gradient-primary text-primary-foreground">
               🏐
             </span>
-            AceVolei
+            Vinicius Hurt
           </div>
           <p className="text-sm opacity-80">
-            © {new Date().getFullYear()} AceVolei — Aulas particulares de vôlei.
+            © {new Date().getFullYear()} Vinicius Hurt — Aulas particulares de vôlei na areia.
           </p>
         </div>
       </footer>
