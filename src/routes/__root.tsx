@@ -9,6 +9,7 @@ import {
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
+import { Toaster } from "@/components/ui/sonner";
 
 function NotFoundComponent() {
   return (
@@ -72,14 +73,21 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Ace Volei — Aulas Particulares de Vôlei" },
+      {
+        name: "description",
+        content:
+          "Aulas particulares de vôlei às segundas e terças à tarde. Treine com técnica, ritmo e atenção individualizada. Agende seu horário.",
+      },
+      { name: "author", content: "Ace Volei" },
+      { property: "og:title", content: "Ace Volei — Aulas Particulares de Vôlei" },
+      {
+        property: "og:description",
+        content:
+          "Aulas individuais de vôlei às segundas e terças pelas tardes. Agendamento online.",
+      },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       {
@@ -114,6 +122,7 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <Outlet />
+      <Toaster richColors position="top-center" />
     </QueryClientProvider>
   );
 }
