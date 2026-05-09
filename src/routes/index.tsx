@@ -143,6 +143,9 @@ function Index() {
             <a href="#horarios" className="transition-colors hover:text-foreground">
               Horários
             </a>
+            <a href="#coach" className="transition-colors hover:text-foreground">
+              Coach
+            </a>
             <a href="#agendar" className="transition-colors hover:text-foreground">
               Agendar
             </a>
