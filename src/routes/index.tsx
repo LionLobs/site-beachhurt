@@ -374,16 +374,25 @@ function Index() {
             </div>
 
             <Card className="overflow-hidden border-border/60 shadow-elevated">
-              <div className="bg-gradient-primary p-6 text-primary-foreground">
-                <p className="text-sm uppercase tracking-wider opacity-80">Esta semana</p>
-                <p className="mt-1 text-3xl font-bold">12 vagas abertas</p>
-                <p className="mt-1 text-sm opacity-90">Reserve antes que esgote</p>
+              <div className="relative h-56 overflow-hidden">
+                <img
+                  src={sandCourtImage}
+                  alt="Quadra de areia ao pôr do sol"
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-secondary/90 via-secondary/40 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-secondary-foreground">
+                  <p className="text-xs uppercase tracking-[0.25em] opacity-80">Esta semana</p>
+                  <p className="mt-1 text-3xl font-bold">12 vagas abertas</p>
+                  <p className="mt-1 text-sm opacity-90">Reserve antes que esgote</p>
+                </div>
               </div>
               <CardContent className="grid grid-cols-3 gap-3 p-6">
                 {TIME_SLOTS.map((slot) => (
                   <div
                     key={slot}
-                    className="rounded-xl border border-border bg-sand/40 p-3 text-center text-sm font-semibold text-sand-foreground shadow-sm"
+                    className="rounded-xl border border-border bg-sand/50 p-3 text-center text-sm font-semibold text-sand-foreground shadow-sm hover-lift"
                   >
                     {slot}
                   </div>
