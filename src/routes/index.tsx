@@ -577,7 +577,7 @@ function Index() {
         <SurrealCanvas variant="dense" />
         <div
           aria-hidden="true"
-          className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,oklch(0.08_0.01_260/0.8)_70%)]"
+          className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,oklch(0.85_0.04_78/0.5)_70%)]"
         />
 
         <div className="relative mx-auto max-w-5xl px-6">
