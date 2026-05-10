@@ -137,7 +137,7 @@ function Index() {
               alt="Logo Vinicius Hurt"
               width={56}
               height={56}
-              className="h-14 w-14 object-contain drop-shadow-[0_4px_12px_rgba(59,130,246,0.5)]"
+              className="h-14 w-14 object-contain drop-shadow-[0_4px_12px_rgba(180,140,90,0.45)]"
             />
             <span className="text-lg">
               Vinicius<span className="text-primary"> Hurt</span>
@@ -199,14 +199,14 @@ function Index() {
         />
 
         <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-6 py-24 md:grid-cols-2 md:py-32">
-          <div className="text-primary-foreground">
-            <Badge className="mb-6 bg-white/15 text-primary-foreground backdrop-blur-sm hover:bg-white/20">
+          <div className="text-foreground">
+            <Badge className="mb-6 bg-foreground/10 text-foreground backdrop-blur-sm hover:bg-foreground/15">
               <Sparkles className="mr-1 h-3 w-3" /> Aulas particulares
             </Badge>
             <h1 className="text-4xl font-bold leading-[1.05] tracking-tight md:text-6xl">
-              Domine a <span className="text-primary-glow">areia</span>. Aulas individuais de vôlei na quadra.
+              Domine a <span className="text-primary">areia</span>. Aulas individuais de vôlei na quadra.
             </h1>
-            <p className="mt-6 max-w-xl text-lg text-primary-foreground/85">
+            <p className="mt-6 max-w-xl text-lg text-foreground/80">
               Atendimento exclusivo às <strong>segundas e terças pelas tardes</strong>, em
               <strong> quadra de areia</strong>. Treine com um coach com{" "}
               <strong>12 anos de experiência</strong>, focado 100% em você.
@@ -221,21 +221,21 @@ function Index() {
                 asChild
                 size="lg"
                 variant="outline"
-                className="border-white/30 bg-white/10 text-primary-foreground backdrop-blur-sm hover:bg-white/20 hover:text-primary-foreground"
+                className="border-foreground/20 bg-background/40 text-foreground backdrop-blur-sm hover:bg-background/60"
               >
                 <a href="#beneficios">Ver benefícios</a>
               </Button>
             </div>
 
-            <div className="mt-10 flex flex-wrap gap-6 text-sm text-primary-foreground/80">
+            <div className="mt-10 flex flex-wrap gap-6 text-sm text-foreground/75">
               <span className="flex items-center gap-2">
-                <CheckCircle2 className="h-4 w-4 text-primary-glow" /> 12 anos de experiência
+                <CheckCircle2 className="h-4 w-4 text-primary" /> 12 anos de experiência
               </span>
               <span className="flex items-center gap-2">
-                <CheckCircle2 className="h-4 w-4 text-primary-glow" /> Quadra de areia
+                <CheckCircle2 className="h-4 w-4 text-primary" /> Quadra de areia
               </span>
               <span className="flex items-center gap-2">
-                <CheckCircle2 className="h-4 w-4 text-primary-glow" /> Todos os níveis
+                <CheckCircle2 className="h-4 w-4 text-primary" /> Todos os níveis
               </span>
             </div>
           </div>
@@ -577,7 +577,7 @@ function Index() {
         <SurrealCanvas variant="dense" />
         <div
           aria-hidden="true"
-          className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,oklch(0.08_0.01_260/0.8)_70%)]"
+          className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,oklch(0.85_0.04_78/0.5)_70%)]"
         />
 
         <div className="relative mx-auto max-w-5xl px-6">
@@ -829,7 +829,7 @@ function Index() {
               alt="Logo Vinicius Hurt"
               width={40}
               height={40}
-              className="h-10 w-10 object-contain drop-shadow-[0_2px_8px_rgba(59,130,246,0.5)]"
+              className="h-10 w-10 object-contain drop-shadow-[0_2px_8px_rgba(180,140,90,0.45)]"
             />
             Vinicius Hurt
           </div>
