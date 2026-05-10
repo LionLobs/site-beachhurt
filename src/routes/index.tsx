@@ -39,7 +39,7 @@ import heroImage from "@/assets/hero-volei.jpg";
 import sandCourtImage from "@/assets/sand-court.jpg";
 import ballSandImage from "@/assets/ball-sand.jpg";
 import coachImage from "@/assets/coach-vinicius.jpeg";
-import logoVH from "@/assets/logo-vh.png";
+import logoVH from "@/assets/logo-beachhurt.png";
 
 const WHATSAPP_NUMBER = "5548988146267";
 
