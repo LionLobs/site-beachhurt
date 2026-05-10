@@ -134,14 +134,11 @@ function Index() {
           <a href="#top" className="flex items-center gap-2 font-bold tracking-tight">
             <img
               src={logoVH}
-              alt="Logo Vinicius Hurt"
-              width={56}
+              alt="Beach Hurt — Aulas particulares de vôlei"
+              width={160}
               height={56}
-              className="h-14 w-14 object-contain drop-shadow-[0_4px_12px_rgba(180,140,90,0.45)]"
+              className="h-12 w-auto object-contain md:h-14"
             />
-            <span className="text-lg">
-              Vinicius<span className="text-primary"> Hurt</span>
-            </span>
           </a>
           <nav className="hidden gap-8 text-sm font-medium text-muted-foreground md:flex">
             <a href="#beneficios" className="transition-colors hover:text-foreground">
