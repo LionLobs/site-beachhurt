@@ -137,7 +137,7 @@ function Index() {
               alt="Logo Vinicius Hurt"
               width={56}
               height={56}
-              className="h-14 w-14 object-contain drop-shadow-[0_4px_12px_rgba(59,130,246,0.5)]"
+              className="h-14 w-14 object-contain drop-shadow-[0_4px_12px_rgba(180,140,90,0.45)]"
             />
             <span className="text-lg">
               Vinicius<span className="text-primary"> Hurt</span>
