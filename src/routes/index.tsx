@@ -199,14 +199,14 @@ function Index() {
         />
 
         <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-6 py-24 md:grid-cols-2 md:py-32">
-          <div className="text-primary-foreground">
-            <Badge className="mb-6 bg-white/15 text-primary-foreground backdrop-blur-sm hover:bg-white/20">
+          <div className="text-foreground">
+            <Badge className="mb-6 bg-foreground/10 text-foreground backdrop-blur-sm hover:bg-foreground/15">
               <Sparkles className="mr-1 h-3 w-3" /> Aulas particulares
             </Badge>
             <h1 className="text-4xl font-bold leading-[1.05] tracking-tight md:text-6xl">
-              Domine a <span className="text-primary-glow">areia</span>. Aulas individuais de vôlei na quadra.
+              Domine a <span className="text-primary">areia</span>. Aulas individuais de vôlei na quadra.
             </h1>
-            <p className="mt-6 max-w-xl text-lg text-primary-foreground/85">
+            <p className="mt-6 max-w-xl text-lg text-foreground/80">
               Atendimento exclusivo às <strong>segundas e terças pelas tardes</strong>, em
               <strong> quadra de areia</strong>. Treine com um coach com{" "}
               <strong>12 anos de experiência</strong>, focado 100% em você.
@@ -221,21 +221,21 @@ function Index() {
                 asChild
                 size="lg"
                 variant="outline"
-                className="border-white/30 bg-white/10 text-primary-foreground backdrop-blur-sm hover:bg-white/20 hover:text-primary-foreground"
+                className="border-foreground/20 bg-background/40 text-foreground backdrop-blur-sm hover:bg-background/60"
               >
                 <a href="#beneficios">Ver benefícios</a>
               </Button>
             </div>
 
-            <div className="mt-10 flex flex-wrap gap-6 text-sm text-primary-foreground/80">
+            <div className="mt-10 flex flex-wrap gap-6 text-sm text-foreground/75">
               <span className="flex items-center gap-2">
-                <CheckCircle2 className="h-4 w-4 text-primary-glow" /> 12 anos de experiência
+                <CheckCircle2 className="h-4 w-4 text-primary" /> 12 anos de experiência
               </span>
               <span className="flex items-center gap-2">
-                <CheckCircle2 className="h-4 w-4 text-primary-glow" /> Quadra de areia
+                <CheckCircle2 className="h-4 w-4 text-primary" /> Quadra de areia
               </span>
               <span className="flex items-center gap-2">
-                <CheckCircle2 className="h-4 w-4 text-primary-glow" /> Todos os níveis
+                <CheckCircle2 className="h-4 w-4 text-primary" /> Todos os níveis
               </span>
             </div>
           </div>
