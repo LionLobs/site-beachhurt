@@ -829,7 +829,7 @@ function Index() {
               alt="Logo Vinicius Hurt"
               width={40}
               height={40}
-              className="h-10 w-10 object-contain drop-shadow-[0_2px_8px_rgba(59,130,246,0.5)]"
+              className="h-10 w-10 object-contain drop-shadow-[0_2px_8px_rgba(180,140,90,0.45)]"
             />
             Vinicius Hurt
           </div>
