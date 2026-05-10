@@ -39,7 +39,7 @@ import heroImage from "@/assets/hero-volei.jpg";
 import sandCourtImage from "@/assets/sand-court.jpg";
 import ballSandImage from "@/assets/ball-sand.jpg";
 import coachImage from "@/assets/coach-vinicius.jpeg";
-import logoVH from "@/assets/logo-vh.png";
+import logoVH from "@/assets/logo-beachhurt.png";
 
 const WHATSAPP_NUMBER = "5548988146267";
 
@@ -134,14 +134,11 @@ function Index() {
           <a href="#top" className="flex items-center gap-2 font-bold tracking-tight">
             <img
               src={logoVH}
-              alt="Logo Vinicius Hurt"
-              width={56}
+              alt="Beach Hurt — Aulas particulares de vôlei"
+              width={160}
               height={56}
-              className="h-14 w-14 object-contain drop-shadow-[0_4px_12px_rgba(180,140,90,0.45)]"
+              className="h-12 w-auto object-contain md:h-14"
             />
-            <span className="text-lg">
-              Vinicius<span className="text-primary"> Hurt</span>
-            </span>
           </a>
           <nav className="hidden gap-8 text-sm font-medium text-muted-foreground md:flex">
             <a href="#beneficios" className="transition-colors hover:text-foreground">
@@ -826,12 +823,11 @@ function Index() {
           <div className="flex items-center gap-2 font-semibold">
             <img
               src={logoVH}
-              alt="Logo Vinicius Hurt"
-              width={40}
-              height={40}
-              className="h-10 w-10 object-contain drop-shadow-[0_2px_8px_rgba(180,140,90,0.45)]"
+              alt="Beach Hurt"
+              width={140}
+              height={48}
+              className="h-12 w-auto object-contain"
             />
-            Vinicius Hurt
           </div>
           <p className="text-sm opacity-80">
             © {new Date().getFullYear()} Vinicius Hurt — Aulas particulares de vôlei. Criado por{" "}
