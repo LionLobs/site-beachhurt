@@ -823,12 +823,11 @@ function Index() {
           <div className="flex items-center gap-2 font-semibold">
             <img
               src={logoVH}
-              alt="Logo Vinicius Hurt"
-              width={40}
-              height={40}
-              className="h-10 w-10 object-contain drop-shadow-[0_2px_8px_rgba(180,140,90,0.45)]"
+              alt="Beach Hurt"
+              width={140}
+              height={48}
+              className="h-12 w-auto object-contain"
             />
-            Vinicius Hurt
           </div>
           <p className="text-sm opacity-80">
             © {new Date().getFullYear()} Vinicius Hurt — Aulas particulares de vôlei. Criado por{" "}
