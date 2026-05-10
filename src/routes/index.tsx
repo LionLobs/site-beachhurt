@@ -129,15 +129,15 @@ function Index() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="sticky top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur-md">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+      <header className="sticky top-0 z-40 border-b border-border/60 bg-secondary/95 backdrop-blur-md">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
           <a href="#top" className="flex items-center gap-2 font-bold tracking-tight">
             <img
               src={logoVH}
               alt="Beach Hurt — Aulas particulares de vôlei"
-              width={160}
-              height={56}
-              className="h-12 w-auto object-contain md:h-14"
+              width={200}
+              height={72}
+              className="h-16 w-auto object-contain md:h-20"
             />
           </a>
           <nav className="hidden gap-8 text-sm font-medium text-muted-foreground md:flex">
