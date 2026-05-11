@@ -15,11 +15,14 @@ import {
   ArrowRight,
   Star,
   Quote,
+  Brain,
 } from "lucide-react";
 
 import { Reveal } from "@/components/Reveal";
 import { SurrealCanvas } from "@/components/SurrealCanvas";
 import { KineticText } from "@/components/KineticText";
+import { AIEvaluation } from "@/components/AIEvaluation";
+import { Packages } from "@/components/Packages";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -82,6 +85,20 @@ function Index() {
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [notes, setNotes] = useState("");
+  const [selectedPack, setSelectedPack] = useState<string>("");
+
+  const handlePackSelect = (pack: string) => {
+    setSelectedPack(pack);
+    setNotes((prev) =>
+      prev.includes("Pacote de interesse")
+        ? prev.replace(/Pacote de interesse:.*?(\n|$)/, `Pacote de interesse: ${pack}\n`)
+        : (prev ? prev + "\n" : "") + `Pacote de interesse: ${pack}`,
+    );
+    document.getElementById("agendar")?.scrollIntoView({ behavior: "smooth" });
+    toast.success(`Pacote ${pack} selecionado`, {
+      description: "Preencha seus dados para reservar a aula experimental.",
+    });
+  };
 
   const minDate = useMemo(() => new Date().toISOString().split("T")[0], []);
 
@@ -110,12 +127,13 @@ function Index() {
     });
 
     const message =
-      `Olá! Quero agendar uma aula particular de vôlei na quadra de areia.%0A%0A` +
+      `Olá! Quero agendar uma aula experimental de vôlei na quadra de areia.%0A%0A` +
       `*Nome:* ${name}%0A` +
       `*Telefone:* ${phone}%0A` +
       (email ? `*E-mail:* ${email}%0A` : "") +
       `*Data:* ${formattedDate}%0A` +
       `*Horário:* ${time}%0A` +
+      (selectedPack ? `*Pacote de interesse:* ${selectedPack}%0A` : "") +
       (notes ? `*Objetivo:* ${notes}%0A` : "");
 
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
@@ -140,12 +158,12 @@ function Index() {
               className="h-16 w-auto object-contain md:h-20"
             />
           </a>
-          <nav className="hidden gap-8 text-sm font-medium text-muted-foreground md:flex">
-            <a href="#beneficios" className="transition-colors hover:text-foreground">
-              Benefícios
+          <nav className="hidden gap-7 text-sm font-medium text-muted-foreground md:flex">
+            <a href="#avaliacao-ia" className="transition-colors hover:text-foreground">
+              Avaliação IA
             </a>
-            <a href="#horarios" className="transition-colors hover:text-foreground">
-              Horários
+            <a href="#pacotes" className="transition-colors hover:text-foreground">
+              Pacotes
             </a>
             <a href="#coach" className="transition-colors hover:text-foreground">
               Coach
@@ -156,7 +174,7 @@ function Index() {
           </nav>
           <Button asChild size="sm" className="shadow-md">
             <a href="#agendar">
-              Agendar aula <ArrowRight className="ml-1 h-4 w-4" />
+              Aula experimental <ArrowRight className="ml-1 h-4 w-4" />
             </a>
           </Button>
         </div>
@@ -211,7 +229,7 @@ function Index() {
             <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild size="lg" className="shadow-glow">
                 <a href="#agendar">
-                  Reservar meu horário <ArrowRight className="ml-2 h-4 w-4" />
+                  Reservar aula experimental <ArrowRight className="ml-2 h-4 w-4" />
                 </a>
               </Button>
               <Button
@@ -220,7 +238,9 @@ function Index() {
                 variant="outline"
                 className="border-foreground/20 bg-background/40 text-foreground backdrop-blur-sm hover:bg-background/60"
               >
-                <a href="#beneficios">Ver benefícios</a>
+                <a href="#avaliacao-ia">
+                  <Brain className="mr-2 h-4 w-4" /> Avaliação técnica com IA
+                </a>
               </Button>
             </div>
 
@@ -569,6 +589,9 @@ function Index() {
         </div>
       </section>
 
+      {/* AI Technical Evaluation */}
+      <AIEvaluation onBook={handlePackSelect} />
+
       {/* Surreal Desire section */}
       <section className="relative overflow-hidden border-y border-border/40 bg-secondary py-24 text-secondary-foreground md:py-32">
         <SurrealCanvas variant="dense" />
@@ -679,6 +702,9 @@ function Index() {
         </div>
       </section>
 
+      {/* Packages */}
+      <Packages onSelect={handlePackSelect} />
+
       {/* Booking */}
       <section id="agendar" className="relative mx-auto max-w-4xl overflow-hidden px-6 py-20 md:py-28">
         <SurrealCanvas variant="soft" />
@@ -687,11 +713,16 @@ function Index() {
             Agendamento
           </Badge>
           <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
-            Reserve seu treino
+            Reserve sua aula experimental
           </h2>
           <p className="mt-4 text-muted-foreground">
-            Escolha o dia (segunda ou terça) e o horário. Confirmamos sua aula em até 24h.
+            Escolha o dia (segunda ou terça) e o horário. Confirmamos em até 24h pelo WhatsApp.
           </p>
+          {selectedPack && (
+            <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-sm font-semibold text-primary">
+              <Sparkles className="h-4 w-4" /> Pacote selecionado: {selectedPack}
+            </div>
+          )}
         </div>
 
         <Card className="overflow-hidden border-border/60 shadow-elevated">
