@@ -588,6 +588,9 @@ function Index() {
         </div>
       </section>
 
+      {/* AI Technical Evaluation */}
+      <AIEvaluation onBook={handlePackSelect} />
+
       {/* Surreal Desire section */}
       <section className="relative overflow-hidden border-y border-border/40 bg-secondary py-24 text-secondary-foreground md:py-32">
         <SurrealCanvas variant="dense" />
