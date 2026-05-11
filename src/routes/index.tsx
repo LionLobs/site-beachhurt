@@ -20,6 +20,8 @@ import {
 import { Reveal } from "@/components/Reveal";
 import { SurrealCanvas } from "@/components/SurrealCanvas";
 import { KineticText } from "@/components/KineticText";
+import { AIEvaluation } from "@/components/AIEvaluation";
+import { Packages } from "@/components/Packages";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
