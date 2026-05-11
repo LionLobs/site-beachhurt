@@ -127,12 +127,13 @@ function Index() {
     });
 
     const message =
-      `Olá! Quero agendar uma aula particular de vôlei na quadra de areia.%0A%0A` +
+      `Olá! Quero agendar uma aula experimental de vôlei na quadra de areia.%0A%0A` +
       `*Nome:* ${name}%0A` +
       `*Telefone:* ${phone}%0A` +
       (email ? `*E-mail:* ${email}%0A` : "") +
       `*Data:* ${formattedDate}%0A` +
       `*Horário:* ${time}%0A` +
+      (selectedPack ? `*Pacote de interesse:* ${selectedPack}%0A` : "") +
       (notes ? `*Objetivo:* ${notes}%0A` : "");
 
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
