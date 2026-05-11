@@ -227,7 +227,7 @@ function Index() {
             <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild size="lg" className="shadow-glow">
                 <a href="#agendar">
-                  Reservar meu horário <ArrowRight className="ml-2 h-4 w-4" />
+                  Reservar aula experimental <ArrowRight className="ml-2 h-4 w-4" />
                 </a>
               </Button>
               <Button
@@ -236,7 +236,9 @@ function Index() {
                 variant="outline"
                 className="border-foreground/20 bg-background/40 text-foreground backdrop-blur-sm hover:bg-background/60"
               >
-                <a href="#beneficios">Ver benefícios</a>
+                <a href="#avaliacao-ia">
+                  <Brain className="mr-2 h-4 w-4" /> Avaliação técnica com IA
+                </a>
               </Button>
             </div>
 
