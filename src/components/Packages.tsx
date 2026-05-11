@@ -79,7 +79,7 @@ export function Packages({ onSelect }: { onSelect: (pack: string) => void }) {
           </p>
         </Reveal>
 
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {PACKAGES.map((p, i) => (
             <Reveal key={p.name} delay={i * 120}>
               <Card
