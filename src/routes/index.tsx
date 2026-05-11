@@ -84,6 +84,20 @@ function Index() {
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [notes, setNotes] = useState("");
+  const [selectedPack, setSelectedPack] = useState<string>("");
+
+  const handlePackSelect = (pack: string) => {
+    setSelectedPack(pack);
+    setNotes((prev) =>
+      prev.includes("Pacote de interesse")
+        ? prev.replace(/Pacote de interesse:.*?(\n|$)/, `Pacote de interesse: ${pack}\n`)
+        : (prev ? prev + "\n" : "") + `Pacote de interesse: ${pack}`,
+    );
+    document.getElementById("agendar")?.scrollIntoView({ behavior: "smooth" });
+    toast.success(`Pacote ${pack} selecionado`, {
+      description: "Preencha seus dados para reservar a aula experimental.",
+    });
+  };
 
   const minDate = useMemo(() => new Date().toISOString().split("T")[0], []);
 
