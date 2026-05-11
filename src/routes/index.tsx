@@ -712,11 +712,16 @@ function Index() {
             Agendamento
           </Badge>
           <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
-            Reserve seu treino
+            Reserve sua aula experimental
           </h2>
           <p className="mt-4 text-muted-foreground">
-            Escolha o dia (segunda ou terça) e o horário. Confirmamos sua aula em até 24h.
+            Escolha o dia (segunda ou terça) e o horário. Confirmamos em até 24h pelo WhatsApp.
           </p>
+          {selectedPack && (
+            <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-sm font-semibold text-primary">
+              <Sparkles className="h-4 w-4" /> Pacote selecionado: {selectedPack}
+            </div>
+          )}
         </div>
 
         <Card className="overflow-hidden border-border/60 shadow-elevated">
