@@ -15,6 +15,7 @@ import {
   ArrowRight,
   Star,
   Quote,
+  Brain,
 } from "lucide-react";
 
 import { Reveal } from "@/components/Reveal";
