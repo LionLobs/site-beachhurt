@@ -156,12 +156,12 @@ function Index() {
               className="h-16 w-auto object-contain md:h-20"
             />
           </a>
-          <nav className="hidden gap-8 text-sm font-medium text-muted-foreground md:flex">
-            <a href="#beneficios" className="transition-colors hover:text-foreground">
-              Benefícios
+          <nav className="hidden gap-7 text-sm font-medium text-muted-foreground md:flex">
+            <a href="#avaliacao-ia" className="transition-colors hover:text-foreground">
+              Avaliação IA
             </a>
-            <a href="#horarios" className="transition-colors hover:text-foreground">
-              Horários
+            <a href="#pacotes" className="transition-colors hover:text-foreground">
+              Pacotes
             </a>
             <a href="#coach" className="transition-colors hover:text-foreground">
               Coach
@@ -172,7 +172,7 @@ function Index() {
           </nav>
           <Button asChild size="sm" className="shadow-md">
             <a href="#agendar">
-              Agendar aula <ArrowRight className="ml-1 h-4 w-4" />
+              Aula experimental <ArrowRight className="ml-1 h-4 w-4" />
             </a>
           </Button>
         </div>
