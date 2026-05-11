@@ -701,6 +701,9 @@ function Index() {
         </div>
       </section>
 
+      {/* Packages */}
+      <Packages onSelect={handlePackSelect} />
+
       {/* Booking */}
       <section id="agendar" className="relative mx-auto max-w-4xl overflow-hidden px-6 py-20 md:py-28">
         <SurrealCanvas variant="soft" />
