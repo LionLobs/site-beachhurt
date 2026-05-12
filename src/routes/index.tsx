@@ -152,38 +152,7 @@ function Index() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="sticky top-0 z-40 border-b border-border/60 bg-background/85 backdrop-blur-md">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
-          <a href="#top" className="flex items-center gap-2 font-bold tracking-tight">
-            <img
-              src={logoVH}
-              alt="Beach Hurt — Aulas particulares de vôlei"
-              width={200}
-              height={72}
-              className="h-16 w-auto object-contain md:h-20"
-            />
-          </a>
-          <nav className="hidden gap-7 text-sm font-medium text-muted-foreground md:flex">
-            <a href="#avaliacao-ia" className="transition-colors hover:text-foreground">
-              Avaliação IA
-            </a>
-            <a href="#pacotes" className="transition-colors hover:text-foreground">
-              Pacotes
-            </a>
-            <a href="#coach" className="transition-colors hover:text-foreground">
-              Coach
-            </a>
-            <a href="#agendar" className="transition-colors hover:text-foreground">
-              Agendar
-            </a>
-          </nav>
-          <Button asChild size="sm" className="shadow-md">
-            <a href="#agendar">
-              Aula experimental <ArrowRight className="ml-1 h-4 w-4" />
-            </a>
-          </Button>
-        </div>
-      </header>
+      <SiteHeader />
 
       {/* Hero */}
       <section id="top" className="relative overflow-hidden">
