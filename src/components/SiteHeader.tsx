@@ -122,6 +122,8 @@ export function SiteHeader() {
               {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
             </button>
           </div>
+        </div>
+      </header>
 
       {/* Mobile drawer */}
       <div
