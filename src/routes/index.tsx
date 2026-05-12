@@ -158,6 +158,20 @@ function Index() {
 
       {/* Hero */}
       <section id="top" className="relative overflow-hidden">
+        <FloatingAccent
+          variant="player"
+          size="w-48 md:w-72 lg:w-96"
+          className="-right-10 top-10 z-10 md:right-4 lg:right-12"
+          opacity={0.55}
+          rotate={-6}
+        />
+        <FloatingAccent
+          variant="ball"
+          size="w-20 md:w-28"
+          className="left-[8%] top-[18%] z-10 hidden md:block"
+          opacity={0.7}
+          rotate={-12}
+        />
         <div
           className="absolute inset-0 bg-gradient-hero"
           aria-hidden="true"
