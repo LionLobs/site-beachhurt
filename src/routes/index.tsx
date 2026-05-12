@@ -649,7 +649,7 @@ function Index() {
           </Reveal>
 
           <div className="mt-16">
-            <HScroll mdGridClassName="md:grid-cols-3" gapClassName="gap-6">
+            <HScroll mdGridClassName="md:grid-cols-3" gapClassName="gap-4 md:gap-6" fadeFromClassName="from-secondary">
               {[
                 {
                   kicker: "Antes",
