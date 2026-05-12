@@ -49,7 +49,10 @@ export function Fundamentals() {
           className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-background to-transparent md:w-24"
         />
 
-        <div className="scrollbar-none flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-4 md:gap-6 md:px-12">
+        <div
+          className="flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-4 md:gap-6 md:px-12 [&::-webkit-scrollbar]:hidden"
+          style={{ scrollbarWidth: "none" }}
+        >
           {PILLARS.map(({ icon: Icon, name, tag, desc }, i) => (
             <Reveal
               key={name}
