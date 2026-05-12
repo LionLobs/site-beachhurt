@@ -667,7 +667,7 @@ function Index() {
                   text: "Confiança que se vê no primeiro ponto. Adversários sentindo que algo mudou. E mudou — em você.",
                 },
               ].map((step, i) => (
-                <HScrollItem key={step.kicker}>
+                <HScrollItem key={step.kicker} basis="min-w-[82%] sm:min-w-[60%]">
                   <Reveal delay={i * 140}>
                     <div className="group relative h-full overflow-hidden rounded-3xl border border-border/40 bg-card/60 p-7 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:border-primary/40 hover:shadow-glow">
                       <div className="absolute -right-8 -top-8 h-24 w-24 animate-morph bg-gradient-primary opacity-20 blur-2xl transition-opacity duration-500 group-hover:opacity-40" />
