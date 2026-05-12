@@ -25,6 +25,7 @@ import { SurrealCanvas } from "@/components/SurrealCanvas";
 import { KineticText } from "@/components/KineticText";
 import { AIEvaluation } from "@/components/AIEvaluation";
 import { Packages } from "@/components/Packages";
+import { SiteHeader } from "@/components/SiteHeader";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
