@@ -59,7 +59,7 @@ export function SiteHeader() {
         )}
       >
         <div className="pointer-events-none absolute inset-x-0 -bottom-px h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-2 sm:px-6 sm:py-2.5">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3 sm:px-8 sm:py-3.5">
           <button
             onClick={() => handleClick("#top")}
             className="group flex items-center gap-2"
@@ -68,9 +68,9 @@ export function SiteHeader() {
             <img
               src={logoVH}
               alt="Beach Hurt"
-              width={200}
-              height={72}
-              className="h-10 w-auto object-contain transition-transform duration-700 group-hover:scale-[1.03] sm:h-14 md:h-16"
+              width={240}
+              height={88}
+              className="h-12 w-auto object-contain transition-transform duration-700 group-hover:scale-[1.03] sm:h-16 md:h-20"
             />
           </button>
 
