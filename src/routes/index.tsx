@@ -644,43 +644,39 @@ function Index() {
             </KineticText>
           </Reveal>
 
-          <div className="mt-16">
-            <HScroll mdGridClassName="md:grid-cols-3" gapClassName="gap-4 md:gap-6" fadeFromClassName="from-secondary">
-              {[
-                {
-                  kicker: "Antes",
-                  title: "Você sente que pode mais",
-                  text: "A bola escapa, o saque trai, o jogo passa rápido demais. Falta o detalhe — aquele que ninguém te mostrou.",
-                },
-                {
-                  kicker: "Durante",
-                  title: "Tudo desacelera",
-                  text: "Cada aula é um mergulho. Técnica refinada, leitura afiada, corpo que responde antes do pensamento.",
-                },
-                {
-                  kicker: "Depois",
-                  title: "Você joga outro jogo",
-                  text: "Confiança que se vê no primeiro ponto. Adversários sentindo que algo mudou. E mudou — em você.",
-                },
-              ].map((step, i) => (
-                <HScrollItem key={step.kicker} basis="min-w-[82%] sm:min-w-[60%]">
-                  <Reveal delay={i * 140}>
-                    <div className="group relative h-full overflow-hidden rounded-3xl border border-border/40 bg-card/60 p-5 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:border-primary/40 hover:shadow-glow sm:p-6 md:p-7">
-                      <div className="absolute -right-8 -top-8 h-24 w-24 animate-morph bg-gradient-primary opacity-20 blur-2xl transition-opacity duration-500 group-hover:opacity-40" />
-                      <p className="relative font-display text-[11px] uppercase tracking-[0.35em] text-primary-glow sm:text-xs sm:tracking-[0.4em]">
-                        {step.kicker}
-                      </p>
-                      <h3 className="relative mt-3 font-display text-xl font-bold text-foreground sm:text-2xl">
-                        {step.title}
-                      </h3>
-                      <p className="relative mt-3 text-sm leading-relaxed text-muted-foreground sm:mt-4">
-                        {step.text}
-                      </p>
-                    </div>
-                  </Reveal>
-                </HScrollItem>
-              ))}
-            </HScroll>
+          <div className="mt-16 grid gap-4 md:grid-cols-3 md:gap-6">
+            {[
+              {
+                kicker: "Antes",
+                title: "Você sente que pode mais",
+                text: "A bola escapa, o saque trai, o jogo passa rápido demais. Falta o detalhe — aquele que ninguém te mostrou.",
+              },
+              {
+                kicker: "Durante",
+                title: "Tudo desacelera",
+                text: "Cada aula é um mergulho. Técnica refinada, leitura afiada, corpo que responde antes do pensamento.",
+              },
+              {
+                kicker: "Depois",
+                title: "Você joga outro jogo",
+                text: "Confiança que se vê no primeiro ponto. Adversários sentindo que algo mudou. E mudou — em você.",
+              },
+            ].map((step, i) => (
+              <Reveal key={step.kicker} delay={i * 140}>
+                <div className="group relative h-full overflow-hidden rounded-3xl border border-border/40 bg-card/60 p-6 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:border-primary/40 hover:shadow-glow md:p-7">
+                  <div className="absolute -right-8 -top-8 h-24 w-24 animate-morph bg-gradient-primary opacity-20 blur-2xl transition-opacity duration-500 group-hover:opacity-40" />
+                  <p className="relative font-display text-xs uppercase tracking-[0.4em] text-primary-glow">
+                    {step.kicker}
+                  </p>
+                  <h3 className="relative mt-3 font-display text-2xl font-bold text-foreground">
+                    {step.title}
+                  </h3>
+                  <p className="relative mt-4 text-sm leading-relaxed text-muted-foreground">
+                    {step.text}
+                  </p>
+                </div>
+              </Reveal>
+            ))}
           </div>
 
           <Reveal delay={400} className="mt-16 text-center">
