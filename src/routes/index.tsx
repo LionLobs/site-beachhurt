@@ -337,9 +337,9 @@ function Index() {
           </p>
         </div>
 
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="-mx-6 mt-14 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-2 [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:gap-6 md:overflow-visible md:px-0 md:pb-0 md:grid-cols-2 lg:grid-cols-4" style={{ scrollbarWidth: "none" }}>
           {BENEFITS.map(({ icon: Icon, title, description }, idx) => (
-            <Reveal key={title} delay={idx * 90}>
+            <Reveal key={title} delay={idx * 90} className="min-w-[78%] shrink-0 snap-start sm:min-w-[60%] md:min-w-0 md:shrink">
               <Card className="group relative h-full overflow-hidden border-border/60 hover-lift">
                 <div className="absolute inset-x-0 top-0 h-1 bg-gradient-primary opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                 <CardContent className="p-6">
@@ -551,7 +551,7 @@ function Index() {
             </h2>
           </Reveal>
 
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="-mx-6 flex snap-x snap-mandatory gap-6 overflow-x-auto px-6 pb-2 [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:overflow-visible md:px-0 md:pb-0 md:grid-cols-3" style={{ scrollbarWidth: "none" }}>
             {[
               {
                 name: "Marina S.",
@@ -569,7 +569,7 @@ function Index() {
                 text: "Comecei do zero e em pouco tempo já estava jogando com confiança. Didática incrível.",
               },
             ].map((t, i) => (
-              <Reveal key={t.name} delay={i * 100}>
+              <Reveal key={t.name} delay={i * 100} className="min-w-[82%] shrink-0 snap-start sm:min-w-[60%] md:min-w-0 md:shrink">
                 <Card className="h-full border-border/60 bg-card/80 backdrop-blur hover-lift">
                   <CardContent className="p-6">
                     <Quote className="h-7 w-7 text-primary" />
@@ -710,7 +710,7 @@ function Index() {
             </KineticText>
           </Reveal>
 
-          <div className="mt-16 grid gap-6 md:grid-cols-3">
+          <div className="-mx-6 mt-16 flex snap-x snap-mandatory gap-6 overflow-x-auto px-6 pb-2 [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:overflow-visible md:px-0 md:pb-0 md:grid-cols-3" style={{ scrollbarWidth: "none" }}>
             {[
               {
                 kicker: "Antes",
@@ -728,7 +728,7 @@ function Index() {
                 text: "Confiança que se vê no primeiro ponto. Adversários sentindo que algo mudou. E mudou — em você.",
               },
             ].map((step, i) => (
-              <Reveal key={step.kicker} delay={i * 140}>
+              <Reveal key={step.kicker} delay={i * 140} className="min-w-[82%] shrink-0 snap-start sm:min-w-[60%] md:min-w-0 md:shrink">
                 <div className="group relative h-full overflow-hidden rounded-3xl border border-border/40 bg-card/60 p-7 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:border-primary/40 hover:shadow-glow">
                   <div className="absolute -right-8 -top-8 h-24 w-24 animate-morph bg-gradient-primary opacity-20 blur-2xl transition-opacity duration-500 group-hover:opacity-40" />
                   <p className="relative font-display text-xs uppercase tracking-[0.4em] text-primary-glow">
