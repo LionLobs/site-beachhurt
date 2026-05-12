@@ -56,7 +56,7 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const TIME_SLOTS = ["13:00", "14:00", "15:00", "16:00", "17:00", "18:00"];
+const TIME_SLOTS = ["13:00", "14:00", "15:00", "16:00"];
 
 const BENEFITS = [
   {
@@ -259,8 +259,8 @@ function Index() {
               </CardHeader>
               <CardContent className="space-y-3">
                 {[
-                  { day: "Segunda-feira", slots: "13h às 18h" },
-                  { day: "Terça-feira", slots: "13h às 18h" },
+                  { day: "Segunda-feira", slots: "13h às 16h" },
+                  { day: "Terça-feira", slots: "13h às 16h" },
                 ].map((d) => (
                   <div
                     key={d.day}
@@ -371,7 +371,7 @@ function Index() {
               <p className="mt-4 text-muted-foreground">
                 Mantemos uma agenda enxuta para garantir energia, atenção e qualidade em cada
                 aula. Os turnos abrem às <strong>13h</strong> e a última aula começa às{" "}
-                <strong>18h</strong>.
+                <strong>16h</strong>.
               </p>
 
               <div className="mt-8 space-y-4">
