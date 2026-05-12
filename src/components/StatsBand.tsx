@@ -4,8 +4,7 @@ import { Reveal } from "@/components/Reveal";
 
 const STATS = [
   { icon: Trophy, value: 12, suffix: "+", label: "Anos em quadra" },
-  { icon: Users, value: 180, suffix: "+", label: "Atletas treinados" },
-  { icon: Timer, value: 2400, suffix: "h", label: "Horas de areia" },
+  { icon: Timer, value: 12, suffix: "", label: "Anos de quadra" },
   { icon: Flame, value: 100, suffix: "%", label: "Treino individual" },
 ];
 
