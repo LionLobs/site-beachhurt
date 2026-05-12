@@ -11,6 +11,8 @@ interface HScrollProps {
   className?: string;
   /** Show the "Arraste" hint below on mobile. */
   showHint?: boolean;
+  /** Tailwind `from-*` color for the edge fades. Defaults to `from-background`. */
+  fadeFromClassName?: string;
 }
 
 /**
@@ -25,6 +27,7 @@ export function HScroll({
   gapClassName = "gap-4 md:gap-6",
   className = "",
   showHint = true,
+  fadeFromClassName = "from-background",
 }: HScrollProps) {
   const ref = useRef<HTMLDivElement | null>(null);
   const [atStart, setAtStart] = useState(true);
@@ -57,13 +60,13 @@ export function HScroll({
       {/* edge fades — mobile only, only when scrollable */}
       <div
         aria-hidden="true"
-        className={`pointer-events-none absolute inset-y-0 left-0 z-10 w-8 bg-gradient-to-r from-background via-background/80 to-transparent transition-opacity duration-300 md:hidden ${
+        className={`pointer-events-none absolute inset-y-0 left-0 z-10 w-8 bg-gradient-to-r ${fadeFromClassName} to-transparent transition-opacity duration-300 md:hidden ${
           scrollable && !atStart ? "opacity-100" : "opacity-0"
         }`}
       />
       <div
         aria-hidden="true"
-        className={`pointer-events-none absolute inset-y-0 right-0 z-10 w-8 bg-gradient-to-l from-background via-background/80 to-transparent transition-opacity duration-300 md:hidden ${
+        className={`pointer-events-none absolute inset-y-0 right-0 z-10 w-8 bg-gradient-to-l ${fadeFromClassName} to-transparent transition-opacity duration-300 md:hidden ${
           scrollable && !atEnd ? "opacity-100" : "opacity-0"
         }`}
       />
