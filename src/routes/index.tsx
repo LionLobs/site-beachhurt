@@ -259,8 +259,8 @@ function Index() {
               </CardHeader>
               <CardContent className="space-y-3">
                 {[
-                  { day: "Segunda-feira", slots: "13h às 18h" },
-                  { day: "Terça-feira", slots: "13h às 18h" },
+                  { day: "Segunda-feira", slots: "13h às 16h" },
+                  { day: "Terça-feira", slots: "13h às 16h" },
                 ].map((d) => (
                   <div
                     key={d.day}
