@@ -142,37 +142,32 @@ export function SiteHeader() {
             open ? "translate-y-0" : "-translate-y-4",
           )}
         >
-          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-card/95 p-6 shadow-elevated backdrop-blur-2xl">
-            <div className="pointer-events-none absolute -top-20 -right-20 h-48 w-48 rounded-full bg-gradient-primary opacity-30 blur-3xl" />
-            <div className="pointer-events-none absolute -bottom-20 -left-20 h-48 w-48 rounded-full bg-primary/30 blur-3xl" />
-            <nav className="relative flex flex-col gap-1">
+          <div className="relative overflow-hidden rounded-2xl border border-border/30 bg-background/85 p-5 backdrop-blur-2xl">
+            <div className="pointer-events-none absolute -top-24 -right-24 h-44 w-44 rounded-full bg-gradient-primary opacity-15 blur-3xl" />
+            <div className="pointer-events-none absolute -bottom-24 -left-24 h-44 w-44 rounded-full bg-primary/15 blur-3xl" />
+            <nav className="relative flex flex-col">
               {LINKS.map((link, i) => (
                 <button
                   key={link.href}
                   onClick={() => handleClick(link.href)}
-                  style={{ transitionDelay: `${open ? i * 60 : 0}ms` }}
+                  style={{ transitionDelay: `${open ? i * 50 : 0}ms` }}
                   className={cn(
-                    "group flex items-center justify-between rounded-2xl border border-transparent px-4 py-3.5 text-left text-base font-medium text-foreground/90 transition-all duration-500 hover:border-primary/30 hover:bg-primary/5",
-                    open ? "translate-x-0 opacity-100" : "translate-x-4 opacity-0",
+                    "group flex items-center justify-between border-b border-border/20 px-2 py-3.5 text-left text-[15px] font-light tracking-wide text-foreground/85 transition-all duration-500 last:border-b-0 hover:text-foreground",
+                    open ? "translate-x-0 opacity-100" : "translate-x-3 opacity-0",
                   )}
                 >
                   <span>{link.label}</span>
-                  <ArrowRight className="h-4 w-4 -translate-x-1 opacity-0 transition-all group-hover:translate-x-0 group-hover:opacity-100" />
+                  <ArrowRight className="h-3.5 w-3.5 -translate-x-1 text-primary/70 opacity-0 transition-all duration-500 group-hover:translate-x-0 group-hover:opacity-100" />
                 </button>
               ))}
               <Button
-                size="lg"
-                className="mt-4 w-full shadow-md"
+                variant="ghost"
+                size="sm"
+                className="mt-5 h-10 w-full rounded-full border border-border/40 text-[13px] font-normal tracking-wide hover:border-primary/50 hover:bg-primary/5"
                 onClick={() => handleClick("#agendar")}
               >
-                <Sparkles className="mr-1 h-4 w-4" />
+                <Sparkles className="mr-1.5 h-3.5 w-3.5 opacity-70" />
                 Aula experimental
-                <ArrowRight className="ml-1 h-4 w-4" />
               </Button>
             </nav>
           </div>
-        </div>
-      </div>
-    </>
-  );
-}
