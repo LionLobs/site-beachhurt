@@ -60,13 +60,13 @@ export function HScroll({
       {/* edge fades — mobile only, only when scrollable */}
       <div
         aria-hidden="true"
-        className={`pointer-events-none absolute inset-y-0 left-0 z-10 w-8 bg-gradient-to-r from-background via-background/80 to-transparent transition-opacity duration-300 md:hidden ${
+        className={`pointer-events-none absolute inset-y-0 left-0 z-10 w-8 bg-gradient-to-r ${fadeFromClassName} to-transparent transition-opacity duration-300 md:hidden ${
           scrollable && !atStart ? "opacity-100" : "opacity-0"
         }`}
       />
       <div
         aria-hidden="true"
-        className={`pointer-events-none absolute inset-y-0 right-0 z-10 w-8 bg-gradient-to-l from-background via-background/80 to-transparent transition-opacity duration-300 md:hidden ${
+        className={`pointer-events-none absolute inset-y-0 right-0 z-10 w-8 bg-gradient-to-l ${fadeFromClassName} to-transparent transition-opacity duration-300 md:hidden ${
           scrollable && !atEnd ? "opacity-100" : "opacity-0"
         }`}
       />
