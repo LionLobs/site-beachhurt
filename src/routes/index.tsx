@@ -25,7 +25,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { StatsBand } from "@/components/StatsBand";
 import { Fundamentals } from "@/components/Fundamentals";
 import { FloatingAccent } from "@/components/FloatingAccent";
-import { HScroll, HScrollItem } from "@/components/HScroll";
+
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -336,25 +336,21 @@ function Index() {
           </p>
         </div>
 
-        <div className="mt-14">
-          <HScroll mdGridClassName="md:grid-cols-2 lg:grid-cols-4">
-            {BENEFITS.map(({ icon: Icon, title, description }, idx) => (
-              <HScrollItem key={title}>
-                <Reveal delay={idx * 90}>
-                  <Card className="group relative h-full overflow-hidden border-border/60 hover-lift">
-                    <div className="absolute inset-x-0 top-0 h-1 bg-gradient-primary opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                    <CardContent className="p-6">
-                      <div className="mb-4 grid h-12 w-12 place-items-center rounded-xl bg-gradient-primary text-primary-foreground shadow-md transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
-                        <Icon className="h-6 w-6" />
-                      </div>
-                      <h3 className="text-lg font-semibold">{title}</h3>
-                      <p className="mt-2 text-sm text-muted-foreground">{description}</p>
-                    </CardContent>
-                  </Card>
-                </Reveal>
-              </HScrollItem>
-            ))}
-          </HScroll>
+        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {BENEFITS.map(({ icon: Icon, title, description }, idx) => (
+            <Reveal key={title} delay={idx * 90}>
+              <Card className="group relative h-full overflow-hidden border-border/60 hover-lift">
+                <div className="absolute inset-x-0 top-0 h-1 bg-gradient-primary opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                <CardContent className="p-6">
+                  <div className="mb-4 grid h-12 w-12 place-items-center rounded-xl bg-gradient-primary text-primary-foreground shadow-md transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
+                    <Icon className="h-6 w-6" />
+                  </div>
+                  <h3 className="text-lg font-semibold">{title}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground">{description}</p>
+                </CardContent>
+              </Card>
+            </Reveal>
+          ))}
         </div>
       </section>
 
@@ -648,43 +644,39 @@ function Index() {
             </KineticText>
           </Reveal>
 
-          <div className="mt-16">
-            <HScroll mdGridClassName="md:grid-cols-3" gapClassName="gap-4 md:gap-6" fadeFromClassName="from-secondary">
-              {[
-                {
-                  kicker: "Antes",
-                  title: "Você sente que pode mais",
-                  text: "A bola escapa, o saque trai, o jogo passa rápido demais. Falta o detalhe — aquele que ninguém te mostrou.",
-                },
-                {
-                  kicker: "Durante",
-                  title: "Tudo desacelera",
-                  text: "Cada aula é um mergulho. Técnica refinada, leitura afiada, corpo que responde antes do pensamento.",
-                },
-                {
-                  kicker: "Depois",
-                  title: "Você joga outro jogo",
-                  text: "Confiança que se vê no primeiro ponto. Adversários sentindo que algo mudou. E mudou — em você.",
-                },
-              ].map((step, i) => (
-                <HScrollItem key={step.kicker} basis="min-w-[82%] sm:min-w-[60%]">
-                  <Reveal delay={i * 140}>
-                    <div className="group relative h-full overflow-hidden rounded-3xl border border-border/40 bg-card/60 p-5 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:border-primary/40 hover:shadow-glow sm:p-6 md:p-7">
-                      <div className="absolute -right-8 -top-8 h-24 w-24 animate-morph bg-gradient-primary opacity-20 blur-2xl transition-opacity duration-500 group-hover:opacity-40" />
-                      <p className="relative font-display text-[11px] uppercase tracking-[0.35em] text-primary-glow sm:text-xs sm:tracking-[0.4em]">
-                        {step.kicker}
-                      </p>
-                      <h3 className="relative mt-3 font-display text-xl font-bold text-foreground sm:text-2xl">
-                        {step.title}
-                      </h3>
-                      <p className="relative mt-3 text-sm leading-relaxed text-muted-foreground sm:mt-4">
-                        {step.text}
-                      </p>
-                    </div>
-                  </Reveal>
-                </HScrollItem>
-              ))}
-            </HScroll>
+          <div className="mt-16 grid gap-4 md:grid-cols-3 md:gap-6">
+            {[
+              {
+                kicker: "Antes",
+                title: "Você sente que pode mais",
+                text: "A bola escapa, o saque trai, o jogo passa rápido demais. Falta o detalhe — aquele que ninguém te mostrou.",
+              },
+              {
+                kicker: "Durante",
+                title: "Tudo desacelera",
+                text: "Cada aula é um mergulho. Técnica refinada, leitura afiada, corpo que responde antes do pensamento.",
+              },
+              {
+                kicker: "Depois",
+                title: "Você joga outro jogo",
+                text: "Confiança que se vê no primeiro ponto. Adversários sentindo que algo mudou. E mudou — em você.",
+              },
+            ].map((step, i) => (
+              <Reveal key={step.kicker} delay={i * 140}>
+                <div className="group relative h-full overflow-hidden rounded-3xl border border-border/40 bg-card/60 p-6 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:border-primary/40 hover:shadow-glow md:p-7">
+                  <div className="absolute -right-8 -top-8 h-24 w-24 animate-morph bg-gradient-primary opacity-20 blur-2xl transition-opacity duration-500 group-hover:opacity-40" />
+                  <p className="relative font-display text-xs uppercase tracking-[0.4em] text-primary-glow">
+                    {step.kicker}
+                  </p>
+                  <h3 className="relative mt-3 font-display text-2xl font-bold text-foreground">
+                    {step.title}
+                  </h3>
+                  <p className="relative mt-4 text-sm leading-relaxed text-muted-foreground">
+                    {step.text}
+                  </p>
+                </div>
+              </Reveal>
+            ))}
           </div>
 
           <Reveal delay={400} className="mt-16 text-center">
