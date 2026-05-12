@@ -13,8 +13,6 @@ import {
   Mail,
   CheckCircle2,
   ArrowRight,
-  Star,
-  Quote,
   Brain,
 } from "lucide-react";
 
@@ -27,6 +25,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { StatsBand } from "@/components/StatsBand";
 import { Fundamentals } from "@/components/Fundamentals";
 import { FloatingAccent } from "@/components/FloatingAccent";
+import { HScroll, HScrollItem } from "@/components/HScroll";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -337,21 +336,25 @@ function Index() {
           </p>
         </div>
 
-        <div className="-mx-6 mt-14 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-2 [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:gap-6 md:overflow-visible md:px-0 md:pb-0 md:grid-cols-2 lg:grid-cols-4" style={{ scrollbarWidth: "none" }}>
-          {BENEFITS.map(({ icon: Icon, title, description }, idx) => (
-            <Reveal key={title} delay={idx * 90} className="min-w-[78%] shrink-0 snap-start sm:min-w-[60%] md:min-w-0 md:shrink">
-              <Card className="group relative h-full overflow-hidden border-border/60 hover-lift">
-                <div className="absolute inset-x-0 top-0 h-1 bg-gradient-primary opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                <CardContent className="p-6">
-                  <div className="mb-4 grid h-12 w-12 place-items-center rounded-xl bg-gradient-primary text-primary-foreground shadow-md transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
-                    <Icon className="h-6 w-6" />
-                  </div>
-                  <h3 className="text-lg font-semibold">{title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">{description}</p>
-                </CardContent>
-              </Card>
-            </Reveal>
-          ))}
+        <div className="mt-14">
+          <HScroll mdGridClassName="md:grid-cols-2 lg:grid-cols-4">
+            {BENEFITS.map(({ icon: Icon, title, description }, idx) => (
+              <HScrollItem key={title}>
+                <Reveal delay={idx * 90}>
+                  <Card className="group relative h-full overflow-hidden border-border/60 hover-lift">
+                    <div className="absolute inset-x-0 top-0 h-1 bg-gradient-primary opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                    <CardContent className="p-6">
+                      <div className="mb-4 grid h-12 w-12 place-items-center rounded-xl bg-gradient-primary text-primary-foreground shadow-md transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
+                        <Icon className="h-6 w-6" />
+                      </div>
+                      <h3 className="text-lg font-semibold">{title}</h3>
+                      <p className="mt-2 text-sm text-muted-foreground">{description}</p>
+                    </CardContent>
+                  </Card>
+                </Reveal>
+              </HScrollItem>
+            ))}
+          </HScroll>
         </div>
       </section>
 
@@ -529,72 +532,7 @@ function Index() {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="relative overflow-hidden py-20 md:py-28">
-        <div
-          aria-hidden="true"
-          className="absolute -left-24 top-10 h-72 w-72 rounded-full bg-primary/20 blur-3xl animate-float"
-        />
-        <div
-          aria-hidden="true"
-          className="absolute -right-24 bottom-10 h-80 w-80 rounded-full bg-secondary/30 blur-3xl animate-float"
-          style={{ animationDelay: "1.5s" }}
-        />
-
-        <div className="relative mx-auto max-w-6xl px-6">
-          <Reveal className="mx-auto mb-14 max-w-2xl text-center">
-            <Badge variant="secondary" className="mb-4">
-              <Star className="mr-1 h-3 w-3" /> Alunos
-            </Badge>
-            <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
-              Histórias que <span className="text-gradient-primary">saltam</span> da quadra
-            </h2>
-          </Reveal>
-
-          <div className="-mx-6 flex snap-x snap-mandatory gap-6 overflow-x-auto px-6 pb-2 [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:overflow-visible md:px-0 md:pb-0 md:grid-cols-3" style={{ scrollbarWidth: "none" }}>
-            {[
-              {
-                name: "Marina S.",
-                role: "Líbero amadora",
-                text: "Em 6 semanas meu saque viagem virou arma. As correções pontuais fizeram toda a diferença.",
-              },
-              {
-                name: "Rafael T.",
-                role: "Ponteiro",
-                text: "Atenção 100% individual. Saio de cada aula sabendo exatamente o que treinar até a próxima.",
-              },
-              {
-                name: "Carol M.",
-                role: "Iniciante",
-                text: "Comecei do zero e em pouco tempo já estava jogando com confiança. Didática incrível.",
-              },
-            ].map((t, i) => (
-              <Reveal key={t.name} delay={i * 100} className="min-w-[82%] shrink-0 snap-start sm:min-w-[60%] md:min-w-0 md:shrink">
-                <Card className="h-full border-border/60 bg-card/80 backdrop-blur hover-lift">
-                  <CardContent className="p-6">
-                    <Quote className="h-7 w-7 text-primary" />
-                    <p className="mt-4 text-base leading-relaxed text-foreground/90">"{t.text}"</p>
-                    <div className="mt-6 flex items-center gap-3">
-                      <div className="grid h-10 w-10 place-items-center rounded-full bg-gradient-primary font-bold text-primary-foreground shadow-md">
-                        {t.name.charAt(0)}
-                      </div>
-                      <div>
-                        <p className="text-sm font-semibold">{t.name}</p>
-                        <p className="text-xs text-muted-foreground">{t.role}</p>
-                      </div>
-                      <div className="ml-auto flex gap-0.5">
-                        {Array.from({ length: 5 }).map((_, idx) => (
-                          <Star key={idx} className="h-3.5 w-3.5 fill-primary text-primary" />
-                        ))}
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Testimonials removed */}
 
       {/* About the coach */}
       <section id="coach" className="relative mx-auto max-w-6xl px-6 py-20 md:py-28">
@@ -710,39 +648,43 @@ function Index() {
             </KineticText>
           </Reveal>
 
-          <div className="-mx-6 mt-16 flex snap-x snap-mandatory gap-6 overflow-x-auto px-6 pb-2 [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:overflow-visible md:px-0 md:pb-0 md:grid-cols-3" style={{ scrollbarWidth: "none" }}>
-            {[
-              {
-                kicker: "Antes",
-                title: "Você sente que pode mais",
-                text: "A bola escapa, o saque trai, o jogo passa rápido demais. Falta o detalhe — aquele que ninguém te mostrou.",
-              },
-              {
-                kicker: "Durante",
-                title: "Tudo desacelera",
-                text: "Cada aula é um mergulho. Técnica refinada, leitura afiada, corpo que responde antes do pensamento.",
-              },
-              {
-                kicker: "Depois",
-                title: "Você joga outro jogo",
-                text: "Confiança que se vê no primeiro ponto. Adversários sentindo que algo mudou. E mudou — em você.",
-              },
-            ].map((step, i) => (
-              <Reveal key={step.kicker} delay={i * 140} className="min-w-[82%] shrink-0 snap-start sm:min-w-[60%] md:min-w-0 md:shrink">
-                <div className="group relative h-full overflow-hidden rounded-3xl border border-border/40 bg-card/60 p-7 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:border-primary/40 hover:shadow-glow">
-                  <div className="absolute -right-8 -top-8 h-24 w-24 animate-morph bg-gradient-primary opacity-20 blur-2xl transition-opacity duration-500 group-hover:opacity-40" />
-                  <p className="relative font-display text-xs uppercase tracking-[0.4em] text-primary-glow">
-                    {step.kicker}
-                  </p>
-                  <h3 className="relative mt-3 font-display text-2xl font-bold text-foreground">
-                    {step.title}
-                  </h3>
-                  <p className="relative mt-4 text-sm leading-relaxed text-muted-foreground">
-                    {step.text}
-                  </p>
-                </div>
-              </Reveal>
-            ))}
+          <div className="mt-16">
+            <HScroll mdGridClassName="md:grid-cols-3" gapClassName="gap-6">
+              {[
+                {
+                  kicker: "Antes",
+                  title: "Você sente que pode mais",
+                  text: "A bola escapa, o saque trai, o jogo passa rápido demais. Falta o detalhe — aquele que ninguém te mostrou.",
+                },
+                {
+                  kicker: "Durante",
+                  title: "Tudo desacelera",
+                  text: "Cada aula é um mergulho. Técnica refinada, leitura afiada, corpo que responde antes do pensamento.",
+                },
+                {
+                  kicker: "Depois",
+                  title: "Você joga outro jogo",
+                  text: "Confiança que se vê no primeiro ponto. Adversários sentindo que algo mudou. E mudou — em você.",
+                },
+              ].map((step, i) => (
+                <HScrollItem key={step.kicker}>
+                  <Reveal delay={i * 140}>
+                    <div className="group relative h-full overflow-hidden rounded-3xl border border-border/40 bg-card/60 p-7 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:border-primary/40 hover:shadow-glow">
+                      <div className="absolute -right-8 -top-8 h-24 w-24 animate-morph bg-gradient-primary opacity-20 blur-2xl transition-opacity duration-500 group-hover:opacity-40" />
+                      <p className="relative font-display text-xs uppercase tracking-[0.4em] text-primary-glow">
+                        {step.kicker}
+                      </p>
+                      <h3 className="relative mt-3 font-display text-2xl font-bold text-foreground">
+                        {step.title}
+                      </h3>
+                      <p className="relative mt-4 text-sm leading-relaxed text-muted-foreground">
+                        {step.text}
+                      </p>
+                    </div>
+                  </Reveal>
+                </HScrollItem>
+              ))}
+            </HScroll>
           </div>
 
           <Reveal delay={400} className="mt-16 text-center">
