@@ -371,7 +371,7 @@ function Index() {
               <p className="mt-4 text-muted-foreground">
                 Mantemos uma agenda enxuta para garantir energia, atenção e qualidade em cada
                 aula. Os turnos abrem às <strong>13h</strong> e a última aula começa às{" "}
-                <strong>18h</strong>.
+                <strong>16h</strong>.
               </p>
 
               <div className="mt-8 space-y-4">
