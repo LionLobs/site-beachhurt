@@ -43,6 +43,9 @@ import sandCourtImage from "@/assets/sand-court.jpg";
 import ballSandImage from "@/assets/ball-sand.jpg";
 import coachImage from "@/assets/coach-vinicius.jpeg";
 import logoVH from "@/assets/logo-beachhurt.png";
+import actionSpike from "@/assets/action-spike.jpg";
+import actionDig from "@/assets/action-dig.jpg";
+import actionSet from "@/assets/action-set.jpg";
 
 const WHATSAPP_NUMBER = "5548988146267";
 
