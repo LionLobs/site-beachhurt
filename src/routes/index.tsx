@@ -569,7 +569,7 @@ function Index() {
                 text: "Comecei do zero e em pouco tempo já estava jogando com confiança. Didática incrível.",
               },
             ].map((t, i) => (
-              <Reveal key={t.name} delay={i * 100}>
+              <Reveal key={t.name} delay={i * 100} className="min-w-[82%] shrink-0 snap-start sm:min-w-[60%] md:min-w-0 md:shrink">
                 <Card className="h-full border-border/60 bg-card/80 backdrop-blur hover-lift">
                   <CardContent className="p-6">
                     <Quote className="h-7 w-7 text-primary" />
