@@ -197,7 +197,7 @@ function Index() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background" aria-hidden="true" />
         <SurrealCanvas variant="dense" />
-        {/* Floating decorative volleyball */}
+        {/* Floating decorative volleyballs */}
         <div
           aria-hidden="true"
           className="pointer-events-none absolute right-[8%] top-[12%] hidden md:block"
@@ -210,7 +210,46 @@ function Index() {
         </div>
         <div
           aria-hidden="true"
+          className="pointer-events-none absolute left-[4%] top-[28%] hidden md:block"
+          style={{ animationDelay: "1.2s" }}
+        >
+          <div className="animate-float">
+            <div className="grid h-12 w-12 place-items-center rounded-full bg-white/90 text-2xl shadow-glow">
+              🏐
+            </div>
+          </div>
+        </div>
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute right-[22%] bottom-[14%] hidden md:block"
+          style={{ animationDelay: "2.4s" }}
+        >
+          <div className="animate-float">
+            <div className="grid h-10 w-10 place-items-center rounded-full bg-primary/90 text-xl shadow-glow">
+              🏐
+            </div>
+          </div>
+        </div>
+        {/* Glow orbs */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -left-20 top-1/3 h-72 w-72 rounded-full bg-primary/30 blur-3xl"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-20 bottom-0 h-80 w-80 rounded-full bg-secondary/40 blur-3xl"
+        />
+        <div
+          aria-hidden="true"
           className="pointer-events-none absolute bottom-[18%] left-[6%] hidden h-3 w-3 animate-pulse-glow rounded-full bg-primary md:block"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute top-[22%] left-[40%] hidden h-2 w-2 animate-pulse-glow rounded-full bg-primary-glow md:block"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute bottom-[40%] right-[12%] hidden h-2 w-2 animate-pulse-glow rounded-full bg-foreground md:block"
         />
 
         <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-6 py-24 md:grid-cols-2 md:py-32">
