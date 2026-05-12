@@ -561,8 +561,14 @@ function Index() {
       </section>
 
       {/* About the coach */}
-      <section id="coach" className="mx-auto max-w-6xl px-6 py-20 md:py-28">
-        <div className="grid items-center gap-12 md:grid-cols-2">
+      <section id="coach" className="relative mx-auto max-w-6xl overflow-hidden px-6 py-20 md:py-28">
+        <img
+          src={logoVH}
+          alt=""
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-20 top-1/2 hidden w-[520px] -translate-y-1/2 opacity-[0.06] md:block"
+        />
+        <div className="relative grid items-center gap-12 md:grid-cols-2">
           <Reveal>
             <div className="relative">
               <div
