@@ -16,6 +16,8 @@ import {
   Star,
   Quote,
   Brain,
+  Menu,
+  X,
 } from "lucide-react";
 
 import { Reveal } from "@/components/Reveal";
