@@ -409,6 +409,9 @@ function Index() {
         </div>
       </section>
 
+      {/* Fundamentals */}
+      <Fundamentals />
+
       {/* Sand strip with quote */}
       <section className="relative h-80 overflow-hidden md:h-96">
         <img
