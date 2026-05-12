@@ -11,6 +11,8 @@ interface HScrollProps {
   className?: string;
   /** Show the "Arraste" hint below on mobile. */
   showHint?: boolean;
+  /** Tailwind `from-*` color for the edge fades. Defaults to `from-background`. */
+  fadeFromClassName?: string;
 }
 
 /**
