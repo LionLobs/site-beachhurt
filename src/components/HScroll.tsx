@@ -27,6 +27,7 @@ export function HScroll({
   gapClassName = "gap-4 md:gap-6",
   className = "",
   showHint = true,
+  fadeFromClassName = "from-background",
 }: HScrollProps) {
   const ref = useRef<HTMLDivElement | null>(null);
   const [atStart, setAtStart] = useState(true);
