@@ -9,6 +9,7 @@ import {
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
+import faviconUrl from "@/assets/logo-beachhurt.png";
 import { Toaster } from "@/components/ui/sonner";
 
 function NotFoundComponent() {
