@@ -138,7 +138,7 @@ export function SiteHeader() {
         />
         <div
           className={cn(
-            "absolute inset-x-0 top-0 mt-[64px] origin-top px-4 pb-8 transition-transform duration-500",
+            "absolute inset-x-0 top-0 mt-[76px] origin-top px-4 pb-8 transition-transform duration-500",
             open ? "translate-y-0" : "-translate-y-4",
           )}
         >
