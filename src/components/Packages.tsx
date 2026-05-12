@@ -79,9 +79,9 @@ export function Packages({ onSelect }: { onSelect: (pack: string) => void }) {
           </p>
         </Reveal>
 
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="-mx-6 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-2 [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:overflow-visible md:px-0 md:pb-0 md:grid-cols-2 lg:grid-cols-4" style={{ scrollbarWidth: "none" }}>
           {PACKAGES.map((p, i) => (
-            <Reveal key={p.name} delay={i * 100}>
+            <Reveal key={p.name} delay={i * 100} className="min-w-[80%] shrink-0 snap-start sm:min-w-[55%] md:min-w-0 md:shrink">
               <Card
                 className={`relative h-full overflow-hidden border-border/60 transition-all duration-500 hover:-translate-y-1 ${
                   p.featured
