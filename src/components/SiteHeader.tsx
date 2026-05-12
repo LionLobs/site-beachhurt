@@ -52,14 +52,14 @@ export function SiteHeader() {
     <>
       <header
         className={cn(
-          "sticky top-0 z-50 transition-all duration-500",
+          "sticky top-0 z-50 transition-all duration-700",
           scrolled
-            ? "border-b border-white/10 bg-background/70 backdrop-blur-xl shadow-elevated"
-            : "border-b border-transparent bg-background/30 backdrop-blur-md",
+            ? "border-b border-border/30 bg-background/60 backdrop-blur-2xl"
+            : "border-b border-transparent bg-background/20 backdrop-blur-sm",
         )}
       >
-        <div className="pointer-events-none absolute inset-x-0 -bottom-px h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent opacity-70" />
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-2.5 sm:px-6 sm:py-3">
+        <div className="pointer-events-none absolute inset-x-0 -bottom-px h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-2 sm:px-6 sm:py-2.5">
           <button
             onClick={() => handleClick("#top")}
             className="group flex items-center gap-2"
@@ -70,11 +70,11 @@ export function SiteHeader() {
               alt="Beach Hurt"
               width={200}
               height={72}
-              className="h-12 w-auto object-contain transition-transform duration-500 group-hover:scale-105 sm:h-16 md:h-20"
+              className="h-10 w-auto object-contain transition-transform duration-700 group-hover:scale-[1.03] sm:h-14 md:h-16"
             />
           </button>
 
-          <nav className="hidden items-center gap-1 lg:flex">
+          <nav className="hidden items-center gap-0.5 lg:flex">
             {LINKS.map((link) => {
               const isActive = active === link.href.slice(1);
               return (
@@ -82,21 +82,15 @@ export function SiteHeader() {
                   key={link.href}
                   onClick={() => handleClick(link.href)}
                   className={cn(
-                    "group relative rounded-full px-4 py-2 text-sm font-medium transition-colors",
-                    isActive ? "text-foreground" : "text-muted-foreground hover:text-foreground",
+                    "group relative rounded-full px-3.5 py-1.5 text-[13px] font-normal tracking-wide transition-colors duration-500",
+                    isActive ? "text-foreground" : "text-muted-foreground/80 hover:text-foreground",
                   )}
                 >
                   <span className="relative z-10">{link.label}</span>
                   <span
                     className={cn(
-                      "absolute inset-0 rounded-full bg-gradient-primary opacity-0 blur-md transition-opacity duration-300",
-                      isActive && "opacity-30",
-                    )}
-                  />
-                  <span
-                    className={cn(
-                      "absolute inset-x-3 -bottom-0.5 h-px origin-center scale-x-0 bg-gradient-to-r from-transparent via-primary to-transparent transition-transform duration-300 group-hover:scale-x-100",
-                      isActive && "scale-x-100",
+                      "absolute left-1/2 top-1/2 h-1 w-1 -translate-x-1/2 translate-y-3 rounded-full bg-primary/70 transition-all duration-500",
+                      isActive ? "opacity-100" : "opacity-0 group-hover:opacity-60",
                     )}
                   />
                 </button>
@@ -108,28 +102,26 @@ export function SiteHeader() {
             <Button
               asChild
               size="sm"
-              className="hidden shadow-md sm:inline-flex"
+              variant="ghost"
+              className="hidden h-8 rounded-full border border-border/40 px-4 text-[12px] font-normal tracking-wide text-foreground/90 hover:border-primary/50 hover:bg-primary/5 hover:text-foreground sm:inline-flex"
               onClick={(e) => {
                 e.preventDefault();
                 handleClick("#agendar");
               }}
             >
               <a href="#agendar">
-                <Sparkles className="mr-1 h-4 w-4" />
+                <Sparkles className="mr-1.5 h-3.5 w-3.5 opacity-70" />
                 Aula experimental
-                <ArrowRight className="ml-1 h-4 w-4" />
               </a>
             </Button>
             <button
               onClick={() => setOpen((v) => !v)}
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-background/60 text-foreground backdrop-blur-md transition-all hover:bg-primary/10 hover:border-primary/40 lg:hidden"
+              className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border/40 bg-background/40 text-foreground/80 backdrop-blur-md transition-all duration-500 hover:border-primary/40 hover:text-foreground lg:hidden"
               aria-label={open ? "Fechar menu" : "Abrir menu"}
             >
-              {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
             </button>
           </div>
-        </div>
-      </header>
 
       {/* Mobile drawer */}
       <div
