@@ -551,7 +551,7 @@ function Index() {
             </h2>
           </Reveal>
 
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="-mx-6 flex snap-x snap-mandatory gap-6 overflow-x-auto px-6 pb-2 [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:overflow-visible md:px-0 md:pb-0 md:grid-cols-3" style={{ scrollbarWidth: "none" }}>
             {[
               {
                 name: "Marina S.",
