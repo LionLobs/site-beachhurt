@@ -155,7 +155,7 @@ function Index() {
               alt="Beach Hurt — Aulas particulares de vôlei"
               width={200}
               height={72}
-              className="h-16 w-auto object-contain md:h-20"
+              className="h-11 w-auto object-contain md:h-20"
             />
           </a>
           <nav className="hidden gap-7 text-sm font-medium text-muted-foreground md:flex">
