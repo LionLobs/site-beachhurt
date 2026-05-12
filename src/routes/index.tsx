@@ -789,6 +789,20 @@ function Index() {
 
       {/* Booking */}
       <section id="agendar" className="relative mx-auto max-w-4xl overflow-hidden px-6 py-20 md:py-28">
+        <FloatingAccent
+          variant="ball"
+          size="w-24 md:w-32"
+          className="-left-6 top-16 z-0 hidden md:block"
+          opacity={0.4}
+          rotate={-22}
+        />
+        <FloatingAccent
+          variant="ball"
+          size="w-16 md:w-20"
+          className="bottom-20 right-2 z-0 hidden md:block"
+          opacity={0.35}
+          rotate={28}
+        />
         <SurrealCanvas variant="soft" />
         <div className="mx-auto mb-10 max-w-2xl text-center">
           <Badge className="mb-4 bg-gradient-primary text-primary-foreground shadow-md">
