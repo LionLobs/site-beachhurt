@@ -2,6 +2,7 @@ import { Reveal } from "@/components/Reveal";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { HScroll, HScrollItem } from "@/components/HScroll";
 import { CheckCircle2, Sparkles, ArrowRight, Flame } from "lucide-react";
 
 const PACKAGES = [
