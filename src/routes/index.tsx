@@ -457,6 +457,118 @@ function Index() {
         </div>
       </section>
 
+      {/* Cinematic Gallery */}
+      <section id="galeria" className="relative overflow-hidden bg-secondary py-20 text-secondary-foreground md:py-28">
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,oklch(0.72_0.16_55/0.25),transparent_55%)]"
+        />
+        <div
+          aria-hidden="true"
+          className="absolute -left-32 top-1/3 h-80 w-80 rounded-full bg-primary/25 blur-3xl"
+        />
+        <div
+          aria-hidden="true"
+          className="absolute -right-32 bottom-0 h-96 w-96 rounded-full bg-primary/15 blur-3xl"
+        />
+
+        <div className="relative mx-auto max-w-6xl px-6">
+          <Reveal className="mx-auto mb-14 max-w-2xl text-center">
+            <Badge className="mb-4 border-primary/30 bg-primary/10 text-primary-glow backdrop-blur-sm">
+              <Sparkles className="mr-1 h-3 w-3" /> Bastidores
+            </Badge>
+            <h2 className="font-display text-3xl font-bold tracking-tight md:text-5xl">
+              Momentos que <span className="text-gradient-primary">contam histórias</span>
+            </h2>
+            <p className="mt-4 text-secondary-foreground/75 md:text-lg">
+              Cada saque, cada defesa, cada toque na areia. Um vislumbre do que você vai viver.
+            </p>
+          </Reveal>
+
+          <div className="grid gap-6 md:grid-cols-12">
+            <Reveal className="md:col-span-7">
+              <div className="group relative">
+                <div
+                  aria-hidden="true"
+                  className="absolute -inset-1 rounded-3xl bg-gradient-primary opacity-40 blur-2xl transition duration-700 group-hover:opacity-70"
+                />
+                <div className="relative overflow-hidden rounded-3xl border border-white/10 shadow-elevated">
+                  <img
+                    src={actionSpike}
+                    alt="Atleta atacando na quadra de areia ao pôr do sol"
+                    loading="lazy"
+                    className="aspect-[4/5] h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105 md:aspect-[16/11]"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-secondary via-secondary/30 to-transparent opacity-90" />
+                  <div className="absolute inset-x-0 bottom-0 p-7">
+                    <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-primary-glow">
+                      Ataque
+                    </p>
+                    <p className="mt-2 font-display text-2xl font-bold leading-tight text-foreground md:text-3xl">
+                      O salto certo, no tempo certo.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+
+            <div className="grid gap-6 md:col-span-5">
+              <Reveal delay={120}>
+                <div className="group relative">
+                  <div
+                    aria-hidden="true"
+                    className="absolute -inset-1 rounded-3xl bg-primary/40 opacity-30 blur-2xl transition duration-700 group-hover:opacity-60"
+                  />
+                  <div className="relative overflow-hidden rounded-3xl border border-white/10 shadow-elevated">
+                    <img
+                      src={actionDig}
+                      alt="Defesa na areia"
+                      loading="lazy"
+                      className="aspect-[4/3] h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-secondary via-secondary/20 to-transparent opacity-85" />
+                    <div className="absolute inset-x-0 bottom-0 p-6">
+                      <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-primary-glow">
+                        Defesa
+                      </p>
+                      <p className="mt-1.5 font-display text-xl font-bold text-foreground">
+                        Onde outros desistem.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </Reveal>
+
+              <Reveal delay={220}>
+                <div className="group relative">
+                  <div
+                    aria-hidden="true"
+                    className="absolute -inset-1 rounded-3xl bg-gradient-primary opacity-35 blur-2xl transition duration-700 group-hover:opacity-65"
+                  />
+                  <div className="relative overflow-hidden rounded-3xl border border-white/10 shadow-elevated">
+                    <img
+                      src={actionSet}
+                      alt="Levantamento ao pôr do sol"
+                      loading="lazy"
+                      className="aspect-[4/3] h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-secondary via-secondary/20 to-transparent opacity-85" />
+                    <div className="absolute inset-x-0 bottom-0 p-6">
+                      <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-primary-glow">
+                        Levantamento
+                      </p>
+                      <p className="mt-1.5 font-display text-xl font-bold text-foreground">
+                        O detalhe que decide.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </Reveal>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Testimonials */}
       <section className="relative overflow-hidden py-20 md:py-28">
         <div
