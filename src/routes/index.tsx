@@ -26,6 +26,7 @@ import { Packages } from "@/components/Packages";
 import { SiteHeader } from "@/components/SiteHeader";
 import { StatsBand } from "@/components/StatsBand";
 import { Fundamentals } from "@/components/Fundamentals";
+import { FloatingAccent } from "@/components/FloatingAccent";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -157,6 +158,20 @@ function Index() {
 
       {/* Hero */}
       <section id="top" className="relative overflow-hidden">
+        <FloatingAccent
+          variant="player"
+          size="w-48 md:w-72 lg:w-96"
+          className="-right-10 top-10 z-10 md:right-4 lg:right-12"
+          opacity={0.55}
+          rotate={-6}
+        />
+        <FloatingAccent
+          variant="ball"
+          size="w-20 md:w-28"
+          className="left-[8%] top-[18%] z-10 hidden md:block"
+          opacity={0.7}
+          rotate={-12}
+        />
         <div
           className="absolute inset-0 bg-gradient-hero"
           aria-hidden="true"
@@ -301,7 +316,14 @@ function Index() {
       </div>
 
       {/* Benefits */}
-      <section id="beneficios" className="mx-auto max-w-6xl px-6 py-20 md:py-28">
+      <section id="beneficios" className="relative mx-auto max-w-6xl px-6 py-20 md:py-28">
+        <FloatingAccent
+          variant="ball"
+          size="w-32 md:w-44"
+          className="-right-6 top-10 z-0"
+          opacity={0.45}
+          rotate={18}
+        />
         <div className="mx-auto max-w-2xl text-center">
           <Badge variant="secondary" className="mb-4">
             Por que treinar comigo
@@ -575,7 +597,14 @@ function Index() {
       </section>
 
       {/* About the coach */}
-      <section id="coach" className="mx-auto max-w-6xl px-6 py-20 md:py-28">
+      <section id="coach" className="relative mx-auto max-w-6xl px-6 py-20 md:py-28">
+        <FloatingAccent
+          variant="whistle"
+          size="w-28 md:w-36"
+          className="-left-4 top-12 z-0 md:left-2"
+          opacity={0.4}
+          rotate={-15}
+        />
         <div className="grid items-center gap-12 md:grid-cols-2">
           <Reveal>
             <div className="relative">
@@ -760,6 +789,20 @@ function Index() {
 
       {/* Booking */}
       <section id="agendar" className="relative mx-auto max-w-4xl overflow-hidden px-6 py-20 md:py-28">
+        <FloatingAccent
+          variant="ball"
+          size="w-24 md:w-32"
+          className="-left-6 top-16 z-0 hidden md:block"
+          opacity={0.4}
+          rotate={-22}
+        />
+        <FloatingAccent
+          variant="ball"
+          size="w-16 md:w-20"
+          className="bottom-20 right-2 z-0 hidden md:block"
+          opacity={0.35}
+          rotate={28}
+        />
         <SurrealCanvas variant="soft" />
         <div className="mx-auto mb-10 max-w-2xl text-center">
           <Badge className="mb-4 bg-gradient-primary text-primary-foreground shadow-md">
