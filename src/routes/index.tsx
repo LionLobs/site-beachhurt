@@ -336,21 +336,25 @@ function Index() {
           </p>
         </div>
 
-        <div className="-mx-6 mt-14 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-2 [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:gap-6 md:overflow-visible md:px-0 md:pb-0 md:grid-cols-2 lg:grid-cols-4" style={{ scrollbarWidth: "none" }}>
-          {BENEFITS.map(({ icon: Icon, title, description }, idx) => (
-            <Reveal key={title} delay={idx * 90} className="min-w-[78%] shrink-0 snap-start sm:min-w-[60%] md:min-w-0 md:shrink">
-              <Card className="group relative h-full overflow-hidden border-border/60 hover-lift">
-                <div className="absolute inset-x-0 top-0 h-1 bg-gradient-primary opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                <CardContent className="p-6">
-                  <div className="mb-4 grid h-12 w-12 place-items-center rounded-xl bg-gradient-primary text-primary-foreground shadow-md transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
-                    <Icon className="h-6 w-6" />
-                  </div>
-                  <h3 className="text-lg font-semibold">{title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">{description}</p>
-                </CardContent>
-              </Card>
-            </Reveal>
-          ))}
+        <div className="mt-14">
+          <HScroll mdGridClassName="md:grid-cols-2 lg:grid-cols-4">
+            {BENEFITS.map(({ icon: Icon, title, description }, idx) => (
+              <HScrollItem key={title}>
+                <Reveal delay={idx * 90}>
+                  <Card className="group relative h-full overflow-hidden border-border/60 hover-lift">
+                    <div className="absolute inset-x-0 top-0 h-1 bg-gradient-primary opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                    <CardContent className="p-6">
+                      <div className="mb-4 grid h-12 w-12 place-items-center rounded-xl bg-gradient-primary text-primary-foreground shadow-md transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
+                        <Icon className="h-6 w-6" />
+                      </div>
+                      <h3 className="text-lg font-semibold">{title}</h3>
+                      <p className="mt-2 text-sm text-muted-foreground">{description}</p>
+                    </CardContent>
+                  </Card>
+                </Reveal>
+              </HScrollItem>
+            ))}
+          </HScroll>
         </div>
       </section>
 
