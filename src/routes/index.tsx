@@ -316,7 +316,14 @@ function Index() {
       </div>
 
       {/* Benefits */}
-      <section id="beneficios" className="mx-auto max-w-6xl px-6 py-20 md:py-28">
+      <section id="beneficios" className="relative mx-auto max-w-6xl px-6 py-20 md:py-28">
+        <FloatingAccent
+          variant="ball"
+          size="w-32 md:w-44"
+          className="-right-6 top-10 z-0"
+          opacity={0.45}
+          rotate={18}
+        />
         <div className="mx-auto max-w-2xl text-center">
           <Badge variant="secondary" className="mb-4">
             Por que treinar comigo
