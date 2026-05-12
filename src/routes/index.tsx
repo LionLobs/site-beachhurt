@@ -337,9 +337,9 @@ function Index() {
           </p>
         </div>
 
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="-mx-6 mt-14 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-2 [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:gap-6 md:overflow-visible md:px-0 md:pb-0 md:grid-cols-2 lg:grid-cols-4" style={{ scrollbarWidth: "none" }}>
           {BENEFITS.map(({ icon: Icon, title, description }, idx) => (
-            <Reveal key={title} delay={idx * 90}>
+            <Reveal key={title} delay={idx * 90} className="min-w-[78%] shrink-0 snap-start sm:min-w-[60%] md:min-w-0 md:shrink">
               <Card className="group relative h-full overflow-hidden border-border/60 hover-lift">
                 <div className="absolute inset-x-0 top-0 h-1 bg-gradient-primary opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                 <CardContent className="p-6">
