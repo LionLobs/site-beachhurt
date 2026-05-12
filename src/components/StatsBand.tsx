@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Trophy, Timer, Users, Flame } from "lucide-react";
+import { Trophy, Timer, Flame } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 
 const STATS = [
