@@ -1,11 +1,10 @@
 import { useEffect, useRef, useState } from "react";
-import { Trophy, Timer, Users, Flame } from "lucide-react";
+import { Trophy, Timer, Flame } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 
 const STATS = [
   { icon: Trophy, value: 12, suffix: "+", label: "Anos em quadra" },
-  { icon: Users, value: 180, suffix: "+", label: "Atletas treinados" },
-  { icon: Timer, value: 2400, suffix: "h", label: "Horas de areia" },
+  { icon: Timer, value: 12, suffix: "", label: "Anos de quadra" },
   { icon: Flame, value: 100, suffix: "%", label: "Treino individual" },
 ];
 
@@ -85,7 +84,7 @@ export function StatsBand() {
         className="absolute -right-32 top-1/2 h-72 w-72 -translate-y-1/2 rounded-full bg-primary-glow/10 blur-3xl"
       />
 
-      <div className="relative mx-auto grid max-w-5xl grid-cols-2 gap-y-10 px-6 md:grid-cols-4 md:gap-y-0">
+      <div className="relative mx-auto grid max-w-4xl grid-cols-1 gap-y-10 px-6 sm:grid-cols-3 sm:gap-y-0">
         {STATS.map((s, i) => (
           <StatItem key={s.label} stat={s} start={start} delay={i * 100} />
         ))}
