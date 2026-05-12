@@ -79,38 +79,38 @@ export function Packages({ onSelect }: { onSelect: (pack: string) => void }) {
           </p>
         </Reveal>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {PACKAGES.map((p, i) => (
-            <Reveal key={p.name} delay={i * 120}>
+            <Reveal key={p.name} delay={i * 100}>
               <Card
-                className={`relative h-full overflow-hidden border-border/60 transition-all duration-500 hover:-translate-y-2 ${
+                className={`relative h-full overflow-hidden border-border/60 transition-all duration-500 hover:-translate-y-1 ${
                   p.featured
                     ? "border-primary/50 bg-gradient-to-br from-primary/8 to-card shadow-glow"
                     : "bg-card hover:shadow-elevated"
                 }`}
               >
                 {p.featured && (
-                  <div className="absolute -right-12 top-6 rotate-45 bg-gradient-primary px-12 py-1 text-xs font-bold uppercase tracking-wider text-primary-foreground shadow-md">
+                  <div className="absolute -right-10 top-4 rotate-45 bg-gradient-primary px-10 py-0.5 text-[10px] font-bold uppercase tracking-wider text-primary-foreground shadow-md">
                     Mais escolhido
                   </div>
                 )}
-                <CardContent className="flex h-full flex-col p-7">
-                  <div className="mb-4 flex items-center gap-2">
-                    {p.featured && <Flame className="h-5 w-5 text-primary" />}
-                    <h3 className="font-display text-2xl font-bold">{p.name}</h3>
+                <CardContent className="flex h-full flex-col p-4 sm:p-5">
+                  <div className="mb-2 flex items-center gap-1.5">
+                    {p.featured && <Flame className="h-4 w-4 text-primary" />}
+                    <h3 className="font-display text-lg font-bold sm:text-xl">{p.name}</h3>
                   </div>
-                  <div className="mb-1">
-                    <span className="font-display text-4xl font-bold text-primary">{p.price}</span>
+                  <div className="mb-0.5">
+                    <span className="font-display text-2xl font-bold text-primary sm:text-3xl">{p.price}</span>
                   </div>
-                  <p className="mb-4 text-xs uppercase tracking-wider text-muted-foreground">
+                  <p className="mb-3 text-[10px] uppercase tracking-wider text-muted-foreground">
                     {p.unit}
                   </p>
-                  <p className="mb-6 text-sm text-foreground/80">{p.description}</p>
+                  <p className="mb-4 text-xs text-foreground/80 sm:text-sm">{p.description}</p>
 
-                  <ul className="mb-8 flex-1 space-y-3">
+                  <ul className="mb-5 flex-1 space-y-2">
                     {p.perks.map((perk) => (
-                      <li key={perk} className="flex items-start gap-2 text-sm">
-                        <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                      <li key={perk} className="flex items-start gap-2 text-xs sm:text-[13px]">
+                        <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" />
                         <span className="text-foreground/85">{perk}</span>
                       </li>
                     ))}
@@ -118,12 +118,12 @@ export function Packages({ onSelect }: { onSelect: (pack: string) => void }) {
 
                   <Button
                     onClick={() => onSelect(p.name)}
-                    size="lg"
+                    size="sm"
                     variant={p.featured ? "default" : "outline"}
                     className={p.featured ? "w-full shadow-glow" : "w-full"}
                   >
                     {p.cta}
-                    <ArrowRight className="ml-2 h-4 w-4" />
+                    <ArrowRight className="ml-2 h-3.5 w-3.5" />
                   </Button>
                 </CardContent>
               </Card>
