@@ -84,7 +84,7 @@ export function StatsBand() {
         className="absolute -right-32 top-1/2 h-72 w-72 -translate-y-1/2 rounded-full bg-primary-glow/10 blur-3xl"
       />
 
-      <div className="relative mx-auto grid max-w-5xl grid-cols-2 gap-y-10 px-6 md:grid-cols-4 md:gap-y-0">
+      <div className="relative mx-auto grid max-w-4xl grid-cols-1 gap-y-10 px-6 sm:grid-cols-3 sm:gap-y-0">
         {STATS.map((s, i) => (
           <StatItem key={s.label} stat={s} start={start} delay={i * 100} />
         ))}
