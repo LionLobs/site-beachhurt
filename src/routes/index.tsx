@@ -13,7 +13,6 @@ import {
   Mail,
   CheckCircle2,
   ArrowRight,
-  Brain as _Brain,
   Brain,
 } from "lucide-react";
 
