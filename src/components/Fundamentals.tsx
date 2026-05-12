@@ -36,9 +36,29 @@ export function Fundamentals() {
           </p>
         </Reveal>
 
-        <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      </div>
+
+      <div className="relative mt-14">
+        {/* edge fades */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 bg-gradient-to-r from-background to-transparent md:w-24"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-background to-transparent md:w-24"
+        />
+
+        <div
+          className="flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-4 md:gap-6 md:px-12 [&::-webkit-scrollbar]:hidden"
+          style={{ scrollbarWidth: "none" }}
+        >
           {PILLARS.map(({ icon: Icon, name, tag, desc }, i) => (
-            <Reveal key={name} delay={i * 80}>
+            <Reveal
+              key={name}
+              delay={i * 80}
+              className="snap-start shrink-0 basis-[78%] sm:basis-[44%] md:basis-[34%] lg:basis-[28%]"
+            >
               <div className="group relative h-full overflow-hidden rounded-2xl border border-border/50 bg-card/60 p-6 backdrop-blur-sm transition-all duration-500 hover:-translate-y-1 hover:border-primary/40 hover:bg-card/90 hover:shadow-elevated">
                 <div
                   aria-hidden="true"
@@ -59,6 +79,10 @@ export function Fundamentals() {
             </Reveal>
           ))}
         </div>
+
+        <p className="mt-4 text-center text-xs text-muted-foreground/70">
+          Arraste para o lado para ver todos os pilares →
+        </p>
       </div>
     </section>
   );
