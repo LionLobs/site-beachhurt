@@ -26,6 +26,7 @@ import { Packages } from "@/components/Packages";
 import { SiteHeader } from "@/components/SiteHeader";
 import { StatsBand } from "@/components/StatsBand";
 import { Fundamentals } from "@/components/Fundamentals";
+import { FloatingAccent } from "@/components/FloatingAccent";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
