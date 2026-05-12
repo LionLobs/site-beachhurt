@@ -80,57 +80,59 @@ export function Packages({ onSelect }: { onSelect: (pack: string) => void }) {
           </p>
         </Reveal>
 
-        <div className="-mx-6 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-2 [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:overflow-visible md:px-0 md:pb-0 md:grid-cols-2 lg:grid-cols-4" style={{ scrollbarWidth: "none" }}>
+        <HScroll mdGridClassName="md:grid-cols-2 lg:grid-cols-4">
           {PACKAGES.map((p, i) => (
-            <Reveal key={p.name} delay={i * 100} className="min-w-[80%] shrink-0 snap-start sm:min-w-[55%] md:min-w-0 md:shrink">
-              <Card
-                className={`relative h-full overflow-hidden border-border/60 transition-all duration-500 hover:-translate-y-1 ${
-                  p.featured
-                    ? "border-primary/50 bg-gradient-to-br from-primary/8 to-card shadow-glow"
-                    : "bg-card hover:shadow-elevated"
-                }`}
-              >
-                {p.featured && (
-                  <div className="absolute -right-10 top-4 rotate-45 bg-gradient-primary px-10 py-0.5 text-[10px] font-bold uppercase tracking-wider text-primary-foreground shadow-md">
-                    Mais escolhido
-                  </div>
-                )}
-                <CardContent className="flex h-full flex-col p-4 sm:p-5">
-                  <div className="mb-2 flex items-center gap-1.5">
-                    {p.featured && <Flame className="h-4 w-4 text-primary" />}
-                    <h3 className="font-display text-lg font-bold sm:text-xl">{p.name}</h3>
-                  </div>
-                  <div className="mb-0.5">
-                    <span className="font-display text-2xl font-bold text-primary sm:text-3xl">{p.price}</span>
-                  </div>
-                  <p className="mb-3 text-[10px] uppercase tracking-wider text-muted-foreground">
-                    {p.unit}
-                  </p>
-                  <p className="mb-4 text-xs text-foreground/80 sm:text-sm">{p.description}</p>
+            <HScrollItem key={p.name}>
+              <Reveal delay={i * 100}>
+                <Card
+                  className={`relative h-full overflow-hidden border-border/60 transition-all duration-500 hover:-translate-y-1 ${
+                    p.featured
+                      ? "border-primary/50 bg-gradient-to-br from-primary/8 to-card shadow-glow"
+                      : "bg-card hover:shadow-elevated"
+                  }`}
+                >
+                  {p.featured && (
+                    <div className="absolute -right-10 top-4 rotate-45 bg-gradient-primary px-10 py-0.5 text-[10px] font-bold uppercase tracking-wider text-primary-foreground shadow-md">
+                      Mais escolhido
+                    </div>
+                  )}
+                  <CardContent className="flex h-full flex-col p-4 sm:p-5">
+                    <div className="mb-2 flex items-center gap-1.5">
+                      {p.featured && <Flame className="h-4 w-4 text-primary" />}
+                      <h3 className="font-display text-lg font-bold sm:text-xl">{p.name}</h3>
+                    </div>
+                    <div className="mb-0.5">
+                      <span className="font-display text-2xl font-bold text-primary sm:text-3xl">{p.price}</span>
+                    </div>
+                    <p className="mb-3 text-[10px] uppercase tracking-wider text-muted-foreground">
+                      {p.unit}
+                    </p>
+                    <p className="mb-4 text-xs text-foreground/80 sm:text-sm">{p.description}</p>
 
-                  <ul className="mb-5 flex-1 space-y-2">
-                    {p.perks.map((perk) => (
-                      <li key={perk} className="flex items-start gap-2 text-xs sm:text-[13px]">
-                        <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" />
-                        <span className="text-foreground/85">{perk}</span>
-                      </li>
-                    ))}
-                  </ul>
+                    <ul className="mb-5 flex-1 space-y-2">
+                      {p.perks.map((perk) => (
+                        <li key={perk} className="flex items-start gap-2 text-xs sm:text-[13px]">
+                          <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" />
+                          <span className="text-foreground/85">{perk}</span>
+                        </li>
+                      ))}
+                    </ul>
 
-                  <Button
-                    onClick={() => onSelect(p.name)}
-                    size="sm"
-                    variant={p.featured ? "default" : "outline"}
-                    className={p.featured ? "w-full shadow-glow" : "w-full"}
-                  >
-                    {p.cta}
-                    <ArrowRight className="ml-2 h-3.5 w-3.5" />
-                  </Button>
-                </CardContent>
-              </Card>
-            </Reveal>
+                    <Button
+                      onClick={() => onSelect(p.name)}
+                      size="sm"
+                      variant={p.featured ? "default" : "outline"}
+                      className={p.featured ? "w-full shadow-glow" : "w-full"}
+                    >
+                      {p.cta}
+                      <ArrowRight className="ml-2 h-3.5 w-3.5" />
+                    </Button>
+                  </CardContent>
+                </Card>
+              </Reveal>
+            </HScrollItem>
           ))}
-        </div>
+        </HScroll>
 
         <p className="mt-10 text-center text-sm text-muted-foreground">
           Parcelamento em até 3x sem juros · Pagamento via PIX, cartão ou transferência
