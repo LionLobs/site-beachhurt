@@ -22,7 +22,7 @@ import { KineticText } from "@/components/KineticText";
 import { AIEvaluation } from "@/components/AIEvaluation";
 import { Packages } from "@/components/Packages";
 import { SiteHeader } from "@/components/SiteHeader";
-import { StatsBand } from "@/components/StatsBand";
+
 import { Fundamentals } from "@/components/Fundamentals";
 import { FloatingAccent } from "@/components/FloatingAccent";
 
