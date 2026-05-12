@@ -155,7 +155,7 @@ function Index() {
               alt="Beach Hurt — Aulas particulares de vôlei"
               width={200}
               height={72}
-              className="h-16 w-auto object-contain md:h-20"
+              className="h-11 w-auto object-contain md:h-20"
             />
           </a>
           <nav className="hidden gap-7 text-sm font-medium text-muted-foreground md:flex">
@@ -200,32 +200,32 @@ function Index() {
         {/* Floating decorative volleyballs */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute right-[8%] top-[12%] hidden md:block"
+          className="pointer-events-none absolute right-[6%] top-[8%] md:right-[8%] md:top-[12%]"
         >
           <div className="animate-float">
-            <div className="grid h-20 w-20 animate-spin-slow place-items-center rounded-full bg-white text-4xl shadow-glow">
+            <div className="grid h-10 w-10 animate-spin-slow place-items-center rounded-full bg-white text-xl shadow-glow md:h-20 md:w-20 md:text-4xl">
               🏐
             </div>
           </div>
         </div>
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute left-[4%] top-[28%] hidden md:block"
+          className="pointer-events-none absolute left-[5%] top-[22%] md:left-[4%] md:top-[28%]"
           style={{ animationDelay: "1.2s" }}
         >
           <div className="animate-float">
-            <div className="grid h-12 w-12 place-items-center rounded-full bg-white/90 text-2xl shadow-glow">
+            <div className="grid h-7 w-7 place-items-center rounded-full bg-white/90 text-sm shadow-glow md:h-12 md:w-12 md:text-2xl">
               🏐
             </div>
           </div>
         </div>
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute right-[22%] bottom-[14%] hidden md:block"
+          className="pointer-events-none absolute right-[18%] bottom-[10%] md:right-[22%] md:bottom-[14%]"
           style={{ animationDelay: "2.4s" }}
         >
           <div className="animate-float">
-            <div className="grid h-10 w-10 place-items-center rounded-full bg-primary/90 text-xl shadow-glow">
+            <div className="grid h-6 w-6 place-items-center rounded-full bg-primary/90 text-xs shadow-glow md:h-10 md:w-10 md:text-xl">
               🏐
             </div>
           </div>
@@ -233,23 +233,23 @@ function Index() {
         {/* Glow orbs */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute -left-20 top-1/3 h-72 w-72 rounded-full bg-primary/30 blur-3xl"
+          className="pointer-events-none absolute -left-16 top-1/3 h-40 w-40 rounded-full bg-primary/30 blur-3xl md:-left-20 md:h-72 md:w-72"
         />
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute -right-20 bottom-0 h-80 w-80 rounded-full bg-secondary/40 blur-3xl"
+          className="pointer-events-none absolute -right-16 bottom-0 h-48 w-48 rounded-full bg-secondary/40 blur-3xl md:-right-20 md:h-80 md:w-80"
         />
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute bottom-[18%] left-[6%] hidden h-3 w-3 animate-pulse-glow rounded-full bg-primary md:block"
+          className="pointer-events-none absolute bottom-[18%] left-[6%] h-2 w-2 animate-pulse-glow rounded-full bg-primary md:h-3 md:w-3"
         />
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute top-[22%] left-[40%] hidden h-2 w-2 animate-pulse-glow rounded-full bg-primary-glow md:block"
+          className="pointer-events-none absolute top-[22%] left-[40%] h-1.5 w-1.5 animate-pulse-glow rounded-full bg-primary-glow md:h-2 md:w-2"
         />
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute bottom-[40%] right-[12%] hidden h-2 w-2 animate-pulse-glow rounded-full bg-foreground md:block"
+          className="pointer-events-none absolute bottom-[40%] right-[12%] h-1.5 w-1.5 animate-pulse-glow rounded-full bg-foreground md:h-2 md:w-2"
         />
 
         <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-6 py-24 md:grid-cols-2 md:py-32">
