@@ -710,7 +710,7 @@ function Index() {
             </KineticText>
           </Reveal>
 
-          <div className="mt-16 grid gap-6 md:grid-cols-3">
+          <div className="-mx-6 mt-16 flex snap-x snap-mandatory gap-6 overflow-x-auto px-6 pb-2 [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:overflow-visible md:px-0 md:pb-0 md:grid-cols-3" style={{ scrollbarWidth: "none" }}>
             {[
               {
                 kicker: "Antes",
