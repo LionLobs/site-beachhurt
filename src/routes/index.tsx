@@ -597,7 +597,14 @@ function Index() {
       </section>
 
       {/* About the coach */}
-      <section id="coach" className="mx-auto max-w-6xl px-6 py-20 md:py-28">
+      <section id="coach" className="relative mx-auto max-w-6xl px-6 py-20 md:py-28">
+        <FloatingAccent
+          variant="whistle"
+          size="w-28 md:w-36"
+          className="-left-4 top-12 z-0 md:left-2"
+          opacity={0.4}
+          rotate={-15}
+        />
         <div className="grid items-center gap-12 md:grid-cols-2">
           <Reveal>
             <div className="relative">
