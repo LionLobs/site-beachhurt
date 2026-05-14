@@ -204,7 +204,7 @@ function Index() {
 
         <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-6 py-24 md:grid-cols-2 md:py-32">
           <div className="text-foreground">
-            <Badge className="mb-6 bg-foreground/10 text-foreground backdrop-blur-sm hover:bg-foreground/15">
+            <Badge className="mb-6 bg-foreground/10 text-foreground hover:bg-foreground/15">
               <Sparkles className="mr-1 h-3 w-3" /> Aulas particulares
             </Badge>
             <h1 className="text-4xl font-bold leading-[1.05] tracking-tight md:text-6xl">
@@ -225,7 +225,7 @@ function Index() {
                 asChild
                 size="lg"
                 variant="outline"
-                className="border-foreground/20 bg-background/40 text-foreground backdrop-blur-sm hover:bg-background/60"
+                className="border-foreground/20 bg-background/40 text-foreground hover:bg-background/60"
               >
                 <a href="#avaliacao-ia">
                   <Brain className="mr-2 h-4 w-4" /> Avaliação técnica com IA
@@ -249,7 +249,7 @@ function Index() {
           {/* Floating schedule card */}
           <div className="relative md:justify-self-end">
             <div className="absolute -inset-4 rounded-3xl bg-primary/30 blur-3xl" aria-hidden="true" />
-            <Card className="relative w-full max-w-sm overflow-hidden border-white/20 bg-card/95 shadow-elevated backdrop-blur-xl">
+            <Card className="relative w-full max-w-sm overflow-hidden border-white/20 bg-card/95 shadow-elevated">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <CalendarIcon className="h-5 w-5 text-primary" />
@@ -614,7 +614,7 @@ function Index() {
 
         <div className="relative mx-auto max-w-5xl px-6">
           <Reveal className="mx-auto max-w-3xl text-center">
-            <Badge className="mb-6 border-primary/30 bg-primary/10 text-primary-glow backdrop-blur-sm">
+            <Badge className="mb-6 border-primary/30 bg-primary/10 text-primary-glow">
               <Sparkles className="mr-1 h-3 w-3" /> O salto começa antes do salto
             </Badge>
 
@@ -659,7 +659,7 @@ function Index() {
               },
             ].map((step, i) => (
               <Reveal key={step.kicker} delay={i * 140}>
-                <div className="group relative h-full overflow-hidden rounded-3xl border border-border/40 bg-card/60 p-6 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:border-primary/40 hover:shadow-glow md:p-7">
+                <div className="group relative h-full overflow-hidden rounded-3xl border border-border/40 bg-card/60 p-6 transition-all duration-500 hover:-translate-y-2 hover:border-primary/40 hover:shadow-glow md:p-7">
                   <div className="absolute -right-8 -top-8 h-24 w-24 animate-morph bg-gradient-primary opacity-20 blur-2xl transition-opacity duration-500 group-hover:opacity-40" />
                   <p className="relative font-display text-xs uppercase tracking-[0.4em] text-primary-glow">
                     {step.kicker}
@@ -696,7 +696,7 @@ function Index() {
                 asChild
                 size="lg"
                 variant="outline"
-                className="border-primary/30 bg-card/40 text-foreground backdrop-blur-sm hover:bg-card/70"
+                className="border-primary/30 bg-card/40 text-foreground hover:bg-card/70"
               >
                 <a
                   href={`https://wa.me/${WHATSAPP_NUMBER}?text=Ol%C3%A1!%20Quero%20saber%20mais.`}

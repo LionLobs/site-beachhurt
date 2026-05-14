@@ -99,7 +99,7 @@ export function AIEvaluation({ onBook }: { onBook: (pack: string) => void }) {
 
       <div className="relative mx-auto max-w-5xl px-6">
         <Reveal className="mx-auto mb-12 max-w-2xl text-center">
-          <Badge className="mb-4 border-primary/30 bg-primary/10 text-primary backdrop-blur-sm">
+          <Badge className="mb-4 border-primary/30 bg-primary/10 text-primary">
             <Brain className="mr-1 h-3 w-3" /> Avaliação técnica com IA
           </Badge>
           <h2 className="text-3xl font-bold tracking-tight md:text-5xl">
@@ -112,7 +112,7 @@ export function AIEvaluation({ onBook }: { onBook: (pack: string) => void }) {
           </p>
         </Reveal>
 
-        <Card className="overflow-hidden border-border/60 shadow-elevated backdrop-blur-xl">
+        <Card className="overflow-hidden border-border/60 shadow-elevated">
           <div className="h-2 bg-gradient-primary" aria-hidden="true" />
           <CardContent className="p-6 md:p-10">
             <form onSubmit={handleSubmit} className="grid gap-5 md:grid-cols-2">

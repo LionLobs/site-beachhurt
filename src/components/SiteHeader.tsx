@@ -54,8 +54,8 @@ export function SiteHeader() {
         className={cn(
           "sticky top-0 z-50 transition-all duration-700",
           scrolled
-            ? "border-b border-border/30 bg-background/60 backdrop-blur-2xl"
-            : "border-b border-transparent bg-background/20 backdrop-blur-sm",
+            ? "border-b border-border/30 bg-background/90 backdrop-blur-md"
+            : "border-b border-transparent bg-background/40",
         )}
       >
         <div className="pointer-events-none absolute inset-x-0 -bottom-px h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
