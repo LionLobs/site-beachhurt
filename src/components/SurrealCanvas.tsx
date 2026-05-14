@@ -32,7 +32,7 @@ export function SurrealCanvas({
 
       {/* Drifting volleyball — outline ring */}
       <div className="absolute right-[12%] top-[35%] animate-drift-reverse">
-        <div className="h-16 w-16 rounded-full border-2 border-primary-glow/40 backdrop-blur-sm" />
+        <div className="h-16 w-16 rounded-full border-2 border-primary-glow/40" />
       </div>
 
       {/* Orbiting micro-dot cluster */}
@@ -46,7 +46,7 @@ export function SurrealCanvas({
 
       {/* Floating geometric square — tilted */}
       <div
-        className="absolute bottom-[18%] left-[14%] h-14 w-14 rotate-12 animate-tilt rounded-2xl border border-primary/30 bg-card/40 backdrop-blur-sm"
+        className="absolute bottom-[18%] left-[14%] h-14 w-14 rotate-12 animate-tilt rounded-2xl border border-primary/30 bg-card/40"
       />
 
       {/* Pulse dot */}
