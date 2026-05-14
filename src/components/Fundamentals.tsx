@@ -59,7 +59,7 @@ export function Fundamentals() {
               delay={i * 80}
               className="snap-start shrink-0 basis-[78%] sm:basis-[44%] md:basis-[34%] lg:basis-[28%]"
             >
-              <div className="group relative h-full overflow-hidden rounded-2xl border border-border/50 bg-card/60 p-6 backdrop-blur-sm transition-all duration-500 hover:-translate-y-1 hover:border-primary/40 hover:bg-card/90 hover:shadow-elevated">
+              <div className="group relative h-full overflow-hidden rounded-2xl border border-border/50 bg-card/60 p-6 transition-all duration-500 hover:-translate-y-1 hover:border-primary/40 hover:bg-card/90 hover:shadow-elevated">
                 <div
                   aria-hidden="true"
                   className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full bg-gradient-primary opacity-0 blur-3xl transition-opacity duration-700 group-hover:opacity-20"
