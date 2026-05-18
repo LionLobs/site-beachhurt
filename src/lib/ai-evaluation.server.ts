@@ -1,6 +1,7 @@
 import "@tanstack/react-start/server-only";
 
 import { getRequestIP, setResponseHeader, setResponseStatus } from "@tanstack/react-start/server";
+import { supabaseAdmin } from "@/integrations/supabase/client.server";
 
 type EvaluationInput = {
   level: "iniciante" | "intermediario" | "avancado" | "competitivo";
@@ -17,34 +18,43 @@ type GatewayResult = {
 
 const RATE_LIMIT_WINDOW_MS = 60_000;
 const RATE_LIMIT_MAX_REQUESTS = 5;
-// NOTE: This in-memory rate limiter is best-effort only. On Cloudflare Workers,
-// each isolate is short-lived and the Map is not shared across instances.
-// An attacker could bypass the limit by spreading requests across isolates.
-// Consider setting spending limits on the AI gateway key as the primary protection.
-const rateLimitBuckets = new Map<string, { count: number; resetAt: number }>();
 
-function checkRateLimit() {
+async function checkRateLimit(): Promise<boolean> {
   const ip = getRequestIP({ xForwardedFor: true }) || "unknown";
-  const now = Date.now();
-  const current = rateLimitBuckets.get(ip);
+  const endpoint = "ai-evaluation";
+  const now = new Date();
+  // Round window_start to the minute for consistent bucketing
+  const windowStart = new Date(now.getTime() - (now.getTime() % RATE_LIMIT_WINDOW_MS));
 
-  if (!current || current.resetAt <= now) {
-    rateLimitBuckets.set(ip, { count: 1, resetAt: now + RATE_LIMIT_WINDOW_MS });
+  try {
+    // Upsert the rate limit record (server-side admin bypasses RLS)
+    const { data, error } = await supabaseAdmin.rpc("increment_rate_limit", {
+      p_ip_address: ip,
+      p_endpoint: endpoint,
+      p_window_start: windowStart.toISOString(),
+      p_max_requests: RATE_LIMIT_MAX_REQUESTS,
+    });
+
+    if (error) {
+      console.error("Rate limit RPC failed:", error);
+      // Fail open (allow request) if the DB call fails, to avoid blocking legitimate users
+      return true;
+    }
+
+    const allowed = data?.allowed ?? true;
+    if (!allowed) {
+      setResponseStatus(429);
+      setResponseHeader("Retry-After", Math.ceil(RATE_LIMIT_WINDOW_MS / 1000).toString());
+    }
+    return allowed;
+  } catch (err) {
+    console.error("Rate limit check failed:", err);
     return true;
   }
-
-  if (current.count >= RATE_LIMIT_MAX_REQUESTS) {
-    setResponseStatus(429);
-    setResponseHeader("Retry-After", Math.ceil((current.resetAt - now) / 1000).toString());
-    return false;
-  }
-
-  current.count += 1;
-  return true;
 }
 
 export async function requestTechnicalEvaluation(data: EvaluationInput): Promise<GatewayResult> {
-  if (!checkRateLimit()) {
+  if (!await checkRateLimit()) {
     return { error: "Muitas avaliações agora. Tente novamente em alguns instantes.", arguments: null };
   }
 
