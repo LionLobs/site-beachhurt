@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import volleyball3D from "@/assets/volleyball-3d.png";
 
 /**
@@ -10,7 +10,6 @@ import volleyball3D from "@/assets/volleyball-3d.png";
 export function IntroHero3D() {
   const ref = useRef<HTMLDivElement>(null);
   const rafRef = useRef<number | null>(null);
-  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
     const update = () => {
@@ -19,7 +18,14 @@ export function IntroHero3D() {
       const rect = el.getBoundingClientRect();
       const total = el.offsetHeight - window.innerHeight;
       const scrolled = Math.min(Math.max(-rect.top, 0), Math.max(total, 1));
-      setProgress(total > 0 ? scrolled / total : 0);
+      const progress = total > 0 ? scrolled / total : 0;
+      const p = 1 - Math.pow(1 - progress, 3);
+      el.style.setProperty("--intro-ball-scale", String(0.5 + p * 3.25));
+      el.style.setProperty("--intro-ball-rotate", `${progress * 360}deg`);
+      el.style.setProperty("--intro-ball-opacity", String(progress < 0.76 ? 1 : Math.max(0, 1 - (progress - 0.76) / 0.2)));
+      el.style.setProperty("--intro-open", `${p * 104}%`);
+      el.style.setProperty("--intro-copy-opacity", String(Math.max(0, 1 - progress * 2.2)));
+      el.style.setProperty("--intro-copy-y", `${-progress * 24}px`);
     };
     const onScroll = () => {
       if (rafRef.current != null) return;
@@ -38,35 +44,25 @@ export function IntroHero3D() {
     };
   }, []);
 
-  const easeOut = (t: number) => 1 - Math.pow(1 - t, 3);
-  const p = easeOut(progress);
-
-  // Ball approaches the camera
-  const ballScale = 0.4 + p * 5.6;
-  const ballRotate = progress * 480;
-  const ballOpacity = progress < 0.82 ? 1 : Math.max(0, 1 - (progress - 0.82) / 0.18);
-
-  // Curtains open
-  const curtainOffset = p * 105; // %
-
-  // Headline fades early
-  const textOpacity = Math.max(0, 1 - progress * 1.8);
-  const textY = -progress * 30;
-
-  // Entire intro fades into hero at the very end
-  const sectionOpacity = progress < 0.9 ? 1 : Math.max(0, 1 - (progress - 0.9) / 0.1);
-
   return (
     <section
       ref={ref}
       aria-label="Intro"
       className="relative w-full"
-      style={{ height: "180vh" }}
+      style={{
+        height: "122svh",
+        marginBottom: "-22svh",
+        ["--intro-ball-scale" as string]: 0.5,
+        ["--intro-ball-rotate" as string]: "0deg",
+        ["--intro-ball-opacity" as string]: 1,
+        ["--intro-open" as string]: "0%",
+        ["--intro-copy-opacity" as string]: 1,
+        ["--intro-copy-y" as string]: "0px",
+      }}
     >
       <div
-        className="sticky top-0 h-screen w-full overflow-hidden"
+        className="sticky top-0 h-svh w-full overflow-hidden"
         style={{
-          opacity: sectionOpacity,
           background:
             "radial-gradient(ellipse at 50% 40%, #fff5e2 0%, #f5e6c8 35%, #e8d3a6 65%, #d4b87f 100%)",
         }}
@@ -102,10 +98,10 @@ export function IntroHero3D() {
             height={1024}
             className="will-change-transform select-none drop-shadow-[0_30px_60px_rgba(80,55,20,0.4)]"
             style={{
-              width: "min(55vw, 360px)",
+              width: "min(58vw, 330px)",
               height: "auto",
-              transform: `scale(${ballScale}) rotate(${ballRotate}deg)`,
-              opacity: ballOpacity,
+              transform: "scale(var(--intro-ball-scale)) rotate(var(--intro-ball-rotate))",
+              opacity: "var(--intro-ball-opacity)",
             }}
             draggable={false}
           />
@@ -116,7 +112,7 @@ export function IntroHero3D() {
           aria-hidden="true"
           className="pointer-events-none absolute inset-y-0 left-0 w-[55%] will-change-transform"
           style={{
-            transform: `translateX(-${curtainOffset}%)`,
+            transform: "translateX(calc(var(--intro-open) * -1))",
             background:
               "linear-gradient(to right, #d4b87f 0%, #e0c690 70%, rgba(232,211,166,0) 100%)",
           }}
@@ -126,7 +122,7 @@ export function IntroHero3D() {
           aria-hidden="true"
           className="pointer-events-none absolute inset-y-0 right-0 w-[55%] will-change-transform"
           style={{
-            transform: `translateX(${curtainOffset}%)`,
+            transform: "translateX(var(--intro-open))",
             background:
               "linear-gradient(to left, #d4b87f 0%, #e0c690 70%, rgba(232,211,166,0) 100%)",
           }}
@@ -136,8 +132,8 @@ export function IntroHero3D() {
         <div
           className="absolute inset-x-0 bottom-0 z-10 px-6 pb-20 text-center"
           style={{
-            opacity: textOpacity,
-            transform: `translateY(${textY}px)`,
+            opacity: "var(--intro-copy-opacity)",
+            transform: "translateY(var(--intro-copy-y))",
           }}
         >
           <p className="text-[10px] font-semibold uppercase tracking-[0.6em] text-[#8a6a2c] sm:text-xs">
