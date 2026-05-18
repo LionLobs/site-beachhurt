@@ -2,8 +2,14 @@
 import { createMiddleware } from '@tanstack/react-start'
 import { supabase } from './client'
 
-// Must be registered as a global `functionMiddleware` in `src/start.ts`; otherwise
-// the browser never attaches the bearer token to serverFn RPCs.
+// IMPORTANT: This middleware only runs on the CLIENT side. It attaches the
+// bearer token to outgoing server function requests, but it does NOT perform
+// any server-side authentication or validation.
+//
+// Server functions that require authentication must independently apply the
+// `requireSupabaseAuth` middleware in their `.middleware()` chain. Relying on
+// this middleware alone does NOT protect server functions from unauthenticated
+// access.
 export const attachSupabaseAuth = createMiddleware({ type: 'function' }).client(
   async ({ next }) => {
     const { data } = await supabase.auth.getSession()
