@@ -122,6 +122,11 @@
     border-color: var(--color-border);
   }
 
+  html, body {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
@@ -133,6 +138,8 @@
   h1, h2, h3, h4, h5 {
     font-family: var(--font-display);
     letter-spacing: -0.02em;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
   }
 }
 
