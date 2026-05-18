@@ -400,15 +400,16 @@ function Index() {
             </div>
 
             <Card className="overflow-hidden border-border/60 shadow-elevated">
-              <div className="relative h-72 overflow-hidden bg-secondary md:h-80">
-                <img
-                  src={sandCourtImage}
-                  alt="Quadra de areia ao pôr do sol"
-                  loading="lazy"
-                  className="h-full w-full object-contain object-center transition-transform duration-700 hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-secondary/90 via-secondary/40 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-6 text-secondary-foreground">
+              <div className="bg-secondary">
+                <div className="flex justify-center bg-secondary/20 p-3 sm:p-4">
+                  <img
+                    src={sandCourtImage}
+                    alt="Quadra de areia ao pôr do sol"
+                    loading="lazy"
+                    className="max-h-[460px] w-auto max-w-full object-contain object-center"
+                  />
+                </div>
+                <div className="bg-secondary p-6 text-secondary-foreground">
                   <p className="text-xs uppercase tracking-[0.25em] opacity-80">Esta semana</p>
                   <p className="mt-1 text-3xl font-bold">30 vagas abertas</p>
                   <p className="mt-1 text-sm opacity-90">Reserve antes que esgote</p>
