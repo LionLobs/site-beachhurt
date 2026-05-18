@@ -171,11 +171,11 @@ function Index() {
           rotate={-12}
         />
         <div
-          className="absolute inset-0 bg-gradient-hero"
+          className="absolute inset-0 bg-gradient-hero opacity-60"
           aria-hidden="true"
         />
         <div
-          className="absolute inset-0 opacity-40 mix-blend-overlay"
+          className="absolute inset-0 opacity-90"
           style={{
             backgroundImage: `url(${heroImage})`,
             backgroundSize: "cover",
@@ -183,6 +183,7 @@ function Index() {
           }}
           aria-hidden="true"
         />
+        <div className="absolute inset-0 bg-background/30" aria-hidden="true" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background" aria-hidden="true" />
         <SurrealCanvas variant="dense" />
         {/* Floating decorative volleyball */}
