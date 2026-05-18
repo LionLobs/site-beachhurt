@@ -22,15 +22,13 @@ export function IntroHero3D() {
       const eased = progress < 0.5
         ? 4 * progress * progress * progress
         : 1 - Math.pow(-2 * progress + 2, 3) / 2;
-      const ballExit = Math.max(0, (progress - 0.72) / 0.22);
-      const layerExit = Math.max(0, (progress - 0.82) / 0.16);
+      const ballExit = Math.max(0, (progress - 0.78) / 0.18);
 
-      el.style.setProperty("--intro-ball-scale", String(0.42 + eased * 5.15));
-      el.style.setProperty("--intro-ball-y", `${(1 - eased) * 18 - eased * 18}px`);
-      el.style.setProperty("--intro-ball-rotate", `${progress * 300}deg`);
+      el.style.setProperty("--intro-ball-scale", String(0.38 + eased * 4.7));
+      el.style.setProperty("--intro-ball-y", `${(1 - eased) * 22 - eased * 14}px`);
+      el.style.setProperty("--intro-ball-rotate", `${progress * 240}deg`);
       el.style.setProperty("--intro-ball-opacity", String(Math.max(0, 1 - ballExit)));
-      el.style.setProperty("--intro-open", `${eased * 112}%`);
-      el.style.setProperty("--intro-layer-opacity", String(Math.max(0, 1 - layerExit)));
+      el.style.setProperty("--intro-open", `${eased * 118}%`);
       el.style.setProperty("--intro-copy-opacity", String(Math.max(0, 1 - progress * 3)));
       el.style.setProperty("--intro-copy-y", `${-progress * 18}px`);
     };
@@ -57,14 +55,13 @@ export function IntroHero3D() {
       aria-label="Intro"
       className="pointer-events-none relative z-30 w-full"
       style={{
-        height: "145svh",
-        marginBottom: "-145svh",
+        height: "132svh",
+        marginBottom: "-32svh",
         ["--intro-ball-scale" as string]: 0.5,
         ["--intro-ball-y" as string]: "18px",
         ["--intro-ball-rotate" as string]: "0deg",
         ["--intro-ball-opacity" as string]: 1,
         ["--intro-open" as string]: "0%",
-        ["--intro-layer-opacity" as string]: 1,
         ["--intro-copy-opacity" as string]: 1,
         ["--intro-copy-y" as string]: "0px",
         contain: "layout paint style",
@@ -73,8 +70,8 @@ export function IntroHero3D() {
       <div
         className="sticky top-0 h-svh w-full overflow-hidden"
         style={{
+          background: "var(--gradient-soft)",
           isolation: "isolate",
-          opacity: "var(--intro-layer-opacity)",
         }}
       >
         {/* Ball */}
