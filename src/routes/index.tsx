@@ -426,7 +426,7 @@ function Index() {
           <div className="grid grid-cols-2 gap-3 md:gap-4">
             {[
               { src: actionSpike, label: "Ataque", alt: "Ataque na areia" },
-              { src: actionServe, label: "Saque", alt: "Saque na areia" },
+              { src: coachImage, label: "Saque", alt: "Vinicius sacando na areia" },
             ].map((it, i) => (
               <Reveal key={it.label} delay={i * 90}>
                 <div className="group relative">
