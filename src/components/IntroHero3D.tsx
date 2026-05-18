@@ -23,12 +23,14 @@ export function IntroHero3D() {
         ? 4 * progress * progress * progress
         : 1 - Math.pow(-2 * progress + 2, 3) / 2;
       const ballExit = Math.max(0, (progress - 0.72) / 0.22);
+      const layerExit = Math.max(0, (progress - 0.82) / 0.16);
 
-      el.style.setProperty("--intro-ball-scale", String(0.42 + eased * 4.35));
-      el.style.setProperty("--intro-ball-y", `${(1 - eased) * 18 - eased * 8}px`);
+      el.style.setProperty("--intro-ball-scale", String(0.42 + eased * 5.15));
+      el.style.setProperty("--intro-ball-y", `${(1 - eased) * 18 - eased * 18}px`);
       el.style.setProperty("--intro-ball-rotate", `${progress * 300}deg`);
       el.style.setProperty("--intro-ball-opacity", String(Math.max(0, 1 - ballExit)));
       el.style.setProperty("--intro-open", `${eased * 112}%`);
+      el.style.setProperty("--intro-layer-opacity", String(Math.max(0, 1 - layerExit)));
       el.style.setProperty("--intro-copy-opacity", String(Math.max(0, 1 - progress * 3)));
       el.style.setProperty("--intro-copy-y", `${-progress * 18}px`);
     };
@@ -53,15 +55,16 @@ export function IntroHero3D() {
     <section
       ref={ref}
       aria-label="Intro"
-      className="pointer-events-none relative w-full"
+      className="pointer-events-none relative z-30 w-full"
       style={{
-        height: "165svh",
-        marginBottom: "-65svh",
+        height: "145svh",
+        marginBottom: "-145svh",
         ["--intro-ball-scale" as string]: 0.5,
         ["--intro-ball-y" as string]: "18px",
         ["--intro-ball-rotate" as string]: "0deg",
         ["--intro-ball-opacity" as string]: 1,
         ["--intro-open" as string]: "0%",
+        ["--intro-layer-opacity" as string]: 1,
         ["--intro-copy-opacity" as string]: 1,
         ["--intro-copy-y" as string]: "0px",
         contain: "layout paint style",
