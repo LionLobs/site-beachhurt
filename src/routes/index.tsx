@@ -21,6 +21,7 @@ import { KineticText } from "@/components/KineticText";
 import { AIEvaluation } from "@/components/AIEvaluation";
 import { Packages } from "@/components/Packages";
 import { SiteHeader } from "@/components/SiteHeader";
+import { IntroHero3D } from "@/components/IntroHero3D";
 
 import { Fundamentals } from "@/components/Fundamentals";
 import { FloatingAccent } from "@/components/FloatingAccent";
@@ -153,6 +154,10 @@ function Index() {
     <div className="min-h-screen bg-background">
       {/* Header */}
       <SiteHeader />
+
+      {/* Cinematic Intro */}
+      <IntroHero3D />
+
 
       {/* Hero */}
       <section id="top" className="relative overflow-hidden">
