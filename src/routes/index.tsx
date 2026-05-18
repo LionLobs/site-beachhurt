@@ -56,7 +56,7 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const TIME_SLOTS = ["13:00", "14:00", "15:00", "16:00"];
+const TIME_SLOTS = ["08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00"];
 
 const BENEFITS = [
   {
@@ -111,7 +111,7 @@ function Index() {
   const isValidDay = (value: string) => {
     if (!value) return true;
     const day = new Date(`${value}T12:00:00`).getDay();
-    return day === 1 || day === 2; // segunda ou terça
+    return day >= 1 && day <= 6; // segunda a sábado
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -122,7 +122,7 @@ function Index() {
       return;
     }
     if (!isValidDay(date)) {
-      toast.error("As aulas acontecem apenas às segundas e terças à tarde.");
+      toast.error("As aulas acontecem de segunda a sábado.");
       return;
     }
 
@@ -211,7 +211,7 @@ function Index() {
               Domine a <span className="text-primary">areia</span>. Aulas individuais de vôlei na quadra.
             </h1>
             <p className="mt-6 max-w-xl text-lg text-foreground/80">
-              Atendimento exclusivo às <strong>segundas e terças pelas tardes</strong>, em
+              Atendimento de <strong>segunda a sábado, das 8h às 17h</strong>, em
               <strong> quadra de areia</strong>. Treine com um coach com{" "}
               <strong>12 anos de experiência</strong>, focado 100% em você.
             </p>
@@ -259,8 +259,12 @@ function Index() {
               </CardHeader>
               <CardContent className="space-y-3">
                 {[
-                  { day: "Segunda-feira", slots: "13h às 16h" },
-                  { day: "Terça-feira", slots: "13h às 16h" },
+                  { day: "Segunda-feira", slots: "8h às 17h" },
+                  { day: "Terça-feira", slots: "8h às 17h" },
+                  { day: "Quarta-feira", slots: "8h às 17h" },
+                  { day: "Quinta-feira", slots: "8h às 17h" },
+                  { day: "Sexta-feira", slots: "8h às 17h" },
+                  { day: "Sábado", slots: "8h às 17h" },
                 ].map((d) => (
                   <div
                     key={d.day}
@@ -276,7 +280,7 @@ function Index() {
                   </div>
                 ))}
                 <div className="rounded-xl bg-secondary/5 p-4 text-sm text-muted-foreground">
-                  Quartas a domingos: indisponível.
+                  Domingo: indisponível.
                 </div>
               </CardContent>
             </Card>
@@ -362,12 +366,11 @@ function Index() {
                 Horários
               </Badge>
               <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
-                Segundas e terças, pelas tardes.
+                Segunda a sábado, das 8h às 17h.
               </h2>
               <p className="mt-4 text-muted-foreground">
-                Mantemos uma agenda enxuta para garantir energia, atenção e qualidade em cada
-                aula. Os turnos abrem às <strong>13h</strong> e a última aula começa às{" "}
-                <strong>16h</strong>.
+                Agenda flexível para encaixar no seu ritmo. Os turnos começam às{" "}
+                <strong>8h</strong> e a última aula começa às <strong>17h</strong>.
               </p>
 
               <div className="mt-8 space-y-4">
