@@ -6,7 +6,6 @@ import {
   Target,
   HeartPulse,
   Sparkles,
-  Calendar as CalendarIcon,
   Clock,
   MapPin,
   Phone,
@@ -202,7 +201,7 @@ function Index() {
           className="pointer-events-none absolute bottom-[18%] left-[6%] hidden h-3 w-3 animate-pulse-glow rounded-full bg-primary md:block"
         />
 
-        <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-6 py-24 md:grid-cols-2 md:py-32">
+        <div className="relative mx-auto max-w-3xl items-center gap-12 px-6 py-24 md:py-32">
           <div className="text-foreground">
             <Badge className="mb-6 bg-foreground/10 text-foreground hover:bg-foreground/15">
               <Sparkles className="mr-1 h-3 w-3" /> Aulas particulares
@@ -246,45 +245,6 @@ function Index() {
             </div>
           </div>
 
-          {/* Floating schedule card */}
-          <div className="relative md:justify-self-end">
-            <div className="absolute -inset-4 rounded-3xl bg-primary/30 blur-3xl" aria-hidden="true" />
-            <Card className="relative w-full max-w-sm overflow-hidden border-white/20 bg-card/95 shadow-elevated">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <CalendarIcon className="h-5 w-5 text-primary" />
-                  Agenda da semana
-                </CardTitle>
-                <CardDescription>Vagas limitadas por turno</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                {[
-                  { day: "Segunda-feira", slots: "8h às 17h" },
-                  { day: "Terça-feira", slots: "8h às 17h" },
-                  { day: "Quarta-feira", slots: "8h às 17h" },
-                  { day: "Quinta-feira", slots: "8h às 17h" },
-                  { day: "Sexta-feira", slots: "8h às 17h" },
-                  { day: "Sábado", slots: "8h às 17h" },
-                ].map((d) => (
-                  <div
-                    key={d.day}
-                    className="flex items-center justify-between rounded-xl border border-border bg-sand/40 p-4"
-                  >
-                    <div>
-                      <p className="font-semibold text-foreground">{d.day}</p>
-                      <p className="text-sm text-muted-foreground">{d.slots}</p>
-                    </div>
-                    <Badge className="bg-gradient-primary text-primary-foreground shadow-md">
-                      Aberto
-                    </Badge>
-                  </div>
-                ))}
-                <div className="rounded-xl bg-secondary/5 p-4 text-sm text-muted-foreground">
-                  Domingo: indisponível.
-                </div>
-              </CardContent>
-            </Card>
-          </div>
         </div>
       </section>
 
