@@ -41,7 +41,8 @@ async function checkRateLimit(): Promise<boolean> {
       return true;
     }
 
-    const allowed = data?.allowed ?? true;
+    const row = Array.isArray(data) && data.length > 0 ? data[0] : null;
+    const allowed = (row as { allowed?: boolean } | null)?.allowed ?? true;
     if (!allowed) {
       setResponseStatus(429);
       setResponseHeader("Retry-After", Math.ceil(RATE_LIMIT_WINDOW_MS / 1000).toString());
