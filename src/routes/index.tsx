@@ -56,7 +56,7 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const TIME_SLOTS = ["13:00", "14:00", "15:00", "16:00"];
+const TIME_SLOTS = ["08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00"];
 
 const BENEFITS = [
   {
@@ -111,7 +111,7 @@ function Index() {
   const isValidDay = (value: string) => {
     if (!value) return true;
     const day = new Date(`${value}T12:00:00`).getDay();
-    return day === 1 || day === 2; // segunda ou terça
+    return day >= 1 && day <= 6; // segunda a sábado
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -122,7 +122,7 @@ function Index() {
       return;
     }
     if (!isValidDay(date)) {
-      toast.error("As aulas acontecem apenas às segundas e terças à tarde.");
+      toast.error("As aulas acontecem de segunda a sábado.");
       return;
     }
 
@@ -211,7 +211,7 @@ function Index() {
               Domine a <span className="text-primary">areia</span>. Aulas individuais de vôlei na quadra.
             </h1>
             <p className="mt-6 max-w-xl text-lg text-foreground/80">
-              Atendimento exclusivo às <strong>segundas e terças pelas tardes</strong>, em
+              Atendimento de <strong>segunda a sábado, das 8h às 17h</strong>, em
               <strong> quadra de areia</strong>. Treine com um coach com{" "}
               <strong>12 anos de experiência</strong>, focado 100% em você.
             </p>
@@ -259,8 +259,12 @@ function Index() {
               </CardHeader>
               <CardContent className="space-y-3">
                 {[
-                  { day: "Segunda-feira", slots: "13h às 16h" },
-                  { day: "Terça-feira", slots: "13h às 16h" },
+                  { day: "Segunda-feira", slots: "8h às 17h" },
+                  { day: "Terça-feira", slots: "8h às 17h" },
+                  { day: "Quarta-feira", slots: "8h às 17h" },
+                  { day: "Quinta-feira", slots: "8h às 17h" },
+                  { day: "Sexta-feira", slots: "8h às 17h" },
+                  { day: "Sábado", slots: "8h às 17h" },
                 ].map((d) => (
                   <div
                     key={d.day}
@@ -276,7 +280,7 @@ function Index() {
                   </div>
                 ))}
                 <div className="rounded-xl bg-secondary/5 p-4 text-sm text-muted-foreground">
-                  Quartas a domingos: indisponível.
+                  Domingo: indisponível.
                 </div>
               </CardContent>
             </Card>
@@ -362,12 +366,11 @@ function Index() {
                 Horários
               </Badge>
               <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
-                Segundas e terças, pelas tardes.
+                Segunda a sábado, das 8h às 17h.
               </h2>
               <p className="mt-4 text-muted-foreground">
-                Mantemos uma agenda enxuta para garantir energia, atenção e qualidade em cada
-                aula. Os turnos abrem às <strong>13h</strong> e a última aula começa às{" "}
-                <strong>16h</strong>.
+                Agenda flexível para encaixar no seu ritmo. Os turnos começam às{" "}
+                <strong>8h</strong> e a última aula começa às <strong>17h</strong>.
               </p>
 
               <div className="mt-8 space-y-4">
@@ -407,7 +410,7 @@ function Index() {
                 <div className="absolute inset-0 bg-gradient-to-t from-secondary/90 via-secondary/40 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-6 text-secondary-foreground">
                   <p className="text-xs uppercase tracking-[0.25em] opacity-80">Esta semana</p>
-                  <p className="mt-1 text-3xl font-bold">12 vagas abertas</p>
+                  <p className="mt-1 text-3xl font-bold">30 vagas abertas</p>
                   <p className="mt-1 text-sm opacity-90">Reserve antes que esgote</p>
                 </div>
               </div>
@@ -708,7 +711,7 @@ function Index() {
               </Button>
             </div>
             <p className="mt-6 text-xs uppercase tracking-[0.3em] text-muted-foreground">
-              Vagas limitadas · Segundas e terças · Quadra de areia
+              Vagas limitadas · Segunda a sábado · Quadra de areia
             </p>
           </Reveal>
         </div>
@@ -742,7 +745,7 @@ function Index() {
             Reserve sua aula experimental
           </h2>
           <p className="mt-4 text-muted-foreground">
-            Escolha o dia (segunda ou terça) e o horário. Confirmamos em até 24h pelo WhatsApp.
+            Escolha o dia (segunda a sábado) e o horário. Confirmamos em até 24h pelo WhatsApp.
           </p>
           {selectedPack && (
             <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-sm font-semibold text-primary">
@@ -788,7 +791,7 @@ function Index() {
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="date">Data (seg ou ter)</Label>
+                <Label htmlFor="date">Data (seg a sáb)</Label>
                 <Input
                   id="date"
                   type="date"
@@ -798,7 +801,7 @@ function Index() {
                 />
                 {date && !isValidDay(date) ? (
                   <p className="text-xs font-medium text-destructive">
-                    Selecione uma segunda ou terça-feira.
+                    Selecione um dia de segunda a sábado.
                   </p>
                 ) : null}
               </div>
