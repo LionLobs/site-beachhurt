@@ -201,7 +201,7 @@ function Index() {
           className="pointer-events-none absolute bottom-[18%] left-[6%] hidden h-3 w-3 animate-pulse-glow rounded-full bg-primary md:block"
         />
 
-        <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-6 py-24 md:grid-cols-2 md:py-32">
+        <div className="relative mx-auto max-w-3xl items-center gap-12 px-6 py-24 md:py-32">
           <div className="text-foreground">
             <Badge className="mb-6 bg-foreground/10 text-foreground hover:bg-foreground/15">
               <Sparkles className="mr-1 h-3 w-3" /> Aulas particulares
