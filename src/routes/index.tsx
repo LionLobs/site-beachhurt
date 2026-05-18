@@ -414,16 +414,6 @@ function Index() {
                   <p className="mt-1 text-sm opacity-90">Reserve antes que esgote</p>
                 </div>
               </div>
-              <CardContent className="grid grid-cols-3 gap-3 p-6">
-                {TIME_SLOTS.map((slot) => (
-                  <div
-                    key={slot}
-                    className="rounded-xl border border-border bg-sand/50 p-3 text-center text-sm font-semibold text-sand-foreground shadow-sm hover-lift"
-                  >
-                    {slot}
-                  </div>
-                ))}
-              </CardContent>
             </Card>
           </div>
         </div>
