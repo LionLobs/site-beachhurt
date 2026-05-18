@@ -46,8 +46,7 @@ import ballSandImage from "@/assets/ball-sand.jpg";
 import coachImage from "@/assets/coach-vinicius.jpeg";
 import { BrandLogo } from "@/components/BrandLogo";
 import actionSpike from "@/assets/action-spike.jpg";
-import actionBlock from "@/assets/action-block.jpg";
-import actionSet from "@/assets/action-set.jpg";
+import actionServe from "@/assets/action-serve.jpg";
 
 const WHATSAPP_NUMBER = "5548988146267";
 
