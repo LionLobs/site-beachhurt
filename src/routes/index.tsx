@@ -875,9 +875,9 @@ function Index() {
             <img
               src={logoVH}
               alt="Beach Hurt"
-              width={140}
-              height={48}
-              className="h-12 w-auto object-contain"
+              width={120}
+              height={32}
+              className="h-7 w-auto object-contain opacity-80"
             />
           </div>
           <p className="text-sm opacity-80">
