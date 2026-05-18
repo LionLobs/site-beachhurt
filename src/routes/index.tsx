@@ -872,13 +872,7 @@ function Index() {
       <footer className="border-t border-border bg-secondary text-secondary-foreground">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 py-8 md:flex-row">
           <div className="flex items-center gap-2 font-semibold">
-            <img
-              src={logoVH}
-              alt="Beach Hurt"
-              width={120}
-              height={32}
-              className="h-7 w-auto object-contain opacity-80"
-            />
+            <BrandLogo className="h-10 w-auto text-secondary-foreground opacity-90" />
           </div>
           <p className="text-sm opacity-80">
             © {new Date().getFullYear()} Vinicius Hurt — Aulas particulares de vôlei. Criado por{" "}
