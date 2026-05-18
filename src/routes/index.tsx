@@ -246,45 +246,6 @@ function Index() {
             </div>
           </div>
 
-          {/* Floating schedule card */}
-          <div className="relative md:justify-self-end">
-            <div className="absolute -inset-4 rounded-3xl bg-primary/30 blur-3xl" aria-hidden="true" />
-            <Card className="relative w-full max-w-sm overflow-hidden border-white/20 bg-card/95 shadow-elevated">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <CalendarIcon className="h-5 w-5 text-primary" />
-                  Agenda da semana
-                </CardTitle>
-                <CardDescription>Vagas limitadas por turno</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                {[
-                  { day: "Segunda-feira", slots: "8h às 17h" },
-                  { day: "Terça-feira", slots: "8h às 17h" },
-                  { day: "Quarta-feira", slots: "8h às 17h" },
-                  { day: "Quinta-feira", slots: "8h às 17h" },
-                  { day: "Sexta-feira", slots: "8h às 17h" },
-                  { day: "Sábado", slots: "8h às 17h" },
-                ].map((d) => (
-                  <div
-                    key={d.day}
-                    className="flex items-center justify-between rounded-xl border border-border bg-sand/40 p-4"
-                  >
-                    <div>
-                      <p className="font-semibold text-foreground">{d.day}</p>
-                      <p className="text-sm text-muted-foreground">{d.slots}</p>
-                    </div>
-                    <Badge className="bg-gradient-primary text-primary-foreground shadow-md">
-                      Aberto
-                    </Badge>
-                  </div>
-                ))}
-                <div className="rounded-xl bg-secondary/5 p-4 text-sm text-muted-foreground">
-                  Domingo: indisponível.
-                </div>
-              </CardContent>
-            </Card>
-          </div>
         </div>
       </section>
 
