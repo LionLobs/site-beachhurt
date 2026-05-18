@@ -37,12 +37,12 @@ async function checkRateLimit(): Promise<boolean> {
 
     if (error) {
       console.error("Rate limit RPC failed:", error);
-      // Fail open (allow request) if the DB call fails, to avoid blocking legitimate users
-      return true;
+      // Fail closed: deny request if rate-limit store is unreachable to prevent abuse
+      return false;
     }
 
     const row = Array.isArray(data) && data.length > 0 ? data[0] : null;
-    const allowed = (row as { allowed?: boolean } | null)?.allowed ?? true;
+    const allowed = (row as { allowed?: boolean } | null)?.allowed ?? false;
     if (!allowed) {
       setResponseStatus(429);
       setResponseHeader("Retry-After", Math.ceil(RATE_LIMIT_WINDOW_MS / 1000).toString());
@@ -50,7 +50,8 @@ async function checkRateLimit(): Promise<boolean> {
     return allowed;
   } catch (err) {
     console.error("Rate limit check failed:", err);
-    return true;
+    // Fail closed: deny request on unexpected errors
+    return false;
   }
 }
 

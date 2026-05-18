@@ -408,13 +408,13 @@ function Index() {
 
 
       {/* Cinematic Gallery — compact */}
-      <section id="galeria" className="relative overflow-hidden py-16 md:py-20">
+      <section id="galeria" className="relative overflow-hidden py-12 md:py-16">
         <div
           aria-hidden="true"
           className="absolute -left-20 top-1/2 h-64 w-64 -translate-y-1/2 rounded-full bg-primary/15 blur-3xl"
         />
-        <div className="relative mx-auto max-w-5xl px-6">
-          <Reveal className="mx-auto mb-10 max-w-xl text-center">
+        <div className="relative mx-auto max-w-3xl px-6">
+          <Reveal className="mx-auto mb-8 max-w-xl text-center">
             <Badge variant="secondary" className="mb-3">
               <Sparkles className="mr-1 h-3 w-3" /> Bastidores
             </Badge>
@@ -423,7 +423,7 @@ function Index() {
             </h2>
           </Reveal>
 
-          <div className="grid grid-cols-2 gap-3 md:gap-5">
+          <div className="grid grid-cols-2 gap-3 md:gap-4">
             {[
               { src: actionSpike, label: "Ataque", alt: "Ataque na areia" },
               { src: actionServe, label: "Saque", alt: "Saque na areia" },
@@ -439,10 +439,10 @@ function Index() {
                       src={it.src}
                       alt={it.alt}
                       loading="lazy"
-                      className="aspect-[3/4] h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                      className="aspect-[4/3] h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-secondary via-secondary/10 to-transparent" />
-                    <div className="absolute inset-x-0 bottom-0 p-3">
+                    <div className="absolute inset-x-0 bottom-0 p-2.5 md:p-3">
                       <p className="text-[9px] font-bold uppercase tracking-[0.35em] text-primary-glow">
                         {it.label}
                       </p>
