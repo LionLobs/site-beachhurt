@@ -6,7 +6,6 @@ import {
   Target,
   HeartPulse,
   Sparkles,
-  Calendar as CalendarIcon,
   Clock,
   MapPin,
   Phone,
