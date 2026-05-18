@@ -47,6 +47,18 @@ export type Database = {
     }
     Functions: {
       cleanup_old_rate_limits: { Args: never; Returns: undefined }
+      increment_rate_limit: {
+        Args: {
+          p_endpoint: string
+          p_ip_address: string
+          p_max_requests: number
+          p_window_start: string
+        }
+        Returns: {
+          allowed: boolean
+          current_count: number
+        }[]
+      }
     }
     Enums: {
       [_ in never]: never
