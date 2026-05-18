@@ -155,6 +155,10 @@ function Index() {
       {/* Header */}
       <SiteHeader />
 
+      {/* Cinematic Intro */}
+      <IntroHero3D />
+
+
       {/* Hero */}
       <section id="top" className="relative overflow-hidden">
         <FloatingAccent
