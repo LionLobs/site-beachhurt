@@ -73,23 +73,12 @@ export function IntroHero3D() {
       <div
         className="sticky top-0 h-svh w-full overflow-hidden"
         style={{
-          background: "var(--gradient-soft)",
           isolation: "isolate",
+          opacity: "var(--intro-layer-opacity)",
         }}
       >
-        {/* Warm sky glow */}
-        <div
-          aria-hidden="true"
-          className="absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(circle at 50% 0%, rgba(255,235,190,0.7) 0%, transparent 55%)",
-          }}
-        />
-
-        {/* Sand grain */}
         {/* Ball */}
-        <div className="absolute inset-0 flex items-center justify-center">
+        <div className="absolute inset-0 z-20 flex items-center justify-center">
           <img
             src={volleyball3D}
             alt="Bola de vôlei aproximando"
@@ -151,7 +140,7 @@ export function IntroHero3D() {
         {/* Bottom fade into next section */}
         <div
           aria-hidden="true"
-          className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-background"
+          className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent to-background/70"
         />
       </div>
     </section>
