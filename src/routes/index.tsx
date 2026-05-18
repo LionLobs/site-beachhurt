@@ -406,28 +406,6 @@ function Index() {
         </div>
       </section>
 
-      {/* Cinematic Parallax Strip */}
-      <section
-        aria-hidden="true"
-        className="relative h-64 overflow-hidden md:h-80"
-      >
-        <div
-          className="absolute inset-0 bg-fixed bg-center bg-cover scale-110"
-          style={{ backgroundImage: `url(${actionBlock})` }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-secondary via-secondary/60 to-secondary/20" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/40" />
-        <div className="relative mx-auto flex h-full max-w-5xl items-center px-6">
-          <div className="max-w-md text-secondary-foreground">
-            <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-primary-glow">
-              Salto vertical
-            </p>
-            <p className="mt-2 font-display text-2xl font-bold leading-tight md:text-3xl">
-              Bloqueio é leitura, não força.
-            </p>
-          </div>
-        </div>
-      </section>
 
       {/* Cinematic Gallery — compact */}
       <section id="galeria" className="relative overflow-hidden py-16 md:py-20">
