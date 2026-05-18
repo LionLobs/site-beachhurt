@@ -410,7 +410,7 @@ function Index() {
                 <div className="absolute inset-0 bg-gradient-to-t from-secondary/90 via-secondary/40 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-6 text-secondary-foreground">
                   <p className="text-xs uppercase tracking-[0.25em] opacity-80">Esta semana</p>
-                  <p className="mt-1 text-3xl font-bold">12 vagas abertas</p>
+                  <p className="mt-1 text-3xl font-bold">30 vagas abertas</p>
                   <p className="mt-1 text-sm opacity-90">Reserve antes que esgote</p>
                 </div>
               </div>
@@ -711,7 +711,7 @@ function Index() {
               </Button>
             </div>
             <p className="mt-6 text-xs uppercase tracking-[0.3em] text-muted-foreground">
-              Vagas limitadas · Segundas e terças · Quadra de areia
+              Vagas limitadas · Segunda a sábado · Quadra de areia
             </p>
           </Reveal>
         </div>
@@ -745,7 +745,7 @@ function Index() {
             Reserve sua aula experimental
           </h2>
           <p className="mt-4 text-muted-foreground">
-            Escolha o dia (segunda ou terça) e o horário. Confirmamos em até 24h pelo WhatsApp.
+            Escolha o dia (segunda a sábado) e o horário. Confirmamos em até 24h pelo WhatsApp.
           </p>
           {selectedPack && (
             <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-sm font-semibold text-primary">
@@ -791,7 +791,7 @@ function Index() {
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="date">Data (seg ou ter)</Label>
+                <Label htmlFor="date">Data (seg a sáb)</Label>
                 <Input
                   id="date"
                   type="date"
@@ -801,7 +801,7 @@ function Index() {
                 />
                 {date && !isValidDay(date) ? (
                   <p className="text-xs font-medium text-destructive">
-                    Selecione uma segunda ou terça-feira.
+                    Selecione um dia de segunda a sábado.
                   </p>
                 ) : null}
               </div>
