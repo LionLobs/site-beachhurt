@@ -401,12 +401,12 @@ function Index() {
 
             <Card className="overflow-hidden border-border/60 shadow-elevated">
               <div className="bg-secondary">
-                <div className="flex justify-center bg-secondary/20 p-3 sm:p-4">
+                <div className="h-[460px] overflow-hidden bg-secondary/20 sm:h-[500px]">
                   <img
                     src={sandCourtImage}
                     alt="Quadra de areia ao pôr do sol"
                     loading="lazy"
-                    className="max-h-[460px] w-auto max-w-full object-contain object-center"
+                    className="h-full w-full object-cover object-[center_30%]"
                   />
                 </div>
                 <div className="bg-secondary p-6 text-secondary-foreground">
