@@ -54,7 +54,7 @@ export function SiteHeader() {
         className={cn(
           "sticky top-0 z-50 transition-all duration-700",
           scrolled
-            ? "border-b border-border/30 bg-background/90 backdrop-blur-md"
+            ? "border-b border-border/30 bg-background/95 shadow-sm"
             : "border-b border-transparent bg-background/40",
         )}
       >
@@ -110,7 +110,7 @@ export function SiteHeader() {
             </Button>
             <button
               onClick={() => setOpen((v) => !v)}
-              className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border/40 bg-background/40 text-foreground/80 backdrop-blur-md transition-all duration-500 hover:border-primary/40 hover:text-foreground lg:hidden"
+              className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border/40 bg-background/80 text-foreground/80 shadow-sm transition-all duration-500 hover:border-primary/40 hover:text-foreground lg:hidden"
               aria-label={open ? "Fechar menu" : "Abrir menu"}
             >
               {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
@@ -127,7 +127,7 @@ export function SiteHeader() {
         )}
       >
         <div
-          className="absolute inset-0 bg-background/80 backdrop-blur-xl"
+          className="absolute inset-0 bg-background/95"
           onClick={() => setOpen(false)}
         />
         <div
@@ -136,7 +136,7 @@ export function SiteHeader() {
             open ? "translate-y-0" : "-translate-y-4",
           )}
         >
-          <div className="relative overflow-hidden rounded-2xl border border-border/30 bg-background/85 p-5 backdrop-blur-2xl">
+          <div className="relative overflow-hidden rounded-2xl border border-border/30 bg-background p-5 shadow-elevated">
             <div className="pointer-events-none absolute -top-24 -right-24 h-44 w-44 rounded-full bg-gradient-primary opacity-15 blur-3xl" />
             <div className="pointer-events-none absolute -bottom-24 -left-24 h-44 w-44 rounded-full bg-primary/15 blur-3xl" />
             <nav className="relative flex flex-col">
