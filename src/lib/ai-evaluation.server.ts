@@ -17,6 +17,10 @@ type GatewayResult = {
 
 const RATE_LIMIT_WINDOW_MS = 60_000;
 const RATE_LIMIT_MAX_REQUESTS = 5;
+// NOTE: This in-memory rate limiter is best-effort only. On Cloudflare Workers,
+// each isolate is short-lived and the Map is not shared across instances.
+// An attacker could bypass the limit by spreading requests across isolates.
+// Consider setting spending limits on the AI gateway key as the primary protection.
 const rateLimitBuckets = new Map<string, { count: number; resetAt: number }>();
 
 function checkRateLimit() {
