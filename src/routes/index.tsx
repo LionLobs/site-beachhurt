@@ -389,7 +389,7 @@ function Index() {
           src={ballSandImage}
           alt="Bola de vôlei na areia"
           loading="lazy"
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover object-[center_70%]"
         />
         <div
           aria-hidden="true"
