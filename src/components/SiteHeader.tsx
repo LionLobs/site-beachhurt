@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { ArrowRight, Menu, X, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import logoVH from "@/assets/logo-beachhurt.png";
+import { BrandLogo } from "@/components/BrandLogo";
 
 const LINKS = [
   { href: "#avaliacao-ia", label: "Avaliação IA" },
