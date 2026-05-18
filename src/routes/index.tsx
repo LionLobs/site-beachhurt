@@ -201,15 +201,15 @@ function Index() {
           className="pointer-events-none absolute bottom-[18%] left-[6%] hidden h-3 w-3 animate-pulse-glow rounded-full bg-primary md:block"
         />
 
-        <div className="relative mx-auto max-w-3xl items-center gap-12 px-6 py-24 md:py-32">
+        <div className="relative mx-auto max-w-3xl items-center gap-12 px-5 py-20 sm:px-6 sm:py-24 md:py-32">
           <div className="text-foreground">
             <Badge className="mb-6 bg-foreground/10 text-foreground hover:bg-foreground/15">
               <Sparkles className="mr-1 h-3 w-3" /> Aulas particulares
             </Badge>
-            <h1 className="text-4xl font-bold leading-[1.05] tracking-tight md:text-6xl">
+            <h1 className="text-[2rem] font-bold leading-[1.1] tracking-tight sm:text-4xl md:text-6xl">
               Domine a <span className="text-primary">areia</span>. Aulas individuais de vôlei na quadra.
             </h1>
-            <p className="mt-6 max-w-xl text-lg text-foreground/80">
+            <p className="mt-6 max-w-xl text-base text-foreground/80 sm:text-lg">
               Atendimento de <strong>segunda a sábado, das 8h às 17h</strong>, em
               <strong> quadra de areia</strong>. Treine com um coach com{" "}
               <strong>12 anos de experiência</strong>, focado 100% em você.
