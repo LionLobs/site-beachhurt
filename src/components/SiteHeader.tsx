@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { ArrowRight, Menu, X, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import logoVH from "@/assets/logo-beachhurt.png";
+import { BrandLogo } from "@/components/BrandLogo";
 
 const LINKS = [
   { href: "#avaliacao-ia", label: "Avaliação IA" },
@@ -65,13 +65,7 @@ export function SiteHeader() {
             className="group flex items-center gap-2"
             aria-label="Ir ao topo"
           >
-            <img
-              src={logoVH}
-              alt="Beach Hurt"
-              width={160}
-              height={48}
-              className="h-8 w-auto object-contain opacity-90 transition-all duration-700 group-hover:opacity-100 sm:h-9 md:h-10"
-            />
+            <BrandLogo className="h-12 w-auto text-foreground transition-opacity duration-700 group-hover:opacity-80 sm:h-14 md:h-16" />
           </button>
 
           <nav className="hidden items-center gap-0.5 lg:flex">
