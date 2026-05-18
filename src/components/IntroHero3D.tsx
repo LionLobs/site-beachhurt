@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import volleyball3D from "@/assets/volleyball-3d.png";
+import volleyball3D from "@/assets/volleyball-3d.webp";
 
 /**
  * Scroll-driven cinematic intro:
