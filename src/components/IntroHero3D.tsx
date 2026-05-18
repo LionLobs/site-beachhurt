@@ -19,13 +19,18 @@ export function IntroHero3D() {
       const total = el.offsetHeight - window.innerHeight;
       const scrolled = Math.min(Math.max(-rect.top, 0), Math.max(total, 1));
       const progress = total > 0 ? scrolled / total : 0;
-      const p = 1 - Math.pow(1 - progress, 3);
-      el.style.setProperty("--intro-ball-scale", String(0.5 + p * 3.25));
-      el.style.setProperty("--intro-ball-rotate", `${progress * 360}deg`);
-      el.style.setProperty("--intro-ball-opacity", String(progress < 0.76 ? 1 : Math.max(0, 1 - (progress - 0.76) / 0.2)));
-      el.style.setProperty("--intro-open", `${p * 104}%`);
-      el.style.setProperty("--intro-copy-opacity", String(Math.max(0, 1 - progress * 2.2)));
-      el.style.setProperty("--intro-copy-y", `${-progress * 24}px`);
+      const eased = progress < 0.5
+        ? 4 * progress * progress * progress
+        : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+      const ballExit = Math.max(0, (progress - 0.72) / 0.22);
+
+      el.style.setProperty("--intro-ball-scale", String(0.42 + eased * 4.35));
+      el.style.setProperty("--intro-ball-y", `${(1 - eased) * 18 - eased * 8}px`);
+      el.style.setProperty("--intro-ball-rotate", `${progress * 300}deg`);
+      el.style.setProperty("--intro-ball-opacity", String(Math.max(0, 1 - ballExit)));
+      el.style.setProperty("--intro-open", `${eased * 112}%`);
+      el.style.setProperty("--intro-copy-opacity", String(Math.max(0, 1 - progress * 3)));
+      el.style.setProperty("--intro-copy-y", `${-progress * 18}px`);
     };
     const onScroll = () => {
       if (rafRef.current != null) return;
@@ -48,23 +53,25 @@ export function IntroHero3D() {
     <section
       ref={ref}
       aria-label="Intro"
-      className="relative w-full"
+      className="pointer-events-none relative w-full"
       style={{
-        height: "122svh",
-        marginBottom: "-22svh",
+        height: "165svh",
+        marginBottom: "-65svh",
         ["--intro-ball-scale" as string]: 0.5,
+        ["--intro-ball-y" as string]: "18px",
         ["--intro-ball-rotate" as string]: "0deg",
         ["--intro-ball-opacity" as string]: 1,
         ["--intro-open" as string]: "0%",
         ["--intro-copy-opacity" as string]: 1,
         ["--intro-copy-y" as string]: "0px",
+        contain: "layout paint style",
       }}
     >
       <div
         className="sticky top-0 h-svh w-full overflow-hidden"
         style={{
-          background:
-            "radial-gradient(ellipse at 50% 40%, #fff5e2 0%, #f5e6c8 35%, #e8d3a6 65%, #d4b87f 100%)",
+          background: "var(--gradient-soft)",
+          isolation: "isolate",
         }}
       >
         {/* Warm sky glow */}
@@ -78,17 +85,6 @@ export function IntroHero3D() {
         />
 
         {/* Sand grain */}
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 opacity-[0.15] mix-blend-multiply"
-          style={{
-            backgroundImage:
-              "radial-gradient(rgba(120,80,30,0.55) 1px, transparent 1px), radial-gradient(rgba(140,100,50,0.4) 1px, transparent 1px)",
-            backgroundSize: "4px 4px, 7px 7px",
-            backgroundPosition: "0 0, 2px 3px",
-          }}
-        />
-
         {/* Ball */}
         <div className="absolute inset-0 flex items-center justify-center">
           <img
@@ -96,12 +92,14 @@ export function IntroHero3D() {
             alt="Bola de vôlei aproximando"
             width={1024}
             height={1024}
-            className="will-change-transform select-none drop-shadow-[0_30px_60px_rgba(80,55,20,0.4)]"
+            className="select-none will-change-transform"
             style={{
-              width: "min(58vw, 330px)",
+              width: "clamp(150px, 34vw, 300px)",
               height: "auto",
-              transform: "scale(var(--intro-ball-scale)) rotate(var(--intro-ball-rotate))",
+              transform: "translate3d(0, var(--intro-ball-y), 0) scale(var(--intro-ball-scale)) rotate(var(--intro-ball-rotate))",
               opacity: "var(--intro-ball-opacity)",
+              filter: "drop-shadow(0 26px 36px color-mix(in oklab, var(--foreground) 20%, transparent))",
+              transformOrigin: "50% 50%",
             }}
             draggable={false}
           />
@@ -114,7 +112,7 @@ export function IntroHero3D() {
           style={{
             transform: "translateX(calc(var(--intro-open) * -1))",
             background:
-              "linear-gradient(to right, #d4b87f 0%, #e0c690 70%, rgba(232,211,166,0) 100%)",
+              "linear-gradient(to right, var(--sand) 0%, var(--secondary) 72%, transparent 100%)",
           }}
         />
         {/* Right curtain */}
@@ -124,7 +122,7 @@ export function IntroHero3D() {
           style={{
             transform: "translateX(var(--intro-open))",
             background:
-              "linear-gradient(to left, #d4b87f 0%, #e0c690 70%, rgba(232,211,166,0) 100%)",
+              "linear-gradient(to left, var(--sand) 0%, var(--secondary) 72%, transparent 100%)",
           }}
         />
 
@@ -136,13 +134,13 @@ export function IntroHero3D() {
             transform: "translateY(var(--intro-copy-y))",
           }}
         >
-          <p className="text-[10px] font-semibold uppercase tracking-[0.6em] text-[#8a6a2c] sm:text-xs">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.6em] text-muted-foreground sm:text-xs">
             Beach volleyball
           </p>
-          <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-[#3a2a10] sm:text-5xl md:text-6xl">
-            A areia <span className="text-[#b8893d]">chama</span>.
+          <h2 className="mt-3 font-display text-3xl font-bold text-foreground sm:text-5xl md:text-6xl">
+            A areia <span className="text-primary">chama</span>.
           </h2>
-          <p className="mt-6 text-[10px] uppercase tracking-[0.4em] text-[#6b4a1c]/70">
+          <p className="mt-6 text-[10px] uppercase tracking-[0.4em] text-muted-foreground">
             Role para entrar ↓
           </p>
         </div>
