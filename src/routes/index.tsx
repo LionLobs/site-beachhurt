@@ -46,8 +46,7 @@ import ballSandImage from "@/assets/ball-sand.jpg";
 import coachImage from "@/assets/coach-vinicius.jpeg";
 import { BrandLogo } from "@/components/BrandLogo";
 import actionSpike from "@/assets/action-spike.jpg";
-import actionBlock from "@/assets/action-block.jpg";
-import actionSet from "@/assets/action-set.jpg";
+import actionServe from "@/assets/action-serve.jpg";
 
 const WHATSAPP_NUMBER = "5548988146267";
 
@@ -424,11 +423,10 @@ function Index() {
             </h2>
           </Reveal>
 
-          <div className="grid grid-cols-3 gap-3 md:gap-5">
+          <div className="grid grid-cols-2 gap-3 md:gap-5">
             {[
               { src: actionSpike, label: "Ataque", alt: "Ataque na areia" },
-              { src: actionBlock, label: "Bloqueio", alt: "Bloqueio no pôr do sol" },
-              { src: actionSet, label: "Toque", alt: "Levantamento" },
+              { src: actionServe, label: "Saque", alt: "Saque na areia" },
             ].map((it, i) => (
               <Reveal key={it.label} delay={i * 90}>
                 <div className="group relative">
