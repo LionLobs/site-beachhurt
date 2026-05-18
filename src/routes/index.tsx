@@ -400,12 +400,12 @@ function Index() {
             </div>
 
             <Card className="overflow-hidden border-border/60 shadow-elevated">
-              <div className="relative h-72 overflow-hidden md:h-80">
+              <div className="relative h-72 overflow-hidden bg-secondary md:h-80">
                 <img
                   src={sandCourtImage}
                   alt="Quadra de areia ao pôr do sol"
                   loading="lazy"
-                  className="h-full w-full object-cover object-center transition-transform duration-700 hover:scale-105"
+                  className="h-full w-full object-contain object-center transition-transform duration-700 hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-secondary/90 via-secondary/40 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-6 text-secondary-foreground">
