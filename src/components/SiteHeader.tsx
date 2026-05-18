@@ -68,9 +68,9 @@ export function SiteHeader() {
             <img
               src={logoVH}
               alt="Beach Hurt"
-              width={240}
-              height={88}
-              className="h-12 w-auto object-contain transition-transform duration-700 group-hover:scale-[1.03] sm:h-16 md:h-20"
+              width={160}
+              height={48}
+              className="h-8 w-auto object-contain opacity-90 transition-all duration-700 group-hover:opacity-100 sm:h-9 md:h-10"
             />
           </button>
 
