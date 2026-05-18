@@ -45,7 +45,7 @@ import heroImage from "@/assets/hero-volei.jpg";
 import sandCourtImage from "@/assets/sand-court.jpg";
 import ballSandImage from "@/assets/ball-sand.jpg";
 import coachImage from "@/assets/coach-vinicius.jpeg";
-import logoVH from "@/assets/logo-beachhurt.png";
+import { BrandLogo } from "@/components/BrandLogo";
 import actionSpike from "@/assets/action-spike.jpg";
 import actionBlock from "@/assets/action-block.jpg";
 import actionSet from "@/assets/action-set.jpg";
