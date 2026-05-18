@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowRight, Menu, X, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -16,10 +16,18 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState<string>("");
+  const rafRef = useRef<number | null>(null);
+  const scrolledRef = useRef(false);
+  const activeRef = useRef("");
 
   useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 24);
+    const updateHeaderState = () => {
+      const nextScrolled = window.scrollY > 24;
+      if (scrolledRef.current !== nextScrolled) {
+        scrolledRef.current = nextScrolled;
+        setScrolled(nextScrolled);
+      }
+
       const ids = LINKS.map((l) => l.href.slice(1));
       let current = "";
       for (const id of ids) {
@@ -28,11 +36,26 @@ export function SiteHeader() {
         const rect = el.getBoundingClientRect();
         if (rect.top <= 120) current = id;
       }
-      setActive(current);
+      if (activeRef.current !== current) {
+        activeRef.current = current;
+        setActive(current);
+      }
     };
-    onScroll();
+
+    const onScroll = () => {
+      if (rafRef.current != null) return;
+      rafRef.current = requestAnimationFrame(() => {
+        rafRef.current = null;
+        updateHeaderState();
+      });
+    };
+
+    updateHeaderState();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (rafRef.current != null) cancelAnimationFrame(rafRef.current);
+    };
   }, []);
 
   useEffect(() => {
