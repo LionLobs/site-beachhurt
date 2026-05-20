@@ -103,7 +103,7 @@ export function AIEvaluation({ onBook }: { onBook: (pack: string) => void }) {
             <Brain className="mr-1 h-3 w-3" /> Avaliação técnica com IA
           </Badge>
           <h2 className="text-3xl font-bold tracking-tight md:text-5xl">
-            Descubra em <span className="text-gradient-primary">60 segundos</span> o seu plano
+            Descubra em <span className="text-red-600 font-extrabold">60 segundos</span> o seu plano
             ideal
           </h2>
           <p className="mt-4 text-muted-foreground md:text-lg">
