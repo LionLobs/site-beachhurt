@@ -72,7 +72,7 @@ export function Packages({ onSelect }: { onSelect: (pack: string) => void }) {
             <Sparkles className="mr-1 h-3 w-3" /> Pacotes
           </Badge>
           <h2 className="text-3xl font-bold tracking-tight md:text-5xl">
-            Escolha sua <span className="text-gradient-primary">jornada</span>
+            Escolha sua <span className="text-blue-600 font-extrabold">jornada</span>
           </h2>
           <p className="mt-4 text-muted-foreground md:text-lg">
             Treinos individuais, sob medida. Comece com uma aula experimental e veja a diferença
