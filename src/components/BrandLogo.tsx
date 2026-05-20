@@ -12,13 +12,13 @@ export function BrandLogo({ className, showWordmark = true }: BrandLogoProps) {
       <img
         src={volleyballPlayer}
         alt="Beach Hurt"
-        className="h-10 w-auto object-contain sm:h-12 md:h-14"
+        className="h-8 w-auto object-contain sm:h-10 md:h-11"
         width={512}
         height={512}
       />
       {showWordmark && (
         <span
-          className="text-[22px] font-light tracking-[6px] sm:text-[24px] md:text-[26px]"
+          className="text-[18px] font-light tracking-[4px] sm:text-[20px] sm:tracking-[5px] md:text-[22px] md:tracking-[6px]"
           style={{
             fontFamily: "var(--font-display), Sora, ui-sans-serif, system-ui, sans-serif",
             background: "linear-gradient(135deg, #e8c87a, #c9a55a, #8a6a2c)",
