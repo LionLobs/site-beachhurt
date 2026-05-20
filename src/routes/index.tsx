@@ -44,6 +44,7 @@ import heroImage from "@/assets/hero-volei.jpg";
 import sandCourtImage from "@/assets/sand-court.jpg";
 import ballSandImage from "@/assets/ball-sand.jpg";
 import coachImage from "@/assets/coach-vinicius.jpeg";
+import coachPortrait from "@/assets/coach-vinicius.png";
 import { BrandLogo } from "@/components/BrandLogo";
 import actionSpike from "@/assets/action-spike.jpg";
 import actionServe from "@/assets/action-serve.jpg";
@@ -475,7 +476,7 @@ function Index() {
               />
               <div className="relative overflow-hidden rounded-[2rem] border border-border/60 shadow-elevated">
                 <img
-                  src={coachImage}
+                  src={coachPortrait}
                   alt="Vinicius Hurt — coach de vôlei na areia"
                   loading="lazy"
                   className="h-full w-full object-cover transition-transform duration-700 hover:scale-[1.03]"
