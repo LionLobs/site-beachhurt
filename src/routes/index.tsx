@@ -44,6 +44,7 @@ import heroImage from "@/assets/hero-volei.jpg";
 import sandCourtImage from "@/assets/sand-court.jpg";
 import ballSandImage from "@/assets/ball-sand.jpg";
 import coachImage from "@/assets/coach-vinicius.jpeg";
+import coachPortrait from "@/assets/coach-vinicius.png";
 import { BrandLogo } from "@/components/BrandLogo";
 import actionSpike from "@/assets/action-spike.jpg";
 import actionServe from "@/assets/action-serve.jpg";
