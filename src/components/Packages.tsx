@@ -21,8 +21,8 @@ const PACKAGES = [
   },
   {
     name: "Foco 1x semana",
-    price: "R$ 140",
-    unit: "4 aulas / mês · R$ 35 por aula",
+    price: "R$ 160",
+    unit: "4 aulas / mês · R$ 40 por aula",
     description: "Ritmo ideal para quem está começando ou quer manter constância sem peso na rotina.",
     perks: [
       "1 treino individual por semana",
@@ -35,8 +35,8 @@ const PACKAGES = [
   },
   {
     name: "Evolução 2x semana",
-    price: "R$ 280",
-    unit: "8 aulas / mês · R$ 35 por aula",
+    price: "R$ 300",
+    unit: "8 aulas / mês · R$ 37,50 por aula",
     description: "O pacote que mais transforma: dobro de repetições, evolução visível em poucas semanas.",
     perks: [
       "2 treinos individuais por semana",
@@ -49,8 +49,8 @@ const PACKAGES = [
   },
   {
     name: "Performance 3x semana",
-    price: "R$ 420",
-    unit: "12 aulas / mês · R$ 35 por aula",
+    price: "R$ 450",
+    unit: "12 aulas / mês · R$ 37,50 por aula",
     description: "Para quem joga torneios e quer chegar no próximo patamar de jogo.",
     perks: [
       "3 treinos individuais por semana",
@@ -82,37 +82,44 @@ export function Packages({ onSelect }: { onSelect: (pack: string) => void }) {
 
         <HScroll mdGridClassName="md:grid-cols-2 lg:grid-cols-4">
           {PACKAGES.map((p, i) => (
-            <HScrollItem key={p.name}>
+            <HScrollItem key={p.name} basis="min-w-[82%] xs:min-w-[72%] sm:min-w-[55%]">
               <Reveal delay={i * 100}>
                 <Card
-                  className={`relative h-full overflow-hidden border-border/60 transition-all duration-500 hover:-translate-y-1 ${
+                  className={`relative h-full overflow-hidden rounded-2xl border transition-all duration-500 hover:-translate-y-1.5 ${
                     p.featured
-                      ? "border-primary/50 bg-gradient-to-br from-primary/8 to-card shadow-glow"
-                      : "bg-card hover:shadow-elevated"
+                      ? "border-primary/70 bg-gradient-to-br from-primary/10 via-card to-card shadow-glow md:scale-[1.03]"
+                      : "border-border/60 bg-card hover:border-primary/40 hover:shadow-elevated"
                   }`}
                 >
                   {p.featured && (
-                    <div className="absolute -right-10 top-4 rotate-45 bg-gradient-primary px-10 py-0.5 text-[10px] font-bold uppercase tracking-wider text-primary-foreground shadow-md">
+                    <div className="absolute left-1/2 top-0 -translate-x-1/2 rounded-b-lg bg-gradient-primary px-4 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-primary-foreground shadow-md">
                       Mais escolhido
                     </div>
                   )}
-                  <CardContent className="flex h-full flex-col p-4 sm:p-5">
-                    <div className="mb-2 flex items-center gap-1.5">
+                  <CardContent className={`flex h-full flex-col p-5 sm:p-6 ${p.featured ? "pt-8" : ""}`}>
+                    <div className="mb-3 flex items-center gap-2">
                       {p.featured && <Flame className="h-4 w-4 text-primary" />}
                       <h3 className="font-display text-lg font-bold sm:text-xl">{p.name}</h3>
                     </div>
-                    <div className="mb-0.5">
-                      <span className="font-display text-2xl font-bold text-primary sm:text-3xl">{p.price}</span>
+
+                    <div className="mb-1 flex items-baseline gap-1">
+                      <span className="font-display text-3xl font-extrabold text-primary sm:text-4xl">
+                        {p.price}
+                      </span>
+                      <span className="text-xs font-medium text-muted-foreground">/mês</span>
                     </div>
-                    <p className="mb-3 text-[10px] uppercase tracking-wider text-muted-foreground">
+                    <p className="mb-4 text-[10px] uppercase tracking-wider text-muted-foreground">
                       {p.unit}
                     </p>
-                    <p className="mb-4 text-xs text-foreground/80 sm:text-sm">{p.description}</p>
 
-                    <ul className="mb-5 flex-1 space-y-2">
+                    <p className="mb-5 text-xs leading-relaxed text-foreground/80 sm:text-sm">
+                      {p.description}
+                    </p>
+
+                    <ul className="mb-6 flex-1 space-y-2.5">
                       {p.perks.map((perk) => (
                         <li key={perk} className="flex items-start gap-2 text-xs sm:text-[13px]">
-                          <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" />
+                          <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
                           <span className="text-foreground/85">{perk}</span>
                         </li>
                       ))}
