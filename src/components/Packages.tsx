@@ -21,8 +21,8 @@ const PACKAGES = [
   },
   {
     name: "Foco 1x semana",
-    price: "R$ 140",
-    unit: "4 aulas / mês · R$ 35 por aula",
+    price: "R$ 160",
+    unit: "4 aulas / mês · R$ 40 por aula",
     description: "Ritmo ideal para quem está começando ou quer manter constância sem peso na rotina.",
     perks: [
       "1 treino individual por semana",
@@ -35,8 +35,8 @@ const PACKAGES = [
   },
   {
     name: "Evolução 2x semana",
-    price: "R$ 280",
-    unit: "8 aulas / mês · R$ 35 por aula",
+    price: "R$ 300",
+    unit: "8 aulas / mês · R$ 37,50 por aula",
     description: "O pacote que mais transforma: dobro de repetições, evolução visível em poucas semanas.",
     perks: [
       "2 treinos individuais por semana",
@@ -49,8 +49,8 @@ const PACKAGES = [
   },
   {
     name: "Performance 3x semana",
-    price: "R$ 420",
-    unit: "12 aulas / mês · R$ 35 por aula",
+    price: "R$ 450",
+    unit: "12 aulas / mês · R$ 37,50 por aula",
     description: "Para quem joga torneios e quer chegar no próximo patamar de jogo.",
     perks: [
       "3 treinos individuais por semana",
