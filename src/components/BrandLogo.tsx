@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import volleyballPlayer from "@/assets/volleyball-player-logo.png";
+import volleyballPlayer from "@/assets/volleyball-player-male-logo.png";
 
 interface BrandLogoProps {
   className?: string;
