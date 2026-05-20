@@ -476,7 +476,7 @@ function Index() {
               />
               <div className="relative overflow-hidden rounded-[2rem] border border-border/60 shadow-elevated">
                 <img
-                  src={coachImage}
+                  src={coachPortrait}
                   alt="Vinicius Hurt — coach de vôlei na areia"
                   loading="lazy"
                   className="h-full w-full object-cover transition-transform duration-700 hover:scale-[1.03]"
