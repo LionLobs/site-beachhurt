@@ -535,6 +535,51 @@ function Index() {
       {/* AI Technical Evaluation */}
       <AIEvaluation onBook={handlePackSelect} />
 
+      {/* Closing quote + CTA */}
+      <section className="relative overflow-hidden border-y border-border/40 bg-secondary py-20 text-secondary-foreground md:py-28">
+        <SurrealCanvas variant="soft" />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,oklch(0.85_0.04_78/0.5)_70%)]"
+        />
+        <div className="relative mx-auto max-w-3xl px-6 text-center">
+          <KineticText
+            as="p"
+            variant="drop"
+            stagger={70}
+            className="mx-auto block font-display text-2xl italic text-secondary-foreground/90 md:text-3xl"
+            highlight={["domina"]}
+            highlightClassName="text-gradient-primary not-italic font-bold"
+          >
+            {"\"A diferença entre quem joga e quem domina cabe em uma decisão.\""}
+          </KineticText>
+          <div className="mt-10 flex flex-wrap justify-center gap-3">
+            <Button asChild size="lg" className="shadow-glow animate-pulse-glow">
+              <a href="#agendar">
+                Reservar minha primeira aula <ArrowRight className="ml-2 h-4 w-4" />
+              </a>
+            </Button>
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="border-primary/30 bg-card/40 text-foreground hover:bg-card/70"
+            >
+              <a
+                href={`https://wa.me/${WHATSAPP_NUMBER}?text=Ol%C3%A1!%20Quero%20saber%20mais.`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Tirar dúvidas no WhatsApp
+              </a>
+            </Button>
+          </div>
+          <p className="mt-6 text-xs uppercase tracking-[0.3em] text-muted-foreground">
+            Vagas limitadas · Segunda a sábado · Quadra de areia
+          </p>
+        </div>
+      </section>
+
       {/* Packages */}
       <Packages onSelect={handlePackSelect} />
 
