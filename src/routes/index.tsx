@@ -709,36 +709,6 @@ function Index() {
           </CardContent>
         </Card>
 
-        <div className="mt-10 grid gap-4 sm:grid-cols-2">
-          <a
-            href={`https://wa.me/${WHATSAPP_NUMBER}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-3 rounded-2xl border border-border bg-card p-5 shadow-card transition-transform hover:-translate-y-0.5"
-          >
-            <div className="grid h-11 w-11 place-items-center rounded-xl bg-primary/15 text-primary">
-              <Phone className="h-5 w-5" />
-            </div>
-            <div>
-              <p className="text-xs uppercase tracking-wider text-muted-foreground">WhatsApp direto</p>
-              <p className="font-semibold">(48) 98814-6267</p>
-            </div>
-          </a>
-          <a
-            href={`https://wa.me/${WHATSAPP_NUMBER}?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20as%20aulas%20de%20v%C3%B4lei%20na%20areia.`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-3 rounded-2xl border border-border bg-card p-5 shadow-card transition-transform hover:-translate-y-0.5"
-          >
-            <div className="grid h-11 w-11 place-items-center rounded-xl bg-primary/15 text-primary">
-              <Mail className="h-5 w-5" />
-            </div>
-            <div>
-              <p className="text-xs uppercase tracking-wider text-muted-foreground">Tirar dúvidas</p>
-              <p className="font-semibold">Falar com o coach</p>
-            </div>
-          </a>
-        </div>
       </section>
 
       {/* Footer */}
