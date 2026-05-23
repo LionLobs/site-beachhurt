@@ -82,7 +82,7 @@ export function Packages({ onSelect }: { onSelect: (pack: string) => void }) {
 
         <HScroll mdGridClassName="md:grid-cols-2 lg:grid-cols-4">
           {PACKAGES.map((p, i) => (
-            <HScrollItem key={p.name} basis="min-w-[62%] xs:min-w-[58%] sm:min-w-[46%]">
+            <HScrollItem key={p.name} basis="min-w-[78%] xs:min-w-[70%] sm:min-w-[46%] max-w-[78%] xs:max-w-[70%] sm:max-w-[46%]">
               <Reveal delay={i * 100}>
                 <Card
                   className={`relative h-full overflow-hidden rounded-2xl border transition-all duration-500 hover:-translate-y-1.5 ${
