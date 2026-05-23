@@ -40,7 +40,7 @@ const PACKAGES = [
     description: "O pacote que mais transforma: dobro de repetições, evolução visível em poucas semanas.",
     perks: [
       "2 treinos individuais por semana",
-      "Vídeo-análise mensal inclusa",
+      "Análise técnica profissional mensal",
       "Plano técnico + condicionamento",
       "Reposição em caso de imprevisto",
     ],
@@ -54,7 +54,7 @@ const PACKAGES = [
     description: "Para quem joga torneios e quer chegar no próximo patamar de jogo.",
     perks: [
       "3 treinos individuais por semana",
-      "Vídeo-análise quinzenal",
+      "Análise técnica profissional quinzenal",
       "Ataque, bloqueio e sistemas",
       "Acompanhamento próximo por WhatsApp",
       "Suporte tático pré-torneio",
