@@ -204,49 +204,65 @@ function Index() {
 
         <div className="relative mx-auto max-w-3xl items-center gap-12 px-5 py-20 sm:px-6 sm:py-24 md:py-32">
           <div className="text-foreground">
-            <Badge className="mb-6 bg-foreground/10 text-foreground hover:bg-foreground/15">
-              <Sparkles className="mr-1 h-3 w-3" /> Aulas particulares
-            </Badge>
-            <h1 className="text-[2rem] font-bold leading-[1.1] tracking-tight sm:text-4xl md:text-6xl">
-              Domine a <span className="text-primary">areia</span>. Aulas individuais de vôlei na quadra.
+            <div className="mb-6 inline-flex w-fit items-center gap-1.5 rounded-full border border-primary/20 bg-primary/10 px-3 py-1 shadow-sm backdrop-blur-sm">
+              <Sparkles className="h-3.5 w-3.5 text-primary" />
+              <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-primary">
+                Aulas particulares
+              </span>
+            </div>
+            <h1 className="text-[2rem] font-extrabold leading-[1.1] tracking-tight text-foreground drop-shadow-sm sm:text-4xl md:text-6xl">
+              Domine a{" "}
+              <span className="relative inline-block text-primary">
+                areia
+                <span
+                  aria-hidden="true"
+                  className="absolute -bottom-1 left-0 -z-10 h-2 w-full rounded-full bg-primary/25"
+                />
+              </span>
+              . Aulas individuais de vôlei na quadra.
             </h1>
-            <p className="mt-6 max-w-xl text-base text-foreground/80 sm:text-lg">
-              Atendimento de <strong>segunda a sábado, das 8h às 17h</strong>, em
-              <strong> quadra de areia</strong>. Treine com um coach com{" "}
-              <strong>12 anos de experiência</strong>, focado 100% em você.
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-foreground/80 sm:text-lg">
+              Atendimento de <strong className="text-foreground">segunda a sábado, das 8h às 17h</strong>, em
+              <strong className="text-foreground"> quadra de areia</strong>. Treine com um coach com{" "}
+              <strong className="text-foreground">12 anos de experiência</strong>, focado 100% em você.
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Button asChild size="lg" className="shadow-glow">
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <Button
+                asChild
+                size="lg"
+                className="group justify-between rounded-2xl bg-foreground px-6 py-6 font-bold text-background shadow-[0_18px_40px_-12px_rgba(0,0,0,0.45)] transition-all hover:-translate-y-0.5 hover:bg-foreground/90 hover:shadow-[0_22px_48px_-12px_rgba(0,0,0,0.55)]"
+              >
                 <a href="#agendar">
-                  Reservar aula experimental <ArrowRight className="ml-2 h-4 w-4" />
+                  <span>Reservar aula experimental</span>
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </a>
               </Button>
               <Button
                 asChild
                 size="lg"
                 variant="outline"
-                className="border-foreground/20 bg-background/40 text-foreground hover:bg-background/60"
+                className="rounded-2xl border-2 border-border/70 bg-background/70 px-6 py-6 font-semibold text-foreground shadow-sm backdrop-blur-md transition-all hover:-translate-y-0.5 hover:bg-background/90 hover:shadow-md"
               >
                 <a href="#avaliacao-ia">
-                  <Brain className="mr-2 h-4 w-4" /> Avaliação técnica com IA
+                  <Brain className="mr-2 h-4 w-4 text-primary" /> Avaliação técnica com IA
                 </a>
               </Button>
             </div>
 
-            <div className="mt-10 flex flex-wrap gap-6 text-sm text-foreground/75">
-              <span className="flex items-center gap-2">
-                <CheckCircle2 className="h-4 w-4 text-primary" /> 12 anos de experiência
-              </span>
-              <span className="flex items-center gap-2">
-                <CheckCircle2 className="h-4 w-4 text-primary" /> Quadra de areia
-              </span>
-              <span className="flex items-center gap-2">
-                <CheckCircle2 className="h-4 w-4 text-primary" /> Todos os níveis
-              </span>
+            <div className="mt-10 flex flex-wrap gap-x-6 gap-y-3 text-sm font-medium text-foreground/75">
+              {["12 anos de experiência", "Quadra de areia", "Todos os níveis"].map((item) => (
+                <span key={item} className="flex items-center gap-2">
+                  <span className="grid h-5 w-5 place-items-center rounded-full bg-primary/15 ring-1 ring-primary/25">
+                    <CheckCircle2 className="h-3 w-3 text-primary" strokeWidth={3} />
+                  </span>
+                  {item}
+                </span>
+              ))}
             </div>
           </div>
 
         </div>
+
       </section>
 
       {/* Marquee — rolling keywords */}
