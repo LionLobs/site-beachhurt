@@ -141,9 +141,6 @@ export function Packages({ onSelect }: { onSelect: (pack: string) => void }) {
           ))}
         </HScroll>
 
-        <p className="mt-10 text-center text-sm text-muted-foreground">
-          Parcelamento em até 3x sem juros · Pagamento via PIX, cartão ou transferência
-        </p>
       </div>
     </section>
   );
