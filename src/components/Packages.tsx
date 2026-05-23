@@ -81,7 +81,7 @@ export function Packages({ onSelect }: { onSelect: (pack: string) => void }) {
           </p>
         </Reveal>
 
-        <HScroll mdGridClassName="md:grid-cols-2 lg:grid-cols-4">
+        <HScroll mdGridClassName="md:grid-cols-2 lg:grid-cols-4" fadeFromClassName="from-transparent">
           {PACKAGES.map((p, i) => (
             <HScrollItem key={p.name} basis="min-w-[78%] xs:min-w-[70%] sm:min-w-[46%] max-w-[78%] xs:max-w-[70%] sm:max-w-[46%]">
               <Reveal delay={i * 100}>
