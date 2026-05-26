@@ -5,7 +5,7 @@ import { cpSync, rmSync, existsSync, mkdirSync, writeFileSync } from 'fs';
 if (existsSync('dist')) rmSync('dist', { recursive: true });
 if (existsSync('api/server')) rmSync('api/server', { recursive: true });
 
-execSync('vite build', { 
+execSync('./node_modules/.bin/vite build', { 
   stdio: 'inherit',
   env: { ...process.env, NITRO_PRESET: 'vercel-edge' }
 });
