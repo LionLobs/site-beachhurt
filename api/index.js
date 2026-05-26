@@ -6,5 +6,5 @@ export const config = {
 };
 
 export default function handler(request) {
-  return server.default.fetch(request, {}, {});
+  return server.fetch(request, {}, {});
 }
