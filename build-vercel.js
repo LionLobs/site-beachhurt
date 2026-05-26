@@ -32,12 +32,12 @@ writeFileSync('api/index.js', edgeEntry);
 
 // Also emit Vercel Build Output API files so root and deep links never 404.
 mkdirSync('.vercel/output/static', { recursive: true });
-mkdirSync('.vercel/output/functions/index.func/server', { recursive: true });
+mkdirSync('.vercel/output/functions/render.func/server', { recursive: true });
 cpSync('dist/client', '.vercel/output/static', { recursive: true });
-cpSync('dist/server', '.vercel/output/functions/index.func/server', { recursive: true });
-writeFileSync('.vercel/output/functions/index.func/index.js', edgeEntry);
+cpSync('dist/server', '.vercel/output/functions/render.func/server', { recursive: true });
+writeFileSync('.vercel/output/functions/render.func/index.js', edgeEntry);
 writeFileSync(
-  '.vercel/output/functions/index.func/.vc-config.json',
+  '.vercel/output/functions/render.func/.vc-config.json',
   JSON.stringify({ runtime: 'edge', entrypoint: 'index.js' }, null, 2),
 );
 writeFileSync(
@@ -45,7 +45,7 @@ writeFileSync(
   JSON.stringify(
     {
       version: 3,
-      routes: [{ handle: 'filesystem' }, { src: '/(.*)', dest: '/index' }],
+      routes: [{ handle: 'filesystem' }, { src: '/(.*)', dest: '/render' }],
     },
     null,
     2,
