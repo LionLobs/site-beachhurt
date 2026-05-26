@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "buildCommand": "NITRO_PRESET=vercel vite build",
+  "buildCommand": "NITRO_PRESET=vercel-edge vite build",
   "outputDirectory": "dist/client",
   "framework": null,
   "rewrites": [
@@ -8,10 +8,5 @@
       "source": "/(.*)",
       "destination": "/api/index"
     }
-  ],
-  "functions": {
-    "api/index.js": {
-      "runtime": "edge"
-    }
-  }
+  ]
 }
