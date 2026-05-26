@@ -5,7 +5,10 @@ import { cpSync, rmSync, existsSync, mkdirSync, writeFileSync } from 'fs';
 if (existsSync('dist')) rmSync('dist', { recursive: true });
 if (existsSync('api/server')) rmSync('api/server', { recursive: true });
 
-execSync('NITRO_PRESET=vercel-edge vite build', { stdio: 'inherit' });
+execSync('vite build', { 
+  stdio: 'inherit',
+  env: { ...process.env, NITRO_PRESET: 'vercel-edge' }
+});
 
 // Copy server output to api/server for Vercel Edge Function
 mkdirSync('api/server', { recursive: true });
