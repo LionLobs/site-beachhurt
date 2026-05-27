@@ -57,19 +57,18 @@ execSync(
     'dist/server/server.js',
     '--bundle',
     '--format=esm',
-    '--platform=browser',
-    '--target=es2022',
-    '--conditions=workerd,worker,browser',
-    '--external:node:*',
+    '--platform=node',
+    '--target=node20',
     '--outfile=.vercel/output/functions/render.func/server-bundle.js',
   ].join(' '),
   { stdio: 'inherit' },
 );
 
-writeFileSync('.vercel/output/functions/render.func/index.js', edgeEntry);
+writeFileSync('.vercel/output/functions/render.func/index.js', nodeEntry);
+writeFileSync('.vercel/output/functions/render.func/package.json', JSON.stringify({ type: 'module' }));
 writeFileSync(
   '.vercel/output/functions/render.func/.vc-config.json',
-  JSON.stringify({ runtime: 'edge', entrypoint: 'index.js' }, null, 2),
+  JSON.stringify({ runtime: 'nodejs20.x', handler: 'index.js', launcherType: 'Nodejs' }, null, 2),
 );
 writeFileSync(
   '.vercel/output/config.json',
