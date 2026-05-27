@@ -1,38 +1,74 @@
 import { execSync } from 'child_process';
 import { cpSync, rmSync, existsSync, mkdirSync, writeFileSync } from 'fs';
 
-// Clean and build
+// Clean
 if (existsSync('dist')) rmSync('dist', { recursive: true });
 if (existsSync('api')) rmSync('api', { recursive: true });
 if (existsSync('.vercel/output')) rmSync('.vercel/output', { recursive: true });
 
-execSync('./node_modules/.bin/vite build', { 
+// Build with Vite (TanStack Start)
+execSync('./node_modules/.bin/vite build', {
   stdio: 'inherit',
-  env: { ...process.env, NITRO_PRESET: 'vercel-edge' }
+  env: { ...process.env, NITRO_PRESET: 'vercel-edge' },
 });
 
-// Create Edge Function entry point for Vercel Build Output API.
-const edgeEntry = `// Vercel Edge Function entry point
-import server from './server/server.js';
+// Edge Function entry that re-exports the bundled SSR handler.
+const nodeEntry = `import server from './server-bundle.js';
 
-export const config = {
-  runtime: 'edge',
-};
-
-export default function handler(request) {
-  return server.fetch(request, {}, {});
+export default async function handler(req, res) {
+  const url = \`https://\${req.headers.host}\${req.url}\`;
+  const headers = new Headers();
+  for (const [k, v] of Object.entries(req.headers)) {
+    if (Array.isArray(v)) v.forEach((x) => headers.append(k, x));
+    else if (v != null) headers.set(k, String(v));
+  }
+  const method = req.method || 'GET';
+  let body;
+  if (method !== 'GET' && method !== 'HEAD') {
+    const chunks = [];
+    for await (const c of req) chunks.push(c);
+    if (chunks.length) body = Buffer.concat(chunks);
+  }
+  const request = new Request(url, { method, headers, body });
+  const response = await server.fetch(request, {}, {});
+  res.statusCode = response.status;
+  response.headers.forEach((value, key) => res.setHeader(key, value));
+  if (response.body) {
+    const reader = response.body.getReader();
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      res.write(value);
+    }
+  }
+  res.end();
 }
 `;
 
-// Emit Vercel Build Output API files so root and deep links never 404.
+// Bundle the SSR server into a single file so the Vercel Edge runtime
+// does not try to resolve npm packages at runtime (it can't).
 mkdirSync('.vercel/output/static', { recursive: true });
-mkdirSync('.vercel/output/functions/render.func/server', { recursive: true });
+mkdirSync('.vercel/output/functions/render.func', { recursive: true });
 cpSync('dist/client', '.vercel/output/static', { recursive: true });
-cpSync('dist/server', '.vercel/output/functions/render.func/server', { recursive: true });
-writeFileSync('.vercel/output/functions/render.func/index.js', edgeEntry);
+
+execSync(
+  [
+    './node_modules/.bin/esbuild',
+    'dist/server/server.js',
+    '--bundle',
+    '--format=esm',
+    '--platform=node',
+    '--target=node20',
+    '--outfile=.vercel/output/functions/render.func/server-bundle.js',
+  ].join(' '),
+  { stdio: 'inherit' },
+);
+
+writeFileSync('.vercel/output/functions/render.func/index.js', nodeEntry);
+writeFileSync('.vercel/output/functions/render.func/package.json', JSON.stringify({ type: 'module' }));
 writeFileSync(
   '.vercel/output/functions/render.func/.vc-config.json',
-  JSON.stringify({ runtime: 'edge', entrypoint: 'index.js' }, null, 2),
+  JSON.stringify({ runtime: 'nodejs20.x', handler: 'index.js', launcherType: 'Nodejs' }, null, 2),
 );
 writeFileSync(
   '.vercel/output/config.json',
