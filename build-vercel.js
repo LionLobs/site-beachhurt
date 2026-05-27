@@ -13,12 +13,35 @@ execSync('./node_modules/.bin/vite build', {
 });
 
 // Edge Function entry that re-exports the bundled SSR handler.
-const edgeEntry = `import server from './server-bundle.js';
+const nodeEntry = `import server from './server-bundle.js';
 
-export const config = { runtime: 'edge' };
-
-export default function handler(request) {
-  return server.fetch(request, {}, {});
+export default async function handler(req, res) {
+  const url = \`https://\${req.headers.host}\${req.url}\`;
+  const headers = new Headers();
+  for (const [k, v] of Object.entries(req.headers)) {
+    if (Array.isArray(v)) v.forEach((x) => headers.append(k, x));
+    else if (v != null) headers.set(k, String(v));
+  }
+  const method = req.method || 'GET';
+  let body;
+  if (method !== 'GET' && method !== 'HEAD') {
+    const chunks = [];
+    for await (const c of req) chunks.push(c);
+    if (chunks.length) body = Buffer.concat(chunks);
+  }
+  const request = new Request(url, { method, headers, body });
+  const response = await server.fetch(request, {}, {});
+  res.statusCode = response.status;
+  response.headers.forEach((value, key) => res.setHeader(key, value));
+  if (response.body) {
+    const reader = response.body.getReader();
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      res.write(value);
+    }
+  }
+  res.end();
 }
 `;
 
