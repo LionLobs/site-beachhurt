@@ -59,6 +59,7 @@ execSync(
     '--format=esm',
     '--platform=node',
     '--target=node20',
+    `--banner:js=${JSON.stringify("import{createRequire as __cr}from'module';const require=__cr(import.meta.url);")}`,
     '--outfile=.vercel/output/functions/render.func/server-bundle.js',
   ].join(' '),
   { stdio: 'inherit' },
