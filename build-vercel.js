@@ -1,34 +1,48 @@
 import { execSync } from 'child_process';
 import { cpSync, rmSync, existsSync, mkdirSync, writeFileSync } from 'fs';
 
-// Clean and build
+// Clean
 if (existsSync('dist')) rmSync('dist', { recursive: true });
 if (existsSync('api')) rmSync('api', { recursive: true });
 if (existsSync('.vercel/output')) rmSync('.vercel/output', { recursive: true });
 
-execSync('./node_modules/.bin/vite build', { 
+// Build with Vite (TanStack Start)
+execSync('./node_modules/.bin/vite build', {
   stdio: 'inherit',
-  env: { ...process.env, NITRO_PRESET: 'vercel-edge' }
+  env: { ...process.env, NITRO_PRESET: 'vercel-edge' },
 });
 
-// Create Edge Function entry point for Vercel Build Output API.
-const edgeEntry = `// Vercel Edge Function entry point
-import server from './server/server.js';
+// Edge Function entry that re-exports the bundled SSR handler.
+const edgeEntry = `import server from './server-bundle.js';
 
-export const config = {
-  runtime: 'edge',
-};
+export const config = { runtime: 'edge' };
 
 export default function handler(request) {
   return server.fetch(request, {}, {});
 }
 `;
 
-// Emit Vercel Build Output API files so root and deep links never 404.
+// Bundle the SSR server into a single file so the Vercel Edge runtime
+// does not try to resolve npm packages at runtime (it can't).
 mkdirSync('.vercel/output/static', { recursive: true });
-mkdirSync('.vercel/output/functions/render.func/server', { recursive: true });
+mkdirSync('.vercel/output/functions/render.func', { recursive: true });
 cpSync('dist/client', '.vercel/output/static', { recursive: true });
-cpSync('dist/server', '.vercel/output/functions/render.func/server', { recursive: true });
+
+execSync(
+  [
+    './node_modules/.bin/esbuild',
+    'dist/server/server.js',
+    '--bundle',
+    '--format=esm',
+    '--platform=browser',
+    '--target=es2022',
+    '--conditions=workerd,worker,browser',
+    '--external:node:*',
+    '--outfile=.vercel/output/functions/render.func/server-bundle.js',
+  ].join(' '),
+  { stdio: 'inherit' },
+);
+
 writeFileSync('.vercel/output/functions/render.func/index.js', edgeEntry);
 writeFileSync(
   '.vercel/output/functions/render.func/.vc-config.json',
