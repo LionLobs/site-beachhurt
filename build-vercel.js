@@ -3,7 +3,7 @@ import { cpSync, rmSync, existsSync, mkdirSync, writeFileSync } from 'fs';
 
 // Clean and build
 if (existsSync('dist')) rmSync('dist', { recursive: true });
-if (existsSync('api/server')) rmSync('api/server', { recursive: true });
+if (existsSync('api')) rmSync('api', { recursive: true });
 if (existsSync('.vercel/output')) rmSync('.vercel/output', { recursive: true });
 
 execSync('./node_modules/.bin/vite build', { 
@@ -11,11 +11,7 @@ execSync('./node_modules/.bin/vite build', {
   env: { ...process.env, NITRO_PRESET: 'vercel-edge' }
 });
 
-// Copy server output to api/server for Vercel Edge Function
-mkdirSync('api/server', { recursive: true });
-cpSync('dist/server', 'api/server', { recursive: true });
-
-// Create Edge Function entry point
+// Create Edge Function entry point for Vercel Build Output API.
 const edgeEntry = `// Vercel Edge Function entry point
 import server from './server/server.js';
 
@@ -28,9 +24,7 @@ export default function handler(request) {
 }
 `;
 
-writeFileSync('api/index.js', edgeEntry);
-
-// Also emit Vercel Build Output API files so root and deep links never 404.
+// Emit Vercel Build Output API files so root and deep links never 404.
 mkdirSync('.vercel/output/static', { recursive: true });
 mkdirSync('.vercel/output/functions/render.func/server', { recursive: true });
 cpSync('dist/client', '.vercel/output/static', { recursive: true });
